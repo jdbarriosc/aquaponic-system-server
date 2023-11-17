@@ -1,0 +1,14 @@
+# misc
+node_modules
+ENV.bash
+.DS_Store
+
+# testing
+junit.xml
+/coverage
+
+# local env files
+.env
+
+# production
+/build
