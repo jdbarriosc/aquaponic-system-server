@@ -1,5 +1,6 @@
 import Router from '@koa/router';
 import { Context } from 'koa';
+import sensorDataRouter from './routers/sensorDataRouter';
 
 const getBackLanding = async (ctx: Context) => {
   ctx.body = 'Aquaponic System API';
@@ -8,10 +9,12 @@ const getBackLanding = async (ctx: Context) => {
 
 const routers = new Router();
 
-const nestedRoutes: Router[]  = [];
+const nestedRoutes: Router[]  = [
+  sensorDataRouter
+];
 
 nestedRoutes.forEach((router) => {
-  router.use(router.routes(), router.allowedMethods());
+  routers.use(router.routes(), router.allowedMethods());
 });
 
 routers.get('/', getBackLanding);

@@ -2,9 +2,11 @@ import './env';
 import Koa from 'koa';
 import cors from '@koa/cors';
 import helmet from 'koa-helmet';
+import KoaLogger from 'koa-logger';
 import bodyParser from 'koa-bodyparser';
 import routers from './routers';
 import corsOriginHandler from './middleware/corsOriginHandler';
+import handleErrors from './middleware/handleErrors';
 
 (async function runServer(): Promise<void> {
     try {
@@ -12,6 +14,7 @@ import corsOriginHandler from './middleware/corsOriginHandler';
 
         app.proxy = true;
 
+        app.use(KoaLogger());
         app.use(helmet());
         app.use(bodyParser());
         app.use(
@@ -21,6 +24,7 @@ import corsOriginHandler from './middleware/corsOriginHandler';
         }),
         );
 
+        app.use(handleErrors);
         app.use(routers.routes());
         app.use(routers.allowedMethods());
 
