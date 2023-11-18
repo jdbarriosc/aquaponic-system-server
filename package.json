@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-iotsitewise": "^3.454.0",
     "@koa/cors": "^4.0.0",
     "@koa/router": "^12.0.1",
     "dotenv": "^16.3.1",
