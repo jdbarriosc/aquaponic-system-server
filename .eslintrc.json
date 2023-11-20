@@ -4,8 +4,6 @@
     "es2021": true
   },
   "extends": [
-    "plugin:jest/recommended",
-    "plugin:jest/style",
     "airbnb-base",
     "prettier"
   ],
@@ -29,6 +27,7 @@
   },
   "rules": {
     "prettier/prettier": ["error"],
+    "no-console": "off",
     "no-multiple-empty-lines": [
       "error",
       {
@@ -38,14 +37,7 @@
       }
     ],
     "no-underscore-dangle": [
-      "error",
-      {
-        "allow": [
-          "_id",
-          "_expire",
-          "_matchedRoute"
-        ]
-      }
+      "error"
     ],
     "import/extensions": [
       "error",
@@ -66,7 +58,7 @@
     ],
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/no-dupe-class-members": "error"
   },
