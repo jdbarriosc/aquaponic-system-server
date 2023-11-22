@@ -1,7 +1,7 @@
 import sleep from '../../../helpers/sleep';
+import { MqttClient } from 'mqtt';
 
-
-async function mockFishTankWaterLevelSensorData(): Promise<void> {
+async function mockFishTankWaterLevelSensorData(mqttClient: MqttClient): Promise<void> {
   console.log('-- Mock fish tank water level sensor data');
 
   while (true) {

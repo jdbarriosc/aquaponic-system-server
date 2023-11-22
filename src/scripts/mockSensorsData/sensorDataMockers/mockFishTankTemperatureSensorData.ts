@@ -1,8 +1,9 @@
 import sleep from '../../../helpers/sleep';
 import makeRandomNumber from '../../../helpers/makeRandomNumber';
+import { MqttClient } from 'mqtt';
 
 
-async function mockFishTankTemperatureSensorData(): Promise<void> {
+async function mockFishTankTemperatureSensorData(mqttClient: MqttClient): Promise<void> {
   console.log('-- Mock fish tank temperature sensor data');
 
   const min = 22;
@@ -11,6 +12,7 @@ async function mockFishTankTemperatureSensorData(): Promise<void> {
   while (true) {
       const temperature = makeRandomNumber(min, max, decimalUnits);
       console.log(`temperature: ${temperature}`);
+      mqttClient.publish("/AquaponicSystem/FishTankTemperatureSensor/temperature", temperature.toString());
       await sleep(2000);
     }     
 }    
