@@ -1,4 +1,4 @@
-import { MqttClient, connectAsync } from "mqtt/*";
+import { MqttClient, connectAsync } from "mqtt";
 
 let mqttClient: MqttClient | undefined;
 

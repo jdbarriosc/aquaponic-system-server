@@ -7,13 +7,9 @@ import KoaLogger from 'koa-logger';
 import bodyParser from 'koa-bodyparser';
 import handleErrors from './middleware/handleErrors';
 import corsOriginHandler from './middleware/corsOriginHandler';
-import { initializeMQTTClient } from './middleware/MQTTConnection';
-import { initializeFirebaseConnection } from './middleware/FirebaseConnection';
+import { initializeMQTTClient } from './providers/MQTTClientConnection';
+import { initializeFirebaseConnection } from './providers/FirebaseConnection';
 
-
-// Your web app's Firebase configuration
-
-// Initialize Firebase
 (async function runServer(): Promise<void> {
     try {
         initializeFirebaseConnection();

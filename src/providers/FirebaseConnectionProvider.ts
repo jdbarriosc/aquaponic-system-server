@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { FirebaseOptions, initializeApp } from "firebase/app";
 
 function checkInitializeFirebaseConnectionEnvVariables(): void {
     if (!process.env.FIREBASE_API_KEY) {
@@ -33,7 +33,7 @@ function checkInitializeFirebaseConnectionEnvVariables(): void {
 function initializeFirebaseConnection(): void {
   checkInitializeFirebaseConnectionEnvVariables();
 
-  const firebaseConfig = {
+  const firebaseOptions: FirebaseOptions = {
       apiKey: process.env.FIREBASE_API_KEY,
       authDomain: process.env.FIREBASE_AUTH_DOMAIN,
       projectId: process.env.FIREBASE_PROJECT_ID,
@@ -42,12 +42,14 @@ function initializeFirebaseConnection(): void {
       appId: process.env.FIREBASE_APP_ID,
   };
 
-  initializeApp(firebaseConfig);      
+  initializeApp(firebaseOptions);      
 }
 
 export {
   initializeFirebaseConnection,
 };
+
+// import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 // const db = getFirestore();
 
