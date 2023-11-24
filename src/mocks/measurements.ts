@@ -1,11 +1,11 @@
-import Sensor, { IconType, ModelShaderColor } from "../interfaces/Sensor";
+import Measurement, { IconType, ModelShaderColor } from "../interfaces/Measurement";
 
-export const fishTankWaterFlowSensor: Sensor = {
+export const fishTankWaterFlowSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterFlowSensor',
+    name: 'FishTankWaterFlowSensorMeasurement',
     measurement: 'volumetricFlowRate',
-    path: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
+    path: '/AquaponicSystem/FishTankWaterFlowSensorMeasurement/volumetricFlowRate',
     unit: 'm3/s',
     valueRangeActionProps: {
         minValue: 100,
@@ -17,12 +17,12 @@ export const fishTankWaterFlowSensor: Sensor = {
     },
 };
 
-export const fishTankWaterLevelSensor: Sensor = {
+export const fishTankWaterLevelSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterLevelSensor',
+    name: 'FishTankWaterLevelSensorMeasurement',
     measurement: 'hasNeededWaterLevel',
-    path: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
+    path: '/AquaponicSystem/FishTankWaterLevelSensorMeasurement/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,
@@ -35,12 +35,12 @@ export const fishTankWaterLevelSensor: Sensor = {
     ],
 };
 
-export const fishTankWaterTemperatureSensor: Sensor = {
+export const fishTankWaterTemperatureSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterTemperatureSensor',
+    name: 'FishTankWaterTemperatureSensorMeasurement',
     measurement: 'temperature',
-    path: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
+    path: '/AquaponicSystem/FishTankWaterTemperatureSensorMeasurement/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
@@ -52,12 +52,12 @@ export const fishTankWaterTemperatureSensor: Sensor = {
     },
 };
 
-export const fishTankWaterPHSensor: Sensor = {
+export const fishTankWaterPHSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterPHSensor',
+    name: 'FishTankWaterPHSensorMeasurement',
     measurement: 'pH',
-    path: '/AquaponicSystem/FishTankWaterPHSensor/pH',
+    path: '/AquaponicSystem/FishTankWaterPHSensorMeasurement/pH',
     unit: 'pH',
     valueRangeActionProps: {
         minValue: 6,
@@ -69,12 +69,12 @@ export const fishTankWaterPHSensor: Sensor = {
     },
 };
 
-export const fishTankWaterAmmoniaSensor: Sensor = {
+export const fishTankWaterAmmoniaSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterAmmoniaSensor',
+    name: 'FishTankWaterAmmoniaSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterAmmoniaSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 3,
@@ -83,12 +83,12 @@ export const fishTankWaterAmmoniaSensor: Sensor = {
     },
 };
 
-export const fishTankWaterNitriteSensor: Sensor = {
+export const fishTankWaterNitriteSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterNitriteSensor',
+    name: 'FishTankWaterNitriteSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterNitriteSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 1,
@@ -97,12 +97,12 @@ export const fishTankWaterNitriteSensor: Sensor = {
     },
 };
 
-export const fishTankWaterNitrateSensor: Sensor = {
+export const fishTankWaterNitrateSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterNitrateSensor',
+    name: 'FishTankWaterNitrateSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterNitrateSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 400,
@@ -111,12 +111,12 @@ export const fishTankWaterNitrateSensor: Sensor = {
     },
 };
 
-export const fishTankWaterDisolvedOxygenSensor: Sensor = {
+export const fishTankWaterDisolvedOxygenSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterDisolvedOxygenSensor',
+    name: 'FishTankWaterDisolvedOxygenSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 4,
@@ -128,12 +128,12 @@ export const fishTankWaterDisolvedOxygenSensor: Sensor = {
     },
 };
 
-export const fishTankWaterElectricConductivitySensor: Sensor = {
+export const fishTankWaterElectricConductivitySensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterElectricConductivitySensor',
+    name: 'FishTankWaterElectricConductivitySensorMeasurement',
     measurement: 'electricConductivity',
-    path: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
+    path: '/AquaponicSystem/FishTankWaterElectricConductivitySensorMeasurement/electricConductivity',
     unit: 'µS/cm',
     valueRangeActionProps: {
         minValue: 100,
@@ -145,12 +145,12 @@ export const fishTankWaterElectricConductivitySensor: Sensor = {
     },
 };
 
-export const fishTankWaterCarbonateHardnessSensor: Sensor = {
+export const fishTankWaterCarbonateHardnessSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterCarbonateHardnessSensor',
+    name: 'FishTankWaterCarbonateHardnessSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 60,
@@ -162,12 +162,12 @@ export const fishTankWaterCarbonateHardnessSensor: Sensor = {
     },
 };
 
-export const growingBedWaterFlowSensor: Sensor = {
+export const growingBedWaterFlowSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterFlowSensor',
+    name: 'GrowingBedWaterFlowSensorMeasurement',
     measurement: 'volumetricFlowRate',
-    path: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
+    path: '/AquaponicSystem/GrowingBedWaterFlowSensorMeasurement/volumetricFlowRate',
     unit: 'm3/s',
     valueRangeActionProps: {
         minValue: 100,
@@ -179,12 +179,12 @@ export const growingBedWaterFlowSensor: Sensor = {
     },
 };
 
-export const growingBedWaterLevelSensor: Sensor = {
+export const growingBedWaterLevelSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterLevelSensor',
+    name: 'GrowingBedWaterLevelSensorMeasurement',
     measurement: 'hasNeededWaterLevel',
-    path: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
+    path: '/AquaponicSystem/GrowingBedWaterLevelSensorMeasurement/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,
@@ -197,12 +197,12 @@ export const growingBedWaterLevelSensor: Sensor = {
     ],
 };
 
-export const growingBedWaterTemperatureSensor: Sensor = {
+export const growingBedWaterTemperatureSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterTemperatureSensor',
+    name: 'GrowingBedWaterTemperatureSensorMeasurement',
     measurement: 'temperature',
-    path: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
+    path: '/AquaponicSystem/GrowingBedWaterTemperatureSensorMeasurement/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
@@ -214,12 +214,12 @@ export const growingBedWaterTemperatureSensor: Sensor = {
     },
 };
 
-export const growingBedWaterPHSensor: Sensor = {
+export const growingBedWaterPHSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterPHSensor',
+    name: 'GrowingBedWaterPHSensorMeasurement',
     measurement: 'pH',
-    path: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
+    path: '/AquaponicSystem/GrowingBedWaterPHSensorMeasurement/pH',
     unit: 'pH',
     valueRangeActionProps: {
         minValue: 6,
@@ -231,12 +231,12 @@ export const growingBedWaterPHSensor: Sensor = {
     },
 };
 
-export const growingBedWaterAmmoniaSensor: Sensor = {
+export const growingBedWaterAmmoniaSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterAmmoniaSensor',
+    name: 'GrowingBedWaterAmmoniaSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterAmmoniaSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 3,
@@ -245,12 +245,12 @@ export const growingBedWaterAmmoniaSensor: Sensor = {
     },
 };
 
-export const growingBedWaterNitriteSensor: Sensor = {
+export const growingBedWaterNitriteSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterNitriteSensor',
+    name: 'GrowingBedWaterNitriteSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterNitriteSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 1,
@@ -259,12 +259,12 @@ export const growingBedWaterNitriteSensor: Sensor = {
     },
 };
 
-export const growingBedWaterNitrateSensor: Sensor = {
+export const growingBedWaterNitrateSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterNitrateSensor',
+    name: 'GrowingBedWaterNitrateSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterNitrateSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 400,
@@ -273,11 +273,11 @@ export const growingBedWaterNitrateSensor: Sensor = {
     },
 };
 
-export const growingBedWaterDisolvedOxygenSensor: Sensor = {
+export const growingBedWaterDisolvedOxygenSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterDisolvedOxygenSensor',
-    path: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
+    name: 'GrowingBedWaterDisolvedOxygenSensorMeasurement',
+    path: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensorMeasurement/concentration',
     measurement: 'concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
@@ -290,11 +290,11 @@ export const growingBedWaterDisolvedOxygenSensor: Sensor = {
     },
 };
 
-export const growingBedWaterElectricConductivitySensor: Sensor = {
+export const growingBedWaterElectricConductivitySensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterElectricConductivitySensor',
-    path: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
+    name: 'GrowingBedWaterElectricConductivitySensorMeasurement',
+    path: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensorMeasurement/electricConductivity',
     measurement: 'electricConductivity',
     unit: 'µS/cm',
     valueRangeActionProps: {
@@ -307,12 +307,12 @@ export const growingBedWaterElectricConductivitySensor: Sensor = {
     },
 };
 
-export const growingBedWaterCarbonateHardnessSensor: Sensor = {
+export const growingBedWaterCarbonateHardnessSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterCarbonateHardnessSensor',
+    name: 'GrowingBedWaterCarbonateHardnessSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensorMeasurement/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 60,
@@ -324,12 +324,12 @@ export const growingBedWaterCarbonateHardnessSensor: Sensor = {
     },
 };
 
-export const greenHouseAirTemperatureSensor: Sensor = {
+export const greenHouseAirTemperatureSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GreenHouseAirTemperatureSensor',
+    name: 'GreenHouseAirTemperatureSensorMeasurement',
     measurement: 'temperature',
-    path: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
+    path: '/AquaponicSystem/GreenHouseAirTemperatureSensorMeasurement/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
@@ -341,12 +341,12 @@ export const greenHouseAirTemperatureSensor: Sensor = {
     },
 };
 
-export const greenHouseAirRelativeHumiditySensor: Sensor = {
+export const greenHouseAirRelativeHumiditySensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GreenHouseAirRelativeHumiditySensor',
+    name: 'GreenHouseAirRelativeHumiditySensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
+    path: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensorMeasurement/concentration',
     unit: '%',
     valueRangeActionProps: {
         minValue: 65,
@@ -358,12 +358,12 @@ export const greenHouseAirRelativeHumiditySensor: Sensor = {
     },
 };
 
-export const greenHouseAirCarbonDioxideSensor: Sensor = {
+export const greenHouseAirCarbonDioxideSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GreenHouseAirCarbonDioxideSensor',
+    name: 'GreenHouseAirCarbonDioxideSensorMeasurement',
     measurement: 'concentration',
-    path: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
+    path: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensorMeasurement/concentration',
     unit: 'ppm',
     valueRangeActionProps: {
         minValue: 800,
@@ -375,12 +375,12 @@ export const greenHouseAirCarbonDioxideSensor: Sensor = {
     },
 };
 
-export const greenHouseLightSensor: Sensor = {
+export const greenHouseLightSensorMeasurement: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'GreenHouseLightSensor',
+    name: 'GreenHouseLightSensorMeasurement',
     measurement: 'photosyntheticallyActiveRadiation',
-    path: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
+    path: '/AquaponicSystem/GreenHouseLightSensorMeasurement/photosyntheticallyActiveRadiation',
     unit: 'μmol·m2·s',
     valueRangeActionProps: {
         minValue: 20,
@@ -388,7 +388,7 @@ export const greenHouseLightSensor: Sensor = {
     },
 };
 
-export const greenHouseLights: Sensor = {
+export const greenHouseLights: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
     name: 'GreenHouseLights',
@@ -402,7 +402,7 @@ export const greenHouseLights: Sensor = {
     ],
 };
 
-export const fishTankWaterPumpStateBulb: Sensor = {
+export const fishTankWaterPumpStateBulb: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
     name: 'FishTankWaterPump',
@@ -416,31 +416,31 @@ export const fishTankWaterPumpStateBulb: Sensor = {
     ],
 };
 
-const sensors: Sensor[] = [
-    fishTankWaterFlowSensor,
-    fishTankWaterLevelSensor,
-    fishTankWaterTemperatureSensor,
-    fishTankWaterPHSensor,
-    fishTankWaterAmmoniaSensor,
-    fishTankWaterNitriteSensor,
-    fishTankWaterNitrateSensor,
-    fishTankWaterDisolvedOxygenSensor,
-    fishTankWaterElectricConductivitySensor,
-    fishTankWaterCarbonateHardnessSensor,
-    growingBedWaterFlowSensor,
-    growingBedWaterLevelSensor,
-    growingBedWaterTemperatureSensor,
-    growingBedWaterPHSensor,
-    growingBedWaterAmmoniaSensor,
-    growingBedWaterNitriteSensor,
-    growingBedWaterNitrateSensor,
-    growingBedWaterDisolvedOxygenSensor,
-    growingBedWaterElectricConductivitySensor,
-    growingBedWaterCarbonateHardnessSensor,
-    greenHouseAirTemperatureSensor,
-    greenHouseAirRelativeHumiditySensor,
-    greenHouseAirCarbonDioxideSensor,
-    greenHouseLightSensor,
+const measurements: Measurement[] = [
+    fishTankWaterFlowSensorMeasurement,
+    fishTankWaterLevelSensorMeasurement,
+    fishTankWaterTemperatureSensorMeasurement,
+    fishTankWaterPHSensorMeasurement,
+    fishTankWaterAmmoniaSensorMeasurement,
+    fishTankWaterNitriteSensorMeasurement,
+    fishTankWaterNitrateSensorMeasurement,
+    fishTankWaterDisolvedOxygenSensorMeasurement,
+    fishTankWaterElectricConductivitySensorMeasurement,
+    fishTankWaterCarbonateHardnessSensorMeasurement,
+    growingBedWaterFlowSensorMeasurement,
+    growingBedWaterLevelSensorMeasurement,
+    growingBedWaterTemperatureSensorMeasurement,
+    growingBedWaterPHSensorMeasurement,
+    growingBedWaterAmmoniaSensorMeasurement,
+    growingBedWaterNitriteSensorMeasurement,
+    growingBedWaterNitrateSensorMeasurement,
+    growingBedWaterDisolvedOxygenSensorMeasurement,
+    growingBedWaterElectricConductivitySensorMeasurement,
+    growingBedWaterCarbonateHardnessSensorMeasurement,
+    greenHouseAirTemperatureSensorMeasurement,
+    greenHouseAirRelativeHumiditySensorMeasurement,
+    greenHouseAirCarbonDioxideSensorMeasurement,
+    greenHouseLightSensorMeasurement,
 ];
 
-export default sensors;
+export default measurements;

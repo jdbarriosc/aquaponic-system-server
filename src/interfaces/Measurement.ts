@@ -13,33 +13,34 @@ export enum ModelShaderColor {
     PURPLE = 'PURPLE', 
 }
 
-interface ValueEqualityActionProps {
-    value: boolean | string;
+interface ActionProps {
     mqttPublication?: MQTTPublication;
     iconType?: IconType;
     modelShaderColor?: ModelShaderColor;
 }
 
-interface ValueRangeActionProps {
-    minValue?: number;
-    onUnderMinValueMQTTPublication?: MQTTPublication;
-    onUnderMinValueIconType?: IconType;
-    onUnderMinValueModelShaderColor?: ModelShaderColor;
-    maxValue?: number;
-    onOverMaxValueMQTTPublication?: MQTTPublication;
-    onOverMaxValueIconType?: IconType;
-    onOverMaxValueModelShaderColor?: ModelShaderColor;
+interface ValueEqualityActionProps {
+    value: boolean | string;
+    actionProps?: ActionProps;
 }
 
-interface Sensor {
-    id: string;
-    workspace: string;
+interface ValueRangeActionProps {
+    minValue?: number;
+    maxValue?: number;
+    onRangeValueActionProps?: ActionProps;
+    onUnderMinValueActionProps?: ActionProps;
+    onOverMaxValueActionProps?: ActionProps;
+}
+
+interface Measurement {
+    id: string,
+    workspaceName: string,
+    assetName: string,
     name: string;
-    measurement: string;
-    path: string;
+    aliasPath: string;
     unit?: string;
     valueRangeActionProps?: ValueRangeActionProps;
     valueEqualityActionProps?: ValueEqualityActionProps[];
 }
 
-export default Sensor;
+export default Measurement;
