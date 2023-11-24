@@ -13,6 +13,14 @@ export enum ModelShaderColor {
     PURPLE = 'PURPLE', 
 }
 
+export enum SimulationType {
+    STATIC = 'STATIC',
+    RANDOM = 'RANDOM',
+    INCREMENT = 'INCREMENT', 
+    DECREASE = 'DECREASE', 
+    INCREMENT_DECREASE_RANDOM = 'INCREMENT_DECREASE_RANDOM', 
+}
+
 interface ActionProps {
     mqttPublication?: MQTTPublication;
     iconType?: IconType;
@@ -32,6 +40,16 @@ interface ValueRangeActionProps {
     onOverMaxValueActionProps?: ActionProps;
 }
 
+interface SimulationProps {
+    startValue: string | number | boolean;
+    simulationType: SimulationType;
+    msBetweenDataPublishes: number;
+    variationFactor?: number;
+    minValue?: number;
+    maxValue?: number;
+    posibleValues?: string[] | boolean[];
+}
+
 interface Measurement {
     id: string,
     workspaceName: string,
@@ -41,6 +59,7 @@ interface Measurement {
     unit?: string;
     valueRangeActionProps?: ValueRangeActionProps;
     valueEqualityActionProps?: ValueEqualityActionProps[];
+    simulationProps?: SimulationProps;
 }
 
 export default Measurement;
