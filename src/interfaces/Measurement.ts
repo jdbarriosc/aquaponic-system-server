@@ -41,9 +41,9 @@ interface ValueRangeActionProps {
 }
 
 interface SimulationProps {
-    startValue: string | number | boolean;
     simulationType: SimulationType;
-    msBetweenDataPublishes: number;
+    startValue: string | number | boolean;
+    msBetweenDataPublishes?: number;
     variationFactor?: number;
     minValue?: number;
     maxValue?: number;
