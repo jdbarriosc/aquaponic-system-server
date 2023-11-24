@@ -234,6 +234,58 @@ export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
     },
 };
 
+
+export const fishTankWaterPumpState: Measurement = {
+    id: '',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterPump',
+    name: 'state',
+    aliasPath: '/AquaponicSystem/FishTankWaterPump/state',
+    valueEqualityActionProps: [
+        {
+            value: 'ON',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+    ],
+};
+
+export const fishTankAirPumpState: Measurement = {
+    id: '',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankAirPump',
+    name: 'state',
+    aliasPath: '/AquaponicSystem/FishTankAirPump/state',
+    valueEqualityActionProps: [
+        {
+            value: 'ON',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+    ],
+};
+
+export const fishTankWaterHeaterState: Measurement = {
+    id: '',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterHeater',
+    name: 'state',
+    aliasPath: '/AquaponicSystem/FishTankWaterHeater/state',
+    valueEqualityActionProps: [
+        {
+            value: 'ON',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+    ],
+};
+
 export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: '',
     workspaceName: 'AquaponicSystem',
@@ -585,15 +637,32 @@ export const greenHouseLightsState: Measurement = {
     ],
 };
 
-export const fishTankWaterPumpState: Measurement = {
+export const greenHouseFanSystemState: Measurement = {
     id: '',
     workspaceName: 'AquaponicSystem',
-    assetName: 'FishTankWaterPump',
+    assetName: 'GreenHouseFanSystem',
     name: 'state',
-    aliasPath: '/AquaponicSystem/FishTankWaterPump/state',
+    aliasPath: '/AquaponicSystem/GreenHouseFanSystem/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+    ],
+};
+
+export const greenHouseVentsState: Measurement = {
+    id: '',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseVents',
+    name: 'state',
+    aliasPath: '/AquaponicSystem/GreenHouseVents/state',
+    valueEqualityActionProps: [
+        {
+            value: 'OPEN',
             actionProps: {
                 iconType: IconType.INFO,
                 modelShaderColor: ModelShaderColor.GREEN,
@@ -613,6 +682,9 @@ const measurements: Measurement[] = [
     fishTankWaterDisolvedOxygenSensorConcentration,
     fishTankWaterElectricConductivitySensorElectricConductivity,
     fishTankWaterCarbonateHardnessSensorConcentration,
+    fishTankWaterPumpState,
+    fishTankAirPumpState,
+    fishTankWaterHeaterState,
     growingBedWaterFlowSensorVolumetricFlowRate,
     growingBedWaterLevelSensorHasNeededWaterLevel,
     growingBedWaterTemperatureSensorTemperature,
@@ -628,7 +700,8 @@ const measurements: Measurement[] = [
     greenHouseAirCarbonDioxideSensorConcentration,
     greenHouseLightSensorPhotosyntheticallyActiveRadiation,
     greenHouseLightsState,
-    fishTankWaterPumpState,
+    greenHouseFanSystemState,
+    greenHouseVentsState,
 ];
 
 export default measurements;
