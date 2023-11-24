@@ -1,28 +1,36 @@
 import Measurement, { IconType, ModelShaderColor } from "../interfaces/Measurement";
 
-export const fishTankWaterFlowSensorMeasurement: Measurement = {
+export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterFlowSensorMeasurement',
-    measurement: 'volumetricFlowRate',
-    path: '/AquaponicSystem/FishTankWaterFlowSensorMeasurement/volumetricFlowRate',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterFlowSensor',
+    name: 'volumetricFlowRate',
+    aliasPath: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
     valueRangeActionProps: {
         minValue: 100,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 150,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        }
     },
 };
 
-export const fishTankWaterLevelSensorMeasurement: Measurement = {
+export const fishTankWaterLevelSensor: Measurement = {
     id: '',
     workspace: 'AquaponicSystem',
-    name: 'FishTankWaterLevelSensorMeasurement',
+    name: 'FishTankWaterLevelSensor',
     measurement: 'hasNeededWaterLevel',
-    path: '/AquaponicSystem/FishTankWaterLevelSensorMeasurement/hasNeededWaterLevel',
+    path: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,

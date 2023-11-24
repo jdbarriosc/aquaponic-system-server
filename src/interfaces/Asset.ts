@@ -1,10 +1,10 @@
 import Measurement from "./Measurement";
 
-interface IoTAsset {
+interface Asset {
     id: string;
     name: string;
     workspace: string;
     measurements: Measurement[];
 }
 
-export default IoTAsset;
+export default Asset;
