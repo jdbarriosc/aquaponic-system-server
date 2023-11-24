@@ -21,434 +21,614 @@ export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
-        }
+        },
     },
 };
 
-export const fishTankWaterLevelSensor: Measurement = {
+export const fishTankWaterLevelSensorHasNeededWaterLevel: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterLevelSensor',
-    measurement: 'hasNeededWaterLevel',
-    path: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterLevelSensor',
+    name: 'hasNeededWaterLevel',
+    aliasPath: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,
-            iconType: IconType.INFO,
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
         },
         {
             value: false,
-            iconType: IconType.ERROR,
-        }
+            actionProps: {
+                iconType: IconType.ERROR,
+                modelShaderColor: ModelShaderColor.RED,
+            },
+        },
     ],
 };
 
-export const fishTankWaterTemperatureSensorMeasurement: Measurement = {
+export const fishTankWaterTemperatureSensorTemperature: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterTemperatureSensorMeasurement',
-    measurement: 'temperature',
-    path: '/AquaponicSystem/FishTankWaterTemperatureSensorMeasurement/temperature',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterTemperatureSensor',
+    name: 'temperature',
+    aliasPath: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 32,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterPHSensorMeasurement: Measurement = {
+export const fishTankWaterPHSensorPH: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterPHSensorMeasurement',
-    measurement: 'pH',
-    path: '/AquaponicSystem/FishTankWaterPHSensorMeasurement/pH',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterPHSensor',
+    name: 'pH',
+    aliasPath: '/AquaponicSystem/FishTankWaterPHSensor/pH',
     unit: 'pH',
     valueRangeActionProps: {
         minValue: 6,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 8.5,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterAmmoniaSensorMeasurement: Measurement = {
+export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterAmmoniaSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterAmmoniaSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterAmmoniaSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 3,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterNitriteSensorMeasurement: Measurement = {
+export const fishTankWaterNitriteSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterNitriteSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterNitriteSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterNitriteSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 1,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterNitrateSensorMeasurement: Measurement = {
+export const fishTankWaterNitrateSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterNitrateSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterNitrateSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterNitrateSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 400,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterDisolvedOxygenSensorMeasurement: Measurement = {
+export const fishTankWaterDisolvedOxygenSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterDisolvedOxygenSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterDisolvedOxygenSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 4,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 6,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterElectricConductivitySensorMeasurement: Measurement = {
+export const fishTankWaterElectricConductivitySensorElectricConductivity: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterElectricConductivitySensorMeasurement',
-    measurement: 'electricConductivity',
-    path: '/AquaponicSystem/FishTankWaterElectricConductivitySensorMeasurement/electricConductivity',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterElectricConductivitySensor',
+    name: 'electricConductivity',
+    aliasPath: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
     unit: 'µS/cm',
     valueRangeActionProps: {
         minValue: 100,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 300,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const fishTankWaterCarbonateHardnessSensorMeasurement: Measurement = {
+export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterCarbonateHardnessSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterCarbonateHardnessSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 60,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 140,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterFlowSensorMeasurement: Measurement = {
+export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterFlowSensorMeasurement',
-    measurement: 'volumetricFlowRate',
-    path: '/AquaponicSystem/GrowingBedWaterFlowSensorMeasurement/volumetricFlowRate',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterFlowSensor',
+    name: 'volumetricFlowRate',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
     valueRangeActionProps: {
         minValue: 100,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 150,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterLevelSensorMeasurement: Measurement = {
+export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterLevelSensorMeasurement',
-    measurement: 'hasNeededWaterLevel',
-    path: '/AquaponicSystem/GrowingBedWaterLevelSensorMeasurement/hasNeededWaterLevel',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterLevelSensor',
+    name: 'hasNeededWaterLevel',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,
-            iconType: IconType.INFO,
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
         },
         {
             value: false,
-            iconType: IconType.ERROR,
-        }
+            actionProps: {
+                iconType: IconType.ERROR,
+                modelShaderColor: ModelShaderColor.RED,
+            },
+        },
     ],
 };
 
-export const growingBedWaterTemperatureSensorMeasurement: Measurement = {
+export const growingBedWaterTemperatureSensorTemperature: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterTemperatureSensorMeasurement',
-    measurement: 'temperature',
-    path: '/AquaponicSystem/GrowingBedWaterTemperatureSensorMeasurement/temperature',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterTemperatureSensor',
+    name: 'temperature',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 32,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterPHSensorMeasurement: Measurement = {
+export const growingBedWaterPHSensorPH: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterPHSensorMeasurement',
-    measurement: 'pH',
-    path: '/AquaponicSystem/GrowingBedWaterPHSensorMeasurement/pH',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterPHSensor',
+    name: 'pH',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
     unit: 'pH',
     valueRangeActionProps: {
         minValue: 6,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 8.5,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterAmmoniaSensorMeasurement: Measurement = {
+export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterAmmoniaSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterAmmoniaSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterAmmoniaSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 3,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterNitriteSensorMeasurement: Measurement = {
+export const growingBedWaterNitriteSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterNitriteSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterNitriteSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterNitriteSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 1,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterNitrateSensorMeasurement: Measurement = {
+export const growingBedWaterNitrateSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterNitrateSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterNitrateSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterNitrateSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 400,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterDisolvedOxygenSensorMeasurement: Measurement = {
+export const growingBedWaterDisolvedOxygenSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterDisolvedOxygenSensorMeasurement',
-    path: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensorMeasurement/concentration',
-    measurement: 'concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterDisolvedOxygenSensor',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
+    name: 'concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 4,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 6,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterElectricConductivitySensorMeasurement: Measurement = {
+export const growingBedWaterElectricConductivitySensorElectricConductivity: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterElectricConductivitySensorMeasurement',
-    path: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensorMeasurement/electricConductivity',
-    measurement: 'electricConductivity',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterElectricConductivitySensor',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
+    name: 'electricConductivity',
     unit: 'µS/cm',
     valueRangeActionProps: {
         minValue: 100,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 300,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const growingBedWaterCarbonateHardnessSensorMeasurement: Measurement = {
+export const growingBedWaterCarbonateHardnessSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GrowingBedWaterCarbonateHardnessSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GrowingBedWaterCarbonateHardnessSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 60,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 140,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const greenHouseAirTemperatureSensorMeasurement: Measurement = {
+export const greenHouseAirTemperatureSensorTemperature: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GreenHouseAirTemperatureSensorMeasurement',
-    measurement: 'temperature',
-    path: '/AquaponicSystem/GreenHouseAirTemperatureSensorMeasurement/temperature',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseAirTemperatureSensor',
+    name: 'temperature',
+    aliasPath: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 32,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const greenHouseAirRelativeHumiditySensorMeasurement: Measurement = {
+export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GreenHouseAirRelativeHumiditySensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseAirRelativeHumiditySensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
     unit: '%',
     valueRangeActionProps: {
         minValue: 65,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 80,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const greenHouseAirCarbonDioxideSensorMeasurement: Measurement = {
+export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GreenHouseAirCarbonDioxideSensorMeasurement',
-    measurement: 'concentration',
-    path: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensorMeasurement/concentration',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseAirCarbonDioxideSensor',
+    name: 'concentration',
+    aliasPath: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
     unit: 'ppm',
     valueRangeActionProps: {
         minValue: 800,
-        onUnderMinValueIconType: IconType.ERROR,
-        onUnderMinValueModelShaderColor: ModelShaderColor.BLUE,
         maxValue: 1000,
-        onOverMaxValueIconType: IconType.ERROR,
-        onOverMaxValueModelShaderColor: ModelShaderColor.RED,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const greenHouseLightSensorMeasurement: Measurement = {
+export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GreenHouseLightSensorMeasurement',
-    measurement: 'photosyntheticallyActiveRadiation',
-    path: '/AquaponicSystem/GreenHouseLightSensorMeasurement/photosyntheticallyActiveRadiation',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseLightSensor',
+    name: 'photosyntheticallyActiveRadiation',
+    aliasPath: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
     unit: 'μmol·m2·s',
     valueRangeActionProps: {
         minValue: 20,
         maxValue: 80,
+        onRangeValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+        },
+        onUnderMinValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.BLUE,
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.ERROR,
+            modelShaderColor: ModelShaderColor.RED,
+        },
     },
 };
 
-export const greenHouseLights: Measurement = {
+export const greenHouseLightsState: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'GreenHouseLights',
-    measurement: 'state',
-    path: '/AquaponicSystem/GreenHouseLights/state',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseLights',
+    name: 'state',
+    aliasPath: '/AquaponicSystem/GreenHouseLights/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
-            modelShaderColor: ModelShaderColor.PURPLE,
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
         },
     ],
 };
 
-export const fishTankWaterPumpStateBulb: Measurement = {
+export const fishTankWaterPumpState: Measurement = {
     id: '',
-    workspace: 'AquaponicSystem',
-    name: 'FishTankWaterPump',
-    measurement: 'state',
-    path: '/AquaponicSystem/FishTankWaterPumpStateBulb/state',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'FishTankWaterPump',
+    name: 'state',
+    aliasPath: '/AquaponicSystem/FishTankWaterPump/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
-            modelShaderColor: ModelShaderColor.GREEN,
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
         },
     ],
 };
 
 const measurements: Measurement[] = [
-    fishTankWaterFlowSensorMeasurement,
-    fishTankWaterLevelSensorMeasurement,
-    fishTankWaterTemperatureSensorMeasurement,
-    fishTankWaterPHSensorMeasurement,
-    fishTankWaterAmmoniaSensorMeasurement,
-    fishTankWaterNitriteSensorMeasurement,
-    fishTankWaterNitrateSensorMeasurement,
-    fishTankWaterDisolvedOxygenSensorMeasurement,
-    fishTankWaterElectricConductivitySensorMeasurement,
-    fishTankWaterCarbonateHardnessSensorMeasurement,
-    growingBedWaterFlowSensorMeasurement,
-    growingBedWaterLevelSensorMeasurement,
-    growingBedWaterTemperatureSensorMeasurement,
-    growingBedWaterPHSensorMeasurement,
-    growingBedWaterAmmoniaSensorMeasurement,
-    growingBedWaterNitriteSensorMeasurement,
-    growingBedWaterNitrateSensorMeasurement,
-    growingBedWaterDisolvedOxygenSensorMeasurement,
-    growingBedWaterElectricConductivitySensorMeasurement,
-    growingBedWaterCarbonateHardnessSensorMeasurement,
-    greenHouseAirTemperatureSensorMeasurement,
-    greenHouseAirRelativeHumiditySensorMeasurement,
-    greenHouseAirCarbonDioxideSensorMeasurement,
-    greenHouseLightSensorMeasurement,
+    fishTankWaterFlowSensorVolumetricFlowRate,
+    fishTankWaterLevelSensorHasNeededWaterLevel,
+    fishTankWaterTemperatureSensorTemperature,
+    fishTankWaterPHSensorPH,
+    fishTankWaterAmmoniaSensorConcentration,
+    fishTankWaterNitriteSensorConcentration,
+    fishTankWaterNitrateSensorConcentration,
+    fishTankWaterDisolvedOxygenSensorConcentration,
+    fishTankWaterElectricConductivitySensorElectricConductivity,
+    fishTankWaterCarbonateHardnessSensorConcentration,
+    growingBedWaterFlowSensorVolumetricFlowRate,
+    growingBedWaterLevelSensorHasNeededWaterLevel,
+    growingBedWaterTemperatureSensorTemperature,
+    growingBedWaterPHSensorPH,
+    growingBedWaterAmmoniaSensorConcentration,
+    growingBedWaterNitriteSensorConcentration,
+    growingBedWaterNitrateSensorConcentration,
+    growingBedWaterDisolvedOxygenSensorConcentration,
+    growingBedWaterElectricConductivitySensorElectricConductivity,
+    growingBedWaterCarbonateHardnessSensorConcentration,
+    greenHouseAirTemperatureSensorTemperature,
+    greenHouseAirRelativeHumiditySensorConcentration,
+    greenHouseAirCarbonDioxideSensorConcentration,
+    greenHouseLightSensorPhotosyntheticallyActiveRadiation,
+    greenHouseLightsState,
+    fishTankWaterPumpState,
 ];
 
 export default measurements;
