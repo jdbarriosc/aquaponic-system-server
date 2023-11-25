@@ -1,14 +1,14 @@
 import sleep from '../../../helpers/sleep';
 import { makeRandomPositiveOrNegative } from '../../../helpers/Random';
 import { MqttClient } from 'mqtt';
-import MQTTPublicationSimulationProps from '../../../interfaces/MQTTPublicationSimulationProps';
+import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 
-interface CheckedSimulationProps extends MQTTPublicationSimulationProps {
+interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
   startValue: number;
   valueVariationFactor: number;
 }
 
-function checkProps(simulationProps: MQTTPublicationSimulationProps): CheckedSimulationProps {
+function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsSimulationProps): CheckedMQTTPublicationsSimulationProps {
   const { topic, startValue, valueVariationFactor, minValue, maxValue } = simulationProps;
   const minValueWasProvided = typeof minValue === 'number';
   const maxValueWasProvided = typeof maxValue === 'number';
@@ -35,13 +35,13 @@ function checkProps(simulationProps: MQTTPublicationSimulationProps): CheckedSim
     throw new Error(`${errorPrefix}valueVariationFactor must be provided.`);
   }
 
-  const checkedSimulationProps: CheckedSimulationProps = {
+  const checkedMQTTPublicationsSimulationProps: CheckedMQTTPublicationsSimulationProps = {
     ...simulationProps,
     startValue,
     valueVariationFactor,
   };
 
-  return checkedSimulationProps;
+  return checkedMQTTPublicationsSimulationProps;
 }
 
 function calculateNextValue(
@@ -72,12 +72,12 @@ function calculateNextValue(
   return nextValue;
 } 
 
-async function increaseDecreaseRandomSimulation(
+async function simulateIncreaseDecreaseRandomMQTTPublications(
   mqttClient: MqttClient,
-  mqttPublicationSimulationProps: MQTTPublicationSimulationProps,
+  MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
   const defaultMsBetweenPublications = 2000;
-  const checkedMQTTPublicationSimulationProps = checkProps(mqttPublicationSimulationProps);
+  const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
   const { 
     topic,
     startValue, 
@@ -85,10 +85,9 @@ async function increaseDecreaseRandomSimulation(
     minValue, 
     maxValue, 
     msBetweenPublications = defaultMsBetweenPublications,
-  } = checkedMQTTPublicationSimulationProps;
+  } = checkedMQTTPublicationsSimulationProps;
 
-  console.log(`-- Simulate ${topic} publications`);
-
+  console.log(`-- Simulate increase decrease random ${topic} publications`);
 
   let currentValue = startValue;
   while (true) {
@@ -102,4 +101,4 @@ async function increaseDecreaseRandomSimulation(
 }    
 
 
-export default increaseDecreaseRandomSimulation;
+export default simulateIncreaseDecreaseRandomMQTTPublications;

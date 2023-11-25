@@ -7,7 +7,7 @@
     "build": "tsc --project ./",
     "start": "tsc --project ./ && node ./build/src/index.js",
     "start:dev": "nodemon ./src/index.ts",
-    "mockSensorsData": "ts-node ./src/scripts/simulateSensorMQTTPublications"
+    "simulateMQTTPublications": "ts-node ./src/scripts/simulateMQTTPublications"
   },
   "keywords": [],
   "author": "",

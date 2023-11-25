@@ -6,7 +6,7 @@ export enum SimulationType {
     INCREMENT_DECREASE_RANDOM = 'INCREMENT_DECREASE_RANDOM', 
 }
 
-interface MQTTPublicationSimulationProps {
+interface MQTTPublicationsSimulationProps {
     topic: string;
     simulationType: SimulationType;
     startValue: string | number | boolean;
@@ -17,4 +17,4 @@ interface MQTTPublicationSimulationProps {
     posibleValues?: string[] | boolean[];
 }
 
-export default MQTTPublicationSimulationProps;
+export default MQTTPublicationsSimulationProps;
