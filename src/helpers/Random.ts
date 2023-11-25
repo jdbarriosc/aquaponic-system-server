@@ -10,4 +10,12 @@ function makeRandomNumber(min: number, max: number, decimalUnits = 0): number {
   return roundedNumber;
 }
 
-export default makeRandomNumber;
+function makeRandomPositiveOrNegative(value: number): number {
+  const multiplier = Math.random() < 0.5 ? 1 : -1;
+  return value * multiplier;
+}
+
+export {
+  makeRandomNumber,
+  makeRandomPositiveOrNegative,
+};

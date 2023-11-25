@@ -1,4 +1,4 @@
-import Measurement, { IconType, ModelShaderColor, SimulationType } from "../interfaces/Measurement";
+import Measurement, { IconType, ModelShaderColor } from "../interfaces/Measurement";
 
 export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: '',
@@ -22,13 +22,6 @@ export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 120,
-        variationFactor: 1,
-        minValue: 100,
-        maxValue: 150,
     },
 };
 
@@ -54,11 +47,6 @@ export const fishTankWaterLevelSensorHasNeededWaterLevel: Measurement = {
             },
         },
     ],
-    simulationProps: {
-        simulationType: SimulationType.STATIC,
-        startValue: true,
-        posibleValues: [true, false],
-    },
 };
 
 export const fishTankWaterTemperatureSensorTemperature: Measurement = {
@@ -83,13 +71,6 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 25,
-        variationFactor: 1,
-        minValue: 22,
-        maxValue: 32,
     },
 };
 
@@ -116,13 +97,6 @@ export const fishTankWaterPHSensorPH: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 7,
-        variationFactor: 0.1,
-        minValue: 6,
-        maxValue: 8.5,
-    },
 };
 
 export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
@@ -142,13 +116,6 @@ export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 2,
-        variationFactor: 0.1,
-        minValue: 0,
-        maxValue: 3,
     },
 };
 
@@ -170,13 +137,6 @@ export const fishTankWaterNitriteSensorConcentration: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 0.5,
-        variationFactor: 0.1,
-        minValue: 0,
-        maxValue: 1,
-    },
 };
 
 export const fishTankWaterNitrateSensorConcentration: Measurement = {
@@ -196,13 +156,6 @@ export const fishTankWaterNitrateSensorConcentration: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 350,
-        variationFactor: 1,
-        minValue: 0,
-        maxValue: 400,
     },
 };
 
@@ -229,13 +182,6 @@ export const fishTankWaterDisolvedOxygenSensorConcentration: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 5,
-        variationFactor: 0.1,
-        minValue: 4,
-        maxValue: 6,
-    },
 };
 
 export const fishTankWaterElectricConductivitySensorElectricConductivity: Measurement = {
@@ -261,13 +207,6 @@ export const fishTankWaterElectricConductivitySensorElectricConductivity: Measur
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 200,
-        variationFactor: 1,
-        minValue: 100,
-        maxValue: 300,
-    },
 };
 
 export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
@@ -292,13 +231,6 @@ export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 100,
-        variationFactor: 1,
-        minValue: 60,
-        maxValue: 140,
     },
 };
 
@@ -377,13 +309,6 @@ export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 125,
-        variationFactor: 1,
-        minValue: 100,
-        maxValue: 150,
-    },
 };
 
 export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
@@ -408,11 +333,6 @@ export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
             },
         },
     ],
-    simulationProps: {
-        simulationType: SimulationType.STATIC,
-        startValue: true,
-        posibleValues: [true, false],
-    },
 };
 
 export const growingBedWaterTemperatureSensorTemperature: Measurement = {
@@ -437,13 +357,6 @@ export const growingBedWaterTemperatureSensorTemperature: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 25,
-        variationFactor: 1,
-        minValue: 22,
-        maxValue: 32,
     },
 };
 
@@ -470,13 +383,6 @@ export const growingBedWaterPHSensorPH: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 7,
-        variationFactor: 0.1,
-        minValue: 6,
-        maxValue: 8.5,
-    },
 };
 
 export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
@@ -496,13 +402,6 @@ export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 2,
-        variationFactor: 0.1,
-        minValue: 0,
-        maxValue: 3,
     },
 };
 
@@ -524,13 +423,6 @@ export const growingBedWaterNitriteSensorConcentration: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 0.5,
-        variationFactor: 0.1,
-        minValue: 0,
-        maxValue: 1,
-    },
 };
 
 export const growingBedWaterNitrateSensorConcentration: Measurement = {
@@ -550,13 +442,6 @@ export const growingBedWaterNitrateSensorConcentration: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 350,
-        variationFactor: 1,
-        minValue: 0,
-        maxValue: 400,
     },
 };
 
@@ -583,13 +468,6 @@ export const growingBedWaterDisolvedOxygenSensorConcentration: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 5,
-        variationFactor: 0.1,
-        minValue: 4,
-        maxValue: 6,
-    },
 };
 
 export const growingBedWaterElectricConductivitySensorElectricConductivity: Measurement = {
@@ -614,13 +492,6 @@ export const growingBedWaterElectricConductivitySensorElectricConductivity: Meas
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 200,
-        variationFactor: 1,
-        minValue: 100,
-        maxValue: 300,
     },
 };
 
@@ -647,13 +518,6 @@ export const growingBedWaterCarbonateHardnessSensorConcentration: Measurement = 
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 100,
-        variationFactor: 1,
-        minValue: 60,
-        maxValue: 140,
-    },
 };
 
 export const greenHouseAirTemperatureSensorTemperature: Measurement = {
@@ -678,13 +542,6 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 25,
-        variationFactor: 1,
-        minValue: 22,
-        maxValue: 32,
     },
 };
 
@@ -711,13 +568,6 @@ export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 72,
-        variationFactor: 1,
-        minValue: 65,
-        maxValue: 80,
-    },
 };
 
 export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
@@ -743,13 +593,6 @@ export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
             modelShaderColor: ModelShaderColor.RED,
         },
     },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 900,
-        variationFactor: 1,
-        minValue: 800,
-        maxValue: 1000,
-    },
 };
 
 export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement = {
@@ -774,13 +617,6 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
         },
-    },
-    simulationProps: {
-        simulationType: SimulationType.INCREMENT_DECREASE_RANDOM,
-        startValue: 50,
-        variationFactor: 1,
-        minValue: 20,
-        maxValue: 80,
     },
 };
 

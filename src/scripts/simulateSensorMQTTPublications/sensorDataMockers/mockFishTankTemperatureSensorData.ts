@@ -1,5 +1,5 @@
 import sleep from '../../../helpers/sleep';
-import makeRandomNumber from '../../../helpers/makeRandomNumber';
+import { makeRandomNumber } from '../../../helpers/Random';
 import { MqttClient } from 'mqtt';
 
 
