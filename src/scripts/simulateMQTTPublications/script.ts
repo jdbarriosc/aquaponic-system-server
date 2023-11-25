@@ -1,6 +1,7 @@
 import { connect } from 'mqtt';
-import simulateIncreaseDecreaseRandomMQTTPublications from './mqttPublicationSimulators/simulateIncreaseDecreaseRandomMQTTPublications';
-import { fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps } from '../../mocks/mqttPublicationsSimulationsProps';
+import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseDecreaseRandomMQTTPublications';
+import { fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps, fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps } from '../../mocks/mqttPublicationsSimulationsProps';
+import simulateArrayOfPosibleValuesRandomMQTTPublications from './mqttPublicationSimulators/simulateArrayOfPosibleValuesRandomMQTTPublications';
 
 async function script(): Promise<void> {
   console.log('-- Mock sensors data');
@@ -13,8 +14,8 @@ async function script(): Promise<void> {
   //   }
   // });
 
-  const MQTTPublicationsSimulationProps = fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps;
-  simulateIncreaseDecreaseRandomMQTTPublications(mqttClient, MQTTPublicationsSimulationProps);
+  const MQTTPublicationsSimulationProps = fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps;
+  simulateArrayOfPosibleValuesRandomMQTTPublications(mqttClient, MQTTPublicationsSimulationProps);
 }    
 
 
