@@ -1,6 +1,6 @@
 import sleep from '../../../helpers/sleep';
+import { getMQTTClient } from '../../../providers/MQTTClientConnectionProvider';
 import { makeRandomPositiveOrNegative } from '../../../helpers/Random';
-import { MqttClient } from 'mqtt';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 
 interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
@@ -74,9 +74,9 @@ function calculateNextValue(
 } 
 
 async function simulateNumericIncreaseDecreaseRandomMQTTPublications(
-  mqttClient: MqttClient,
   MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
+  const mqttClient = getMQTTClient(); 
   const defaultMsBetweenPublications = 2000;
   const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
   const { 

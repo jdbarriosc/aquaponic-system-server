@@ -1,12 +1,12 @@
 import sleep from '../../../helpers/sleep';
-import { MqttClient } from 'mqtt';
+import { getMQTTClient } from '../../../providers/MQTTClientConnectionProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 
 
 async function simulateStaticMQTTPublications(
-  mqttClient: MqttClient,
   MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
+  const mqttClient = getMQTTClient(); 
   const defaultMsBetweenPublications = 2000;
   const { 
     topic,
