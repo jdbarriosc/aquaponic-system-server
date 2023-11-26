@@ -1,13 +1,13 @@
-import { collection, query, getDocs, getFirestore, DocumentData, SnapshotOptions, QueryDocumentSnapshot } from "firebase/firestore";
+import { collection, query, getDocs, getFirestore } from "firebase/firestore";
+import { initializeMQTTClient } from '../../providers/MQTTClientConnectionProvider';
 import simulateStaticMQTTPublications from './mqttPublicationSimulators/simulateStaticMQTTPublications';
+import { initializeFirebaseConnection } from '../../providers/FirebaseConnectionProvider';
 import simulateNumericRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericRandomMQTTPublications';
 import simulateNumericIncreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseMQTTPublications';
 import simulateNumericDecreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericDecreaseMQTTPublications';
 import simulateArrayOfPosibleValuesRandomMQTTPublications from './mqttPublicationSimulators/simulateArrayOfPosibleValuesRandomMQTTPublications';
 import MQTTPublicationsSimulationProps, { SimulationType } from '../../interfaces/MQTTPublicationsSimulationProps';
 import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseDecreaseRandomMQTTPublications';
-import { initializeMQTTClient } from '../../providers/MQTTClientConnectionProvider';
-import { initializeFirebaseConnection } from '../../providers/FirebaseConnectionProvider';
 
 async function script(): Promise<void> {
   console.log('-- simulate MQTT publications');
