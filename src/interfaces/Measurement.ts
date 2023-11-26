@@ -37,7 +37,7 @@ interface Measurement {
     workspaceName: string,
     assetName: string,
     name: string;
-    aliasPath: string;
+    path: string;
     unit?: string;
     valueRangeActionProps?: ValueRangeActionProps;
     valueEqualityActionProps?: ValueEqualityActionProps[];

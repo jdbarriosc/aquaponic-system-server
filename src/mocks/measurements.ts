@@ -1,11 +1,11 @@
 import Measurement, { IconType, ModelShaderColor } from "../interfaces/Measurement";
 
 export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
-    id: '',
+    id: '865b205a-be51-40da-9382-234f93c197cd',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterFlowSensor',
     name: 'volumetricFlowRate',
-    aliasPath: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
+    path: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
     valueRangeActionProps: {
         minValue: 100,
@@ -26,11 +26,11 @@ export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
 };
 
 export const fishTankWaterLevelSensorHasNeededWaterLevel: Measurement = {
-    id: '',
+    id: '15dbf981-91bf-4255-8b43-ac8f190e3950',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterLevelSensor',
     name: 'hasNeededWaterLevel',
-    aliasPath: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
+    path: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,
@@ -50,11 +50,11 @@ export const fishTankWaterLevelSensorHasNeededWaterLevel: Measurement = {
 };
 
 export const fishTankWaterTemperatureSensorTemperature: Measurement = {
-    id: '',
+    id: 'fbbd13be-9659-4112-9dad-3a748a7718c7',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterTemperatureSensor',
     name: 'temperature',
-    aliasPath: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
+    path: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
@@ -75,11 +75,11 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
 };
 
 export const fishTankWaterPHSensorPH: Measurement = {
-    id: '',
+    id: 'f21ac217-603a-4202-8be3-f2665b50ad11',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterPHSensor',
     name: 'pH',
-    aliasPath: '/AquaponicSystem/FishTankWaterPHSensor/pH',
+    path: '/AquaponicSystem/FishTankWaterPHSensor/pH',
     unit: 'pH',
     valueRangeActionProps: {
         minValue: 6,
@@ -100,11 +100,11 @@ export const fishTankWaterPHSensorPH: Measurement = {
 };
 
 export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
-    id: '',
+    id: 'd816f1c0-220c-4bdc-9c28-41d148602000',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterAmmoniaSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 3,
@@ -120,11 +120,11 @@ export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
 };
 
 export const fishTankWaterNitriteSensorConcentration: Measurement = {
-    id: '',
+    id: 'f65ab729-cd1f-4614-9f48-1f00931c1cc7',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterNitriteSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 1,
@@ -140,11 +140,11 @@ export const fishTankWaterNitriteSensorConcentration: Measurement = {
 };
 
 export const fishTankWaterNitrateSensorConcentration: Measurement = {
-    id: '',
+    id: '90d8dcb9-997d-4320-80cc-5ec84d0b5c36',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterNitrateSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 400,
@@ -160,11 +160,11 @@ export const fishTankWaterNitrateSensorConcentration: Measurement = {
 };
 
 export const fishTankWaterDisolvedOxygenSensorConcentration: Measurement = {
-    id: '',
+    id: '6e70327a-5f9b-4555-aa65-2db9cb75b887',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterDisolvedOxygenSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 4,
@@ -185,11 +185,11 @@ export const fishTankWaterDisolvedOxygenSensorConcentration: Measurement = {
 };
 
 export const fishTankWaterElectricConductivitySensorElectricConductivity: Measurement = {
-    id: '',
+    id: '31d6bc3d-fb0a-4f8c-9772-b2a247faed27',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterElectricConductivitySensor',
     name: 'electricConductivity',
-    aliasPath: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
+    path: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
     unit: 'µS/cm',
     valueRangeActionProps: {
         minValue: 100,
@@ -210,11 +210,11 @@ export const fishTankWaterElectricConductivitySensorElectricConductivity: Measur
 };
 
 export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
-    id: '',
+    id: '819af112-0660-42e1-a082-1724737b07e8',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterCarbonateHardnessSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
+    path: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 60,
@@ -236,11 +236,11 @@ export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
 
 
 export const fishTankWaterPumpState: Measurement = {
-    id: '',
+    id: 'eabd5799-22a9-4eb4-bd8a-c362bd3525cd',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterPump',
     name: 'state',
-    aliasPath: '/AquaponicSystem/FishTankWaterPump/state',
+    path: '/AquaponicSystem/FishTankWaterPump/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
@@ -253,11 +253,11 @@ export const fishTankWaterPumpState: Measurement = {
 };
 
 export const fishTankAirPumpState: Measurement = {
-    id: '',
+    id: 'cec4df5d-8a45-4876-be1b-d2432bdb3c7a',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankAirPump',
     name: 'state',
-    aliasPath: '/AquaponicSystem/FishTankAirPump/state',
+    path: '/AquaponicSystem/FishTankAirPump/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
@@ -270,11 +270,11 @@ export const fishTankAirPumpState: Measurement = {
 };
 
 export const fishTankWaterHeaterState: Measurement = {
-    id: '',
+    id: '7f808f07-05fd-42b3-9dd8-261ddf94910a',
     workspaceName: 'AquaponicSystem',
     assetName: 'FishTankWaterHeater',
     name: 'state',
-    aliasPath: '/AquaponicSystem/FishTankWaterHeater/state',
+    path: '/AquaponicSystem/FishTankWaterHeater/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
@@ -287,11 +287,11 @@ export const fishTankWaterHeaterState: Measurement = {
 };
 
 export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
-    id: '',
+    id: '0ca26684-7b7c-45e2-a434-499a512b38c7',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterFlowSensor',
     name: 'volumetricFlowRate',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
+    path: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
     valueRangeActionProps: {
         minValue: 100,
@@ -312,11 +312,11 @@ export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
 };
 
 export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
-    id: '',
+    id: '5bcac675-d538-47bc-98da-d2dd6824e60b',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterLevelSensor',
     name: 'hasNeededWaterLevel',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
+    path: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
     valueEqualityActionProps: [
         {
             value: true,
@@ -336,11 +336,11 @@ export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
 };
 
 export const growingBedWaterTemperatureSensorTemperature: Measurement = {
-    id: '',
+    id: '3620b3ed-9d06-43cb-a07e-9bd0fa8bf29f',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterTemperatureSensor',
     name: 'temperature',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
+    path: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
@@ -361,11 +361,11 @@ export const growingBedWaterTemperatureSensorTemperature: Measurement = {
 };
 
 export const growingBedWaterPHSensorPH: Measurement = {
-    id: '',
+    id: 'f362abc3-47bd-4aa1-9928-4c5f5c59525f',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterPHSensor',
     name: 'pH',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
+    path: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
     unit: 'pH',
     valueRangeActionProps: {
         minValue: 6,
@@ -386,11 +386,11 @@ export const growingBedWaterPHSensorPH: Measurement = {
 };
 
 export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
-    id: '',
+    id: 'ce85e678-bd4a-4ab4-9e7a-d4c3cbd06546',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterAmmoniaSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 3,
@@ -406,11 +406,11 @@ export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
 };
 
 export const growingBedWaterNitriteSensorConcentration: Measurement = {
-    id: '',
+    id: '8d1f0038-24ab-4260-9af1-ccb4c65087a1',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterNitriteSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 1,
@@ -426,11 +426,11 @@ export const growingBedWaterNitriteSensorConcentration: Measurement = {
 };
 
 export const growingBedWaterNitrateSensorConcentration: Measurement = {
-    id: '',
+    id: 'e18df38a-e451-44dc-be53-54d1b1c0fa68',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterNitrateSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         maxValue: 400,
@@ -446,10 +446,10 @@ export const growingBedWaterNitrateSensorConcentration: Measurement = {
 };
 
 export const growingBedWaterDisolvedOxygenSensorConcentration: Measurement = {
-    id: '',
+    id: '7d801136-02b6-408f-b6de-0142031e5303',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterDisolvedOxygenSensor',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
     name: 'concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
@@ -471,10 +471,10 @@ export const growingBedWaterDisolvedOxygenSensorConcentration: Measurement = {
 };
 
 export const growingBedWaterElectricConductivitySensorElectricConductivity: Measurement = {
-    id: '',
+    id: 'f30f8c50-78c6-4589-a7d7-1df894a6f263',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterElectricConductivitySensor',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
+    path: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
     name: 'electricConductivity',
     unit: 'µS/cm',
     valueRangeActionProps: {
@@ -496,11 +496,11 @@ export const growingBedWaterElectricConductivitySensorElectricConductivity: Meas
 };
 
 export const growingBedWaterCarbonateHardnessSensorConcentration: Measurement = {
-    id: '',
+    id: '0be30064-9830-4b17-a1c8-e6bb5cb87f83',
     workspaceName: 'AquaponicSystem',
     assetName: 'GrowingBedWaterCarbonateHardnessSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
+    path: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
     valueRangeActionProps: {
         minValue: 60,
@@ -521,11 +521,11 @@ export const growingBedWaterCarbonateHardnessSensorConcentration: Measurement = 
 };
 
 export const greenHouseAirTemperatureSensorTemperature: Measurement = {
-    id: '',
+    id: 'a958b190-11aa-477c-a3c7-e27ab35d9a8b',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseAirTemperatureSensor',
     name: 'temperature',
-    aliasPath: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
+    path: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
     unit: '°C',
     valueRangeActionProps: {
         minValue: 22,
@@ -546,11 +546,11 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
 };
 
 export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
-    id: '',
+    id: '2746db36-e406-47f1-b929-e78241e1fdb6',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseAirRelativeHumiditySensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
+    path: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
     unit: '%',
     valueRangeActionProps: {
         minValue: 65,
@@ -571,11 +571,11 @@ export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
 };
 
 export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
-    id: '',
+    id: '4669920e-9d66-4f6f-8f49-69bb0f2ff16c',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseAirCarbonDioxideSensor',
     name: 'concentration',
-    aliasPath: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
+    path: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
     unit: 'ppm',
     valueRangeActionProps: {
         minValue: 800,
@@ -596,11 +596,11 @@ export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
 };
 
 export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement = {
-    id: '',
+    id: 'f68f364a-9282-4144-88d8-a6f02987e038',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseLightSensor',
     name: 'photosyntheticallyActiveRadiation',
-    aliasPath: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
+    path: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
     unit: 'μmol·m2·s',
     valueRangeActionProps: {
         minValue: 20,
@@ -621,11 +621,11 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
 };
 
 export const greenHouseLightsState: Measurement = {
-    id: '',
+    id: '18b24070-531c-4c28-ba56-52db9fe4fb60',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseLights',
     name: 'state',
-    aliasPath: '/AquaponicSystem/GreenHouseLights/state',
+    path: '/AquaponicSystem/GreenHouseLights/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
@@ -638,11 +638,11 @@ export const greenHouseLightsState: Measurement = {
 };
 
 export const greenHouseFanSystemState: Measurement = {
-    id: '',
+    id: '812060e2-b1cf-47a0-9416-cd590a239934',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseFanSystem',
     name: 'state',
-    aliasPath: '/AquaponicSystem/GreenHouseFanSystem/state',
+    path: '/AquaponicSystem/GreenHouseFanSystem/state',
     valueEqualityActionProps: [
         {
             value: 'ON',
@@ -655,11 +655,11 @@ export const greenHouseFanSystemState: Measurement = {
 };
 
 export const greenHouseVentsState: Measurement = {
-    id: '',
+    id: '5527fea1-06d1-4cd7-a4b7-7d290e3fff27',
     workspaceName: 'AquaponicSystem',
     assetName: 'GreenHouseVents',
     name: 'state',
-    aliasPath: '/AquaponicSystem/GreenHouseVents/state',
+    path: '/AquaponicSystem/GreenHouseVents/state',
     valueEqualityActionProps: [
         {
             value: 'OPEN',

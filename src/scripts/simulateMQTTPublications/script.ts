@@ -1,17 +1,19 @@
 import { connect } from 'mqtt';
-import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseDecreaseRandomMQTTPublications';
-import mqttPublicationsSimulationsProps, { fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps } from '../../mocks/mqttPublicationsSimulationsProps';
+import simulateStaticMQTTPublications from './mqttPublicationSimulators/simulateStaticMQTTPublications';
+import mqttPublicationsSimulationsProps from '../../mocks/mqttPublicationsSimulationsProps';
+import simulateNumericRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericRandomMQTTPublications';
 import simulateNumericIncreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseMQTTPublications';
 import simulateNumericDecreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericDecreaseMQTTPublications';
-import simulateNumericRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericRandomMQTTPublications';
-import MQTTPublicationsSimulationProps, { SimulationType } from '../../interfaces/MQTTPublicationsSimulationProps';
-import simulateStaticMQTTPublications from './mqttPublicationSimulators/simulateStaticMQTTPublications';
 import simulateArrayOfPosibleValuesRandomMQTTPublications from './mqttPublicationSimulators/simulateArrayOfPosibleValuesRandomMQTTPublications';
+import MQTTPublicationsSimulationProps, { SimulationType } from '../../interfaces/MQTTPublicationsSimulationProps';
+import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseDecreaseRandomMQTTPublications';
 
 async function script(): Promise<void> {
-  console.log('-- Mock sensors data');
+  console.log('-- mock sensors data');
+  
   const mqttClient = connect("mqtt://test.mosquitto.org");
-  mqttPublicationsSimulationsProps.forEach((mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps) => {
+
+  mqttPublicationsSimulationsProps.forEach(async (mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps) => {
     const { simulationType } = mqttPublicationsSimulationProps;
 
     switch (simulationType) {
