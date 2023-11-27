@@ -1,5 +1,11 @@
 import MQTTPublication from "./MQTTPublication";
 
+export enum ValueType {
+    STRING = 'STRING',
+    NUMBER = 'NUMBER', 
+    BOOLEAN = 'BOOLEAN', 
+} 
+
 export enum IconType {
     INFO = 'INFO', 
     WARNING = 'WARNING',
@@ -39,6 +45,7 @@ interface Measurement {
     name: string;
     path: string;
     unit?: string;
+    valueType: ValueType;
     valueRangeActionProps?: ValueRangeActionProps;
     valueEqualityActionProps?: ValueEqualityActionProps[];
 }

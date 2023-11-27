@@ -15,6 +15,20 @@ async function initializeMQTTClient(): Promise<void> {
   }
 }
 
+function subscribeMQTTClientToTopic(topic: string, onMessage: (message: string) => {}) {
+  if (!mqttClient) {
+    throw new Error('The mqtt client has not been initialized yet.');
+  }
+  
+  mqttClient.subscribe(topic);
+
+  mqttClient.on("message", (topic, message) => {
+      const parsedMessage = message.toString();
+      onMessage(parsedMessage);
+
+  });
+}
+
 function getMQTTClient(): MqttClient {
   if (!mqttClient) {
     throw new Error('The mqtt client has not been initialized yet.');

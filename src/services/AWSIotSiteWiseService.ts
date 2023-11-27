@@ -1,14 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
-import { AssetPropertyValueEntryBaseProps } from '../interfaces/AWSIoTSiteWiseAsset';
+import AWSIotSiteWiseAssetPropertyValueVariant from '../constants/AWSIotSiteWiseAssetPropertyValueVariant';
 import { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand, BatchPutAssetPropertyValueRequest } from "@aws-sdk/client-iotsitewise";
 
-
-
 class AWSIotSiteWiseService {
-  public static async postAssetPropertyValueEntry(assetPropertyValueEntryBaseProps: AssetPropertyValueEntryBaseProps): Promise<void> {
+  public static async postAssetPropertyValueEntry(
+    propertyAlias: string,
+    valueVariant: AWSIotSiteWiseAssetPropertyValueVariant,
+    value: string | number | boolean
+  ): Promise<void> {
     // TODO export to provider
     const client = new IoTSiteWiseClient();
-    const { propertyAlias, valueVariant, value } = assetPropertyValueEntryBaseProps;
 
     const entryId = uuidv4();;
     const timeInSeconds = Math.round(new Date().getTime() / 1000);
