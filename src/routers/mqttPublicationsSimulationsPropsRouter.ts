@@ -3,6 +3,6 @@ import MQTTPublicationsSimulationsPropsRequestHandler from '../requestHandlers/M
 
 const mqttPublicationsSimulationsPropsRouter = new Router({ prefix: '/mqtt-publications-simulations-props' });
 
-mqttPublicationsSimulationsPropsRouter.post('/', MQTTPublicationsSimulationsPropsRequestHandler.getMQTTPublicationsSimulationsProps);
+mqttPublicationsSimulationsPropsRouter.get('/', MQTTPublicationsSimulationsPropsRequestHandler.getMQTTPublicationsSimulationsProps);
 
 export default mqttPublicationsSimulationsPropsRouter;

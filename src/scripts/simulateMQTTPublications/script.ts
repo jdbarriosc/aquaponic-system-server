@@ -1,7 +1,6 @@
-import { collection, query, getDocs, getFirestore } from "firebase/firestore";
+import fetch from 'node-fetch';
 import { initializeMQTTClient } from '../../providers/MQTTClientConnectionProvider';
 import simulateStaticMQTTPublications from './mqttPublicationSimulators/simulateStaticMQTTPublications';
-import { initializeFirebaseConnection } from '../../providers/FirebaseConnectionProvider';
 import simulateNumericRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericRandomMQTTPublications';
 import simulateNumericIncreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseMQTTPublications';
 import simulateNumericDecreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericDecreaseMQTTPublications';
@@ -12,19 +11,10 @@ import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublica
 async function script(): Promise<void> {
   console.log('-- simulate MQTT publications');
 
-  initializeFirebaseConnection();
   await initializeMQTTClient();
-
-  const firestoreDB = getFirestore();
-  const mqttPublicationsSimulationsPropsCollection = collection(firestoreDB, "mqttPublicationsSimulationsProps");
-  const mqttPublicationsSimulationsPropsQuery = query(mqttPublicationsSimulationsPropsCollection);
-  const mqttPublicationsSimulationsPropsQuerySnapshot = await getDocs(mqttPublicationsSimulationsPropsQuery);
-
-  const mqttPublicationsSimulationsProps: MQTTPublicationsSimulationProps[] = [];
-  mqttPublicationsSimulationsPropsQuerySnapshot.forEach((doc) => {
-    const mqttPublicationsSimulationProps = doc.data() as MQTTPublicationsSimulationProps;
-    mqttPublicationsSimulationsProps.push(mqttPublicationsSimulationProps);
-  });
+  
+  const response = await fetch('http://localhost:2999/mqtt-publications-simulations-props');
+  const mqttPublicationsSimulationsProps = await response.json() as MQTTPublicationsSimulationProps[];
 
   mqttPublicationsSimulationsProps.forEach(
     async (mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps) => {
