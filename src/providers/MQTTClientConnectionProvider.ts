@@ -32,6 +32,27 @@ function subscribeMQTTClientToTopic(topic: string, onMessage: (message: string) 
   });
 }
 
+async function subscribeMQTTClientToMeasurementPaths() {
+  if (!mqttClient) {
+    throw new Error('The mqtt client has not been initialized yet.');
+  }
+
+  const measurements = await MeasurementsService.getMeasurements();
+
+  measurements.forEach((measurement) => {
+    const { path } = measurement;
+    mqttClient!.subscribe(path);
+  });
+  
+  mqttClient.on('message', (topic, message) => {
+      const parsedMessage = message.toString();
+      measurements.forEach((measurement) => {
+        const { path } = measurement;
+        mqttClient!.subscribe(path);
+      });
+  });
+}
+
 function getMQTTClient(): MqttClient {
   if (!mqttClient) {
     throw new Error('The mqtt client has not been initialized yet.');
