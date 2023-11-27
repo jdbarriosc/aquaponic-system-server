@@ -1,7 +1,7 @@
-import { collection, query, getDocs, getFirestore, CollectionReference } from "firebase/firestore";
-import Measurement from "../interfaces/Measurement";
-import FirestoreDBCollectionNames from "../constants/FirestoreDBCollectionNames";
-import { querySnapshotToMeasurement } from "../dataMappers/MeasurementsDataMappers";
+import { collection, query, getDocs, getFirestore, CollectionReference } from 'firebase/firestore';
+import Measurement from '../interfaces/Measurement';
+import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
+import { querySnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
 
 class MeasurementsService {
   public static async getMeasurements(): Promise<Measurement[]> {

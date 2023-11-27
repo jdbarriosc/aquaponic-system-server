@@ -1,4 +1,5 @@
-import { MqttClient, connectAsync } from "mqtt";
+import { MqttClient, connectAsync } from 'mqtt';
+import MeasurementsService from '../services/MeasurementsService';
 
 let mqttClient: MqttClient | undefined;
 
@@ -19,10 +20,12 @@ function subscribeMQTTClientToTopic(topic: string, onMessage: (message: string) 
   if (!mqttClient) {
     throw new Error('The mqtt client has not been initialized yet.');
   }
+
+  const measurements = MeasurementsService.getMeasurements();
   
   mqttClient.subscribe(topic);
 
-  mqttClient.on("message", (topic, message) => {
+  mqttClient.on('message', (topic, message) => {
       const parsedMessage = message.toString();
       onMessage(parsedMessage);
 
@@ -50,8 +53,8 @@ export {
   closeMQTTClient,
 };
 
-// mqttClient.subscribe("/AquaponicSystem/FishTankTemperatureSensor/temperature");
+// mqttClient.subscribe('/AquaponicSystem/FishTankTemperatureSensor/temperature');
     
-// mqttClient.on("message", (topic, message) => {
+// mqttClient.on('message', (topic, message) => {
 //     console.log(topic, message.toString(), typeof message);
 // });

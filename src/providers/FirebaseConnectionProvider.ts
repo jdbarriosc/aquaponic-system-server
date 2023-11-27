@@ -1,5 +1,5 @@
-import { FirebaseOptions, initializeApp } from "firebase/app";
-import { collection, query, where, onSnapshot, getFirestore } from "firebase/firestore";
+import { FirebaseOptions, initializeApp } from 'firebase/app';
+import { collection, query, where, onSnapshot, getFirestore } from 'firebase/firestore';
 
 function checkInitializeFirebaseConnectionEnvVariables(): void {
   if (!process.env.FIREBASE_API_KEY) {
@@ -48,7 +48,7 @@ function initializeFirebaseConnection(): void {
 
 function subscribeToSensors(): void {
   const db = getFirestore();
-  const q = query(collection(db, "sensors"));
+  const q = query(collection(db, 'sensors'));
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
     const sensors: any = [];
     querySnapshot.forEach((doc) => {
@@ -63,11 +63,11 @@ export {
   subscribeToSensors,
 };
 
-// import { collection, getDocs, getFirestore } from "firebase/firestore";
+// import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 // const db = getFirestore();
 
-// const querySnapshot = await getDocs(collection(db, "sensors"));
+// const querySnapshot = await getDocs(collection(db, 'sensors'));
 
 // querySnapshot.forEach((doc) => {
 //     console.log(JSON.stringify(doc.data(), null, 2));

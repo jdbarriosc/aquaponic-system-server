@@ -1,7 +1,7 @@
-import { collection, query, getDocs, getFirestore, CollectionReference } from "firebase/firestore";
+import { collection, query, getDocs, getFirestore, CollectionReference } from 'firebase/firestore';
 import MQTTPublicationsSimulationProps from '../interfaces/MQTTPublicationsSimulationProps';
-import FirestoreDBCollectionNames from "../constants/FirestoreDBCollectionNames";
-import { querySnapshotToMQTTPublicationsSimulationsProps } from "../dataMappers/MQTTPublicationsSimulationsPropsDataMappers";
+import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
+import { querySnapshotToMQTTPublicationsSimulationsProps } from '../dataMappers/MQTTPublicationsSimulationsPropsDataMappers';
 
 class MQTTPublicationsSimulationsPropsService {
   public static async getMQTTPublicationsSimulationsProps(): Promise<MQTTPublicationsSimulationProps[]> {

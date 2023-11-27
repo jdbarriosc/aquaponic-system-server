@@ -36,8 +36,6 @@ import { initializeFirebaseConnection, subscribeToSensors } from './providers/Fi
         const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 2999;
 
         app.listen(PORT);
-
-        subscribeToSensors();
     } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);

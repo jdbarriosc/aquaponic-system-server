@@ -1,4 +1,4 @@
-import MQTTPublication from "./MQTTPublication";
+import MQTTPublication from './MQTTPublication';
 
 export enum ValueType {
     STRING = 'STRING',

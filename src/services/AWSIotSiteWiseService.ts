@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import AWSIotSiteWiseAssetPropertyValueVariant from '../constants/AWSIotSiteWiseAssetPropertyValueVariant';
-import { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand, BatchPutAssetPropertyValueRequest } from "@aws-sdk/client-iotsitewise";
+import { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand, BatchPutAssetPropertyValueRequest } from '@aws-sdk/client-iotsitewise';
 
 class AWSIotSiteWiseService {
   public static async postAssetPropertyValueEntry(
