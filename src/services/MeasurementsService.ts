@@ -4,7 +4,7 @@ import FirestoreDBCollectionNames from "../constants/FirestoreDBCollectionNames"
 import { querySnapshotToMeasurement } from "../dataMappers/MeasurementsDataMappers";
 
 class MeasurementsService {
-  public static async getMQTTPublicationsSimulationsProps(): Promise<Measurement[]> {
+  public static async getMeasurements(): Promise<Measurement[]> {
     const measurementsCollection = MeasurementsService.getMeasurementsCollection();
     const measurementsQuery = query(measurementsCollection);
     const measurementsQuerySnapshot = await getDocs(measurementsQuery);
