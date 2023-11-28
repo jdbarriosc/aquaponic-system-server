@@ -1,5 +1,5 @@
 import { FirebaseOptions, initializeApp } from 'firebase/app';
-import { collection, query, onSnapshot, getFirestore, CollectionReference, QuerySnapshot, getDocs } from 'firebase/firestore';
+import { collection, query, onSnapshot, getFirestore, CollectionReference, QuerySnapshot, getDocs, doc, DocumentSnapshot } from 'firebase/firestore';
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 
 function checkInitializeFirebaseConnectionEnvVariables(): void {
@@ -66,15 +66,22 @@ async function getFirestoreDBCollectionDocuments<T>(
   return documents;
 }
 
-function subscribeToSensors(): void {
-  const db = getFirestore();
-  const q = query(collection(db, 'sensors'));
-  const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    const sensors: any = [];
-    querySnapshot.forEach((doc) => {
-      sensors.push(doc.data());
-    });
-    console.log(sensors);
+function subscribeToDocument<T>(
+  collectioName: FirestoreDBCollectionNames,
+  documentId: string,
+  dataMapper: (documentSnapshot: DocumentSnapshot) => T,
+  onDocumentChange: (document: T) => void,
+): void {
+  const firestoreDB = getFirestore();
+  const documentReference = doc(
+      firestoreDB,
+      collectioName,
+      documentId,
+  );
+  
+  onSnapshot(documentReference, (documentSnapshot) => {
+    const document: T = dataMapper(documentSnapshot);
+    onDocumentChange(document);
   });
 }
 
@@ -82,15 +89,5 @@ export {
   initializeFirebaseConnection,
   getFirestoreCollection,
   getFirestoreDBCollectionDocuments,
-  subscribeToSensors,
+  subscribeToDocument,
 };
-
-// import { collection, getDocs, getFirestore } from 'firebase/firestore';
-
-// const db = getFirestore();
-
-// const querySnapshot = await getDocs(collection(db, 'sensors'));
-
-// querySnapshot.forEach((doc) => {
-//     console.log(JSON.stringify(doc.data(), null, 2));
-// });

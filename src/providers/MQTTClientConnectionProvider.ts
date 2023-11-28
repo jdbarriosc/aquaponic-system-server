@@ -1,6 +1,7 @@
 import { MqttClient, connectAsync } from 'mqtt';
 import MeasurementsService from '../services/MeasurementsService';
 import MQTTPublication from '../interfaces/MQTTPublication';
+import Asset from '../factories/Asset';
 
 let mqttClient: MqttClient | undefined;
 
@@ -57,19 +58,8 @@ async function subscribeMQTTClientToMeasurementPaths() {
 
   const measurements = await MeasurementsService.getMeasurements();
 
-  const messageActionParams = [];
-
   measurements.forEach((measurement) => {
-    const { mqttSubscriptionTopic } = measurement;
-    mqttClient!.subscribe(mqttSubscriptionTopic);
-  });
-  
-  mqttClient.on('message', (topic, message) => {
-      const parsedMessage = message.toString();
-      measurements.forEach((measurement) => {
-        const { mqttSubscriptionTopic } = measurement;
-        mqttClient!.subscribe(mqttSubscriptionTopic);
-      });
+    const asset = new Asset(measurement);
   });
 }
 
