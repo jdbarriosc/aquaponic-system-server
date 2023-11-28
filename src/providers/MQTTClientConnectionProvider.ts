@@ -5,15 +5,15 @@ import MQTTPublication from '../interfaces/MQTTPublication';
 let mqttClient: MqttClient | undefined;
 
 function checkInitializeMQTTClientEnvVariables(): void {
-  if (!process.env.MQTT_BROKER_URL) {
-    throw new Error('MQTT_BROKER_URL must be set in env variables for connection to be initialized.');
+  if (!process.env.MQTT_PUBLICATION_BROKER_URL) {
+    throw new Error('MQTT_PUBLICATION_BROKER_URL must be set in env variables for connection to be initialized.');
   }
 }
 
 async function initializeMQTTClient(): Promise<void> {
   if (!mqttClient) {
     checkInitializeMQTTClientEnvVariables();
-    mqttClient = await connectAsync(process.env.MQTT_BROKER_URL!);
+    mqttClient = await connectAsync(process.env.MQTT_PUBLICATION_BROKER_URL!);
   }
 }
 

@@ -1,4 +1,4 @@
-import { valueType } from "./Measurement";
+import { valueType } from './Measurement';
 
 export enum SimulationType {
     STATIC = 'STATIC',
