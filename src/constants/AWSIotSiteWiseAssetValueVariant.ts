@@ -1,8 +1,8 @@
-export enum AWSIotSiteWiseAssetPropertyValueVariant {
+export enum AWSIotSiteWiseAssetValueVariant {
     STRING_VALUE = 'stringValue',
     INTEGER_VALUE = 'integerValue',
     DOUBLE_VALUE = 'doubleValue',
     BOOLEAN_VALUE = 'booleanValue',
 }
 
-export default AWSIotSiteWiseAssetPropertyValueVariant;
+export default AWSIotSiteWiseAssetValueVariant;

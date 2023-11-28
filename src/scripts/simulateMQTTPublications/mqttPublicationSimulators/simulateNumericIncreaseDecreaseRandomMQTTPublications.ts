@@ -1,7 +1,7 @@
-import sleep from '../../../helpers/sleep';
+import sleep from '../../../utils/sleep';
 import { getMQTTClient } from '../../../providers/MQTTClientConnectionProvider';
-import { makeRandomPositiveOrNegative } from '../../../helpers/Random';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
+import { makeNumberRandomPositiveOrNegative } from '../../../factories/NumberFactory';
 
 interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
   startValue: number;
@@ -54,7 +54,7 @@ function calculateNextValue(
   const minValueWasProvided = typeof minValue === 'number';
   const maxValueWasProvided = typeof maxValue === 'number';
 
-  const randomizedValue = currentValue + makeRandomPositiveOrNegative(valueVariationFactor);
+  const randomizedValue = currentValue + makeNumberRandomPositiveOrNegative(valueVariationFactor);
   const decreasedValue = currentValue - valueVariationFactor;
   const increasedValue = currentValue + valueVariationFactor;
 

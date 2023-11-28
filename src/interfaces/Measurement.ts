@@ -19,18 +19,18 @@ export enum ModelShaderColor {
     PURPLE = 'PURPLE', 
 }
 
-interface ActionProps {
+export interface ActionProps {
     mqttPublication?: MQTTPublication;
     iconType?: IconType;
     modelShaderColor?: ModelShaderColor;
 }
 
-interface ValueEqualityActionProps {
+export interface ValueEqualityActionProps {
     value: boolean | string;
     actionProps?: ActionProps;
 }
 
-interface ValueRangeActionProps {
+export interface ValueRangeActionProps {
     minValue?: number;
     maxValue?: number;
     onRangeValueActionProps?: ActionProps;

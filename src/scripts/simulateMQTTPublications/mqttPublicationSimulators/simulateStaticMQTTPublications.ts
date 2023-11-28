@@ -1,4 +1,4 @@
-import sleep from '../../../helpers/sleep';
+import sleep from '../../../utils/sleep';
 import { getMQTTClient } from '../../../providers/MQTTClientConnectionProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 

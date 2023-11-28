@@ -39,6 +39,8 @@ async function subscribeMQTTClientToMeasurementPaths() {
 
   const measurements = await MeasurementsService.getMeasurements();
 
+  const messageActionParams = [];
+
   measurements.forEach((measurement) => {
     const { path } = measurement;
     mqttClient!.subscribe(path);
