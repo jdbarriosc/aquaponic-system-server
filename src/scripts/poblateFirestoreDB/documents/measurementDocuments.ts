@@ -1,4 +1,4 @@
-import Measurement, { IconType, ModelShaderColor, ValueType } from '../../../interfaces/Measurement';
+import Measurement, { IconType, ModelShaderColor, ValueTypeName } from '../../../interfaces/Measurement';
 
 export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: '865b205a-be51-40da-9382-234f93c197cd',
@@ -7,7 +7,7 @@ export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     valueName: 'volumetricFlowRate',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 150,
@@ -32,7 +32,7 @@ export const fishTankWaterLevelSensorHasNeededWaterLevel: Measurement = {
     assetName: 'FishTankWaterLevelSensor',
     valueName: 'hasNeededWaterLevel',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
-    valueType: ValueType.BOOLEAN,
+    valueTypeName: ValueTypeName.BOOLEAN,
     valueEqualityActionsProps: [
         {
             value: true,
@@ -58,7 +58,7 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
     valueName: 'temperature',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
     unit: '°C',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 22,
         maxValue: 32,
@@ -84,7 +84,7 @@ export const fishTankWaterPHSensorPH: Measurement = {
     valueName: 'pH',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterPHSensor/pH',
     unit: 'pH',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 6,
         maxValue: 8.5,
@@ -110,7 +110,7 @@ export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         maxValue: 3,
         onRangeValueActionProps: {
@@ -131,7 +131,7 @@ export const fishTankWaterNitriteSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         maxValue: 1,
         onRangeValueActionProps: {
@@ -152,7 +152,7 @@ export const fishTankWaterNitrateSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         maxValue: 400,
         onRangeValueActionProps: {
@@ -173,7 +173,7 @@ export const fishTankWaterDisolvedOxygenSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 4,
         maxValue: 6,
@@ -199,7 +199,7 @@ export const fishTankWaterElectricConductivitySensorElectricConductivity: Measur
     valueName: 'electricConductivity',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
     unit: 'µS/cm',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 300,
@@ -225,7 +225,7 @@ export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 60,
         maxValue: 140,
@@ -251,7 +251,7 @@ export const fishTankWaterPumpState: Measurement = {
     assetName: 'FishTankWaterPump',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterPump/state',
-    valueType: ValueType.STRING,
+    valueTypeName: ValueTypeName.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
@@ -269,7 +269,7 @@ export const fishTankAirPumpState: Measurement = {
     assetName: 'FishTankAirPump',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankAirPump/state',
-    valueType: ValueType.STRING,
+    valueTypeName: ValueTypeName.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
@@ -287,7 +287,7 @@ export const fishTankWaterHeaterState: Measurement = {
     assetName: 'FishTankWaterHeater',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterHeater/state',
-    valueType: ValueType.STRING,
+    valueTypeName: ValueTypeName.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
@@ -306,7 +306,7 @@ export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
     valueName: 'volumetricFlowRate',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 150,
@@ -331,7 +331,7 @@ export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
     assetName: 'GrowingBedWaterLevelSensor',
     valueName: 'hasNeededWaterLevel',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
-    valueType: ValueType.BOOLEAN,
+    valueTypeName: ValueTypeName.BOOLEAN,
     valueEqualityActionsProps: [
         {
             value: true,
@@ -357,7 +357,7 @@ export const growingBedWaterTemperatureSensorTemperature: Measurement = {
     valueName: 'temperature',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
     unit: '°C',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 22,
         maxValue: 32,
@@ -383,7 +383,7 @@ export const growingBedWaterPHSensorPH: Measurement = {
     valueName: 'pH',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
     unit: 'pH',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 6,
         maxValue: 8.5,
@@ -409,7 +409,7 @@ export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         maxValue: 3,
         onRangeValueActionProps: {
@@ -430,7 +430,7 @@ export const growingBedWaterNitriteSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         maxValue: 1,
         onRangeValueActionProps: {
@@ -451,7 +451,7 @@ export const growingBedWaterNitrateSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         maxValue: 400,
         onRangeValueActionProps: {
@@ -472,7 +472,7 @@ export const growingBedWaterDisolvedOxygenSensorConcentration: Measurement = {
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
     valueName: 'concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 4,
         maxValue: 6,
@@ -498,7 +498,7 @@ export const growingBedWaterElectricConductivitySensorElectricConductivity: Meas
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
     valueName: 'electricConductivity',
     unit: 'µS/cm',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 300,
@@ -524,7 +524,7 @@ export const growingBedWaterCarbonateHardnessSensorConcentration: Measurement = 
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 60,
         maxValue: 140,
@@ -550,7 +550,7 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
     valueName: 'temperature',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
     unit: '°C',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 22,
         maxValue: 32,
@@ -576,7 +576,7 @@ export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
     unit: '%',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 65,
         maxValue: 80,
@@ -602,7 +602,7 @@ export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
     unit: 'ppm',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 800,
         maxValue: 1000,
@@ -628,7 +628,7 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
     valueName: 'photosyntheticallyActiveRadiation',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
     unit: 'μmol·m2·s',
-    valueType: ValueType.NUMBER,
+    valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 20,
         maxValue: 80,
@@ -653,7 +653,7 @@ export const greenHouseLightsState: Measurement = {
     assetName: 'GreenHouseLights',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseLights/state',
-    valueType: ValueType.STRING,
+    valueTypeName: ValueTypeName.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
@@ -671,7 +671,7 @@ export const greenHouseFanSystemState: Measurement = {
     assetName: 'GreenHouseFanSystem',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseFanSystem/state',
-    valueType: ValueType.STRING,
+    valueTypeName: ValueTypeName.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
@@ -689,7 +689,7 @@ export const greenHouseVentsState: Measurement = {
     assetName: 'GreenHouseVents',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseVents/state',
-    valueType: ValueType.STRING,
+    valueTypeName: ValueTypeName.STRING,
     valueEqualityActionsProps: [
         {
             value: 'OPEN',

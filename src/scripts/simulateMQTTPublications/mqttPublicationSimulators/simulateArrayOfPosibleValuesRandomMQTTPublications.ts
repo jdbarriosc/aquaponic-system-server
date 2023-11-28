@@ -1,11 +1,12 @@
 import sleep from '../../../utils/sleep';
+import { valueType } from '../../../interfaces/Measurement';
 import MQTTPublication from '../../../interfaces/MQTTPublication';
 import { mqttPublicate } from '../../../providers/MQTTClientConnectionProvider';
 import { makeRandomNumber } from '../../../factories/NumberFactory';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 
 interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
-  startValue: string | number | boolean;
+  startValue: valueType;
   posibleValues: string[]  | number[] | boolean[];
 }
 

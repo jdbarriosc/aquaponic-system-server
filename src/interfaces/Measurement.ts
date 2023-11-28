@@ -1,6 +1,8 @@
 import MQTTPublication from './MQTTPublication';
 
-export enum ValueType {
+export type valueType = string | number | boolean;
+
+export enum ValueTypeName {
     STRING = 'STRING',
     NUMBER = 'NUMBER', 
     BOOLEAN = 'BOOLEAN', 
@@ -26,7 +28,7 @@ export interface ActionProps {
 }
 
 export interface ValueEqualityActionProps {
-    value: string | number | boolean;
+    value: valueType;
     actionProps?: ActionProps;
 }
 
@@ -45,7 +47,7 @@ interface Measurement {
     valueName: string;
     mqttSubscriptionTopic: string;
     unit?: string;
-    valueType: ValueType;
+    valueTypeName: ValueTypeName;
     valueRangeActionProps?: ValueRangeActionProps;
     valueEqualityActionsProps?: ValueEqualityActionProps[];
 }

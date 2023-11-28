@@ -1,21 +1,28 @@
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import { stringToNumber } from '../factories/NumberFactory';
+import { mqttPublicate } from '../providers/MQTTClientConnectionProvider';
 import AWSIotSiteWiseService from '../services/AWSIotSiteWiseService';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
-import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps } from '../interfaces/Measurement';
+import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps, valueType } from '../interfaces/Measurement';
 import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';
 
 class MeasurementMQTTSubscriptionsHandler {
-  public static async handleMeasurementPathMQTTMessageReceived(message: string, measurement: Measurement): Promise<void> {
-    
+  public static async handleMeasurementPathMQTTMessageReceived(
+    message: string,
+    measurement: Measurement,
+  ): Promise<void> {
+    const { valueTypeName } = measurement;
+    const value = mqttMessageToAWSIotSiteWiseAssetValue(message, valueTypeName);
 
-    await MeasurementMQTTSubscriptionsHandler.handleMeasurementAWSIotSiteWiseAssetValeEntryPosts(message, measurement);
+    await MeasurementMQTTSubscriptionsHandler.handleMeasurementAWSIotSiteWiseAssetValeEntryPosts(value, measurement);
+    MeasurementMQTTSubscriptionsHandler.handleMeasurementMQTTPublications(value, measurement);
   }
 
-  private static async handleMeasurementAWSIotSiteWiseAssetValeEntryPosts(message: string, measurement: Measurement): Promise<void> {
+  private static async handleMeasurementAWSIotSiteWiseAssetValeEntryPosts(
+    value: valueType,
+    measurement: Measurement,
+  ): Promise<void> {
     const {
       workspaceName,
-      valueType,
       assetName,
       valueRangeActionProps,
       valueEqualityActionsProps,
@@ -23,15 +30,14 @@ class MeasurementMQTTSubscriptionsHandler {
 
     const assetValueEntries: PutAssetPropertyValueEntry[] = [];
 
-    const valueAssetValueEntry = MeasurementMQTTSubscriptionsHandler.makeValueAssetValueEntry(message, measurement);
+    const valueAssetValueEntry = MeasurementMQTTSubscriptionsHandler.makeValueAssetValueEntry(value, measurement);
     assetValueEntries.push(valueAssetValueEntry);  
 
-    if (valueRangeActionProps) {
-      const numberValue = stringToNumber(message);
+    if (valueRangeActionProps && typeof value === 'number') {
       const valueRangeActionAssetValueEntries = MeasurementMQTTSubscriptionsHandler.makeValueRangeActionAssetValueEntries(
         workspaceName,
         assetName,
-        numberValue,
+        value,
         valueRangeActionProps,
       );
 
@@ -39,11 +45,10 @@ class MeasurementMQTTSubscriptionsHandler {
     }
 
     if (valueEqualityActionsProps) {
-      const parsedValue = mqttMessageToAWSIotSiteWiseAssetValue(message, valueType);
       const equalityAssetValueEntries = MeasurementMQTTSubscriptionsHandler.makeValueEqualityActionsAssetValueEntries(
         workspaceName,
         assetName,
-        parsedValue,
+        value,
         valueEqualityActionsProps,
       );
 
@@ -53,16 +58,18 @@ class MeasurementMQTTSubscriptionsHandler {
     await AWSIotSiteWiseService.postAssetValueEntries(assetValueEntries);
   }
 
-  private static makeValueAssetValueEntry(message: string, measurement: Measurement): PutAssetPropertyValueEntry {
+  private static makeValueAssetValueEntry(
+    value: valueType,
+    measurement: Measurement,
+  ): PutAssetPropertyValueEntry {
     const {
       workspaceName,
       assetName,
       valueName,
-      valueType,
+      valueTypeName,
     } = measurement;
 
-    const valueVariant = valueTypeToAWSIotSiteWiseAssetValueVariant(valueType);
-    const value = mqttMessageToAWSIotSiteWiseAssetValue(message, valueType);
+    const valueVariant = valueTypeToAWSIotSiteWiseAssetValueVariant(valueTypeName);
     const alias = `/${workspaceName}/${assetName}/${valueName}`;
     const valueAssetValueEntry = makeAssetValueEntry(alias, valueVariant, value);
 
@@ -117,7 +124,7 @@ class MeasurementMQTTSubscriptionsHandler {
   private static makeValueEqualityActionsAssetValueEntries(
     workspaceName: string,
     assetName: string,
-    value: string | number | boolean,
+    value: valueType,
     valueEqualityActionsProps: ValueEqualityActionProps[],
   ): PutAssetPropertyValueEntry[] {
     const assetValueEntries: PutAssetPropertyValueEntry[] = [];
@@ -139,7 +146,7 @@ class MeasurementMQTTSubscriptionsHandler {
   private static makeValueEqualityActionAssetValueEntry(
     workspaceName: string,
     assetName: string,
-    value: string | number | boolean,
+    value: valueType,
     valueEqualityActionProps: ValueEqualityActionProps,
   ): PutAssetPropertyValueEntry[] {
     const {
@@ -169,7 +176,7 @@ class MeasurementMQTTSubscriptionsHandler {
   ): PutAssetPropertyValueEntry[] {
     const {
       iconType,
-      modelShaderColor
+      modelShaderColor,
     } = actionProps;
 
     const assetValueEntries: PutAssetPropertyValueEntry[] = [];
@@ -197,6 +204,96 @@ class MeasurementMQTTSubscriptionsHandler {
     }
 
     return assetValueEntries;
+  }
+
+  private static handleMeasurementMQTTPublications(
+    value: valueType,
+    measurement: Measurement,
+  ): void {
+    const {
+      valueRangeActionProps,
+      valueEqualityActionsProps,
+    } = measurement;
+
+    if (valueRangeActionProps && typeof value === 'number') {
+      MeasurementMQTTSubscriptionsHandler.handleValueRangeActionMQTTPublications(
+        value,
+        valueRangeActionProps,
+      );
+    }
+
+    if (valueEqualityActionsProps) {
+      MeasurementMQTTSubscriptionsHandler.handleValueEqualityActionsMQTTPublications(
+        value,
+        valueEqualityActionsProps,
+      );
+    }
+  }
+
+  private static handleValueRangeActionMQTTPublications(
+    value: number,
+    valueRangeActionProps: ValueRangeActionProps,
+  ): void {
+    const {
+      minValue,
+      maxValue,
+      onRangeValueActionProps,
+      onUnderMinValueActionProps,
+      onOverMaxValueActionProps,
+    } = valueRangeActionProps;
+
+    if (minValue && value < minValue && onUnderMinValueActionProps) {
+      MeasurementMQTTSubscriptionsHandler.handleActionMQTTPublications(
+        onUnderMinValueActionProps,
+      );
+    } else if (maxValue && value > maxValue && onOverMaxValueActionProps) {
+      MeasurementMQTTSubscriptionsHandler.handleActionMQTTPublications(
+        onOverMaxValueActionProps,
+      );
+    } else if (onRangeValueActionProps) {
+      MeasurementMQTTSubscriptionsHandler.handleActionMQTTPublications(
+        onRangeValueActionProps,
+      );
+    }
+  }
+
+
+  private static handleValueEqualityActionsMQTTPublications(
+    value: valueType,
+    valueEqualityActionsProps: ValueEqualityActionProps[],
+  ): void {
+    valueEqualityActionsProps.forEach((valueEqualityActionProps: ValueEqualityActionProps) => {
+      MeasurementMQTTSubscriptionsHandler.handleValueEqualityActionMQTTPublications(
+        value,
+        valueEqualityActionProps,
+      );
+    });
+  }
+
+  private static handleValueEqualityActionMQTTPublications(
+    value: valueType,
+    valueEqualityActionProps: ValueEqualityActionProps,
+  ): void {
+    const {
+      value: currentValue,
+      actionProps,
+    } = valueEqualityActionProps;
+
+    if (value === currentValue && actionProps) {
+      MeasurementMQTTSubscriptionsHandler.handleActionMQTTPublications(
+        actionProps,
+      );
+    }
+  }
+
+  private static handleActionMQTTPublications(
+    actionProps: ActionProps,
+  ): void {
+    const { mqttPublication } = actionProps;
+
+    if (mqttPublication) {
+      mqttPublicate(mqttPublication);
+    }
   }
 }
 

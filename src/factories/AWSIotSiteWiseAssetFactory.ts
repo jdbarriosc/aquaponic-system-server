@@ -1,21 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import { ValueType } from '../interfaces/Measurement';
+import { ValueTypeName, valueType } from '../interfaces/Measurement';
 import { stringToNumber } from './NumberFactory';
 import { stringToBoolean } from './BooleanFactory';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
 
-function valueTypeToAWSIotSiteWiseAssetValueVariant(valueType: ValueType): AWSIotSiteWiseAssetValueVariant {
+function valueTypeToAWSIotSiteWiseAssetValueVariant(valueTypeName: ValueTypeName): AWSIotSiteWiseAssetValueVariant {
   let valueVariant = AWSIotSiteWiseAssetValueVariant.STRING_VALUE;
 
-  switch(valueType) {
-      case ValueType.STRING:
+  switch(valueTypeName) {
+      case ValueTypeName.STRING:
           valueVariant = AWSIotSiteWiseAssetValueVariant.STRING_VALUE;
           break;
-      case ValueType.NUMBER:
+      case ValueTypeName.NUMBER:
           valueVariant = AWSIotSiteWiseAssetValueVariant.DOUBLE_VALUE;
           break;
-      case ValueType.BOOLEAN:
+      case ValueTypeName.BOOLEAN:
           valueVariant = AWSIotSiteWiseAssetValueVariant.BOOLEAN_VALUE;
           break;
       default:
@@ -25,17 +25,17 @@ function valueTypeToAWSIotSiteWiseAssetValueVariant(valueType: ValueType): AWSIo
   return valueVariant;
 }
 
-function mqttMessageToAWSIotSiteWiseAssetValue(message: string, valueType: ValueType): string | number | boolean {
-  let value: string | number | boolean = message;
+function mqttMessageToAWSIotSiteWiseAssetValue(message: string, valueTypeName: ValueTypeName): valueType {
+  let value: valueType = message;
 
-  switch(valueType) {
-      case ValueType.STRING:
+  switch(valueTypeName) {
+      case ValueTypeName.STRING:
           value = message;
           break;
-      case ValueType.NUMBER:
+      case ValueTypeName.NUMBER:
           value = stringToNumber(message);
           break;
-      case ValueType.BOOLEAN:
+      case ValueTypeName.BOOLEAN:
           value = stringToBoolean(message);
           break;
       default:
@@ -48,7 +48,7 @@ function mqttMessageToAWSIotSiteWiseAssetValue(message: string, valueType: Value
 function makeAssetValueEntry(
     propertyAlias: string,
     valueVariant: AWSIotSiteWiseAssetValueVariant,
-    value: string | number | boolean,
+    value: valueType,
 ): PutAssetPropertyValueEntry {
     const entryId = uuidv4();;
     const timeInSeconds = Math.round(new Date().getTime() / 1000);

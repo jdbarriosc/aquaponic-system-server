@@ -1,3 +1,5 @@
+import { valueType } from "./Measurement";
+
 export enum SimulationType {
     STATIC = 'STATIC',
     NUMERIC_RANDOM = 'NUMERIC_RANDOM',
@@ -10,7 +12,7 @@ export enum SimulationType {
 interface MQTTPublicationsSimulationProps {
     mqttPublicationTopic: string;
     simulationType: SimulationType;
-    startValue: string | number | boolean;
+    startValue: valueType;
     msBetweenPublications?: number;
     valueVariationFactor?: number;
     minValue?: number;
