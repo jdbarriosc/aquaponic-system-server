@@ -42,15 +42,15 @@ async function subscribeMQTTClientToMeasurementPaths() {
   const messageActionParams = [];
 
   measurements.forEach((measurement) => {
-    const { path } = measurement;
-    mqttClient!.subscribe(path);
+    const { mqttSubscriptionTopic } = measurement;
+    mqttClient!.subscribe(mqttSubscriptionTopic);
   });
   
   mqttClient.on('message', (topic, message) => {
       const parsedMessage = message.toString();
       measurements.forEach((measurement) => {
-        const { path } = measurement;
-        mqttClient!.subscribe(path);
+        const { mqttSubscriptionTopic } = measurement;
+        mqttClient!.subscribe(mqttSubscriptionTopic);
       });
   });
 }

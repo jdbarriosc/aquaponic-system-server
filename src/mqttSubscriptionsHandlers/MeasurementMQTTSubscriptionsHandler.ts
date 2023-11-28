@@ -54,7 +54,7 @@ class MeasurementMQTTSubscriptionsHandler {
     const {
       workspaceName,
       assetName,
-      name,
+      valueName: name,
       valueType,
     } = measurement;
 

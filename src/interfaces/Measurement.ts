@@ -42,12 +42,11 @@ interface Measurement {
     id: string,
     workspaceName: string,
     assetName: string,
-    name: string;
-    path: string;
+    valueName: string;
+    mqttSubscriptionTopic: string;
     unit?: string;
     valueType: ValueType;
     valueRangeActionProps?: ValueRangeActionProps;
-    // TODO update in DB name
     valueEqualityActionsProps?: ValueEqualityActionProps[];
 }
 

@@ -10,7 +10,7 @@ interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulat
 }
 
 function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsSimulationProps): CheckedMQTTPublicationsSimulationProps {
-  const { topic, startValue, minValue, maxValue } = simulationProps;
+  const { mqttPublicationTopic: topic, startValue, minValue, maxValue } = simulationProps;
   const startValueWasProvided = typeof startValue === 'number';
   const minValueWasProvided = typeof minValue === 'number';
   const maxValueWasProvided = typeof maxValue === 'number';
@@ -66,7 +66,7 @@ async function simulateNumericRandomMQTTPublications(
   const defaultMsBetweenPublications = 2000;
   const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
   const { 
-    topic,
+    mqttPublicationTopic: topic,
     startValue, 
     minValue, 
     maxValue, 

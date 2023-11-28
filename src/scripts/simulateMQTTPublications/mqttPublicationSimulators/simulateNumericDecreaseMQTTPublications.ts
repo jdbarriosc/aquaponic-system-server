@@ -8,7 +8,7 @@ interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulat
 }
 
 function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsSimulationProps): CheckedMQTTPublicationsSimulationProps {
-  const { topic, startValue, valueVariationFactor, minValue, maxValue } = simulationProps;
+  const { mqttPublicationTopic: topic, startValue, valueVariationFactor, minValue, maxValue } = simulationProps;
   const startValueWasProvided = typeof startValue === 'number';
   const minValueWasProvided = typeof minValue === 'number';
   const maxValueWasProvided = typeof maxValue === 'number';
@@ -68,7 +68,7 @@ async function simulateNumericDecreaseMQTTPublications(
   const defaultMsBetweenPublications = 2000;
   const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
   const { 
-    topic,
+    mqttPublicationTopic: topic,
     startValue, 
     valueVariationFactor,
     minValue, 

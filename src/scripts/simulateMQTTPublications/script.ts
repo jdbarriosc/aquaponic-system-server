@@ -9,7 +9,7 @@ import MQTTPublicationsSimulationProps, { SimulationType } from '../../interface
 import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseDecreaseRandomMQTTPublications';
 
 async function script(): Promise<void> {
-  console.log('-- simulate MQTT publications');
+  console.log('-- simulating MQTT publications');
 
   await initializeMQTTClient();
   

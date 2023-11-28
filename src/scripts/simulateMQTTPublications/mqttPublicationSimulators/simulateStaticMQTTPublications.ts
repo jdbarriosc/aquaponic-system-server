@@ -9,7 +9,7 @@ async function simulateStaticMQTTPublications(
   const mqttClient = getMQTTClient(); 
   const defaultMsBetweenPublications = 2000;
   const { 
-    topic,
+    mqttPublicationTopic: topic,
     startValue, 
     msBetweenPublications = defaultMsBetweenPublications,
   } = MQTTPublicationsSimulationProps;

@@ -9,7 +9,7 @@ interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulat
 }
 
 function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsSimulationProps): CheckedMQTTPublicationsSimulationProps {
-  const { topic, posibleValues } = simulationProps;
+  const { mqttPublicationTopic: topic, posibleValues } = simulationProps;
 
   const errorPrefix = `Error in ${topic}\n`;
 
@@ -41,7 +41,7 @@ async function simulateArrayOfPosibleValuesRandomMQTTPublications(
   const defaultMsBetweenPublications = 2000;
   const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
   const { 
-    topic,
+    mqttPublicationTopic: topic,
     startValue,
     posibleValues,  
     msBetweenPublications = defaultMsBetweenPublications,

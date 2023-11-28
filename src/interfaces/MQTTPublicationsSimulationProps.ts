@@ -8,7 +8,7 @@ export enum SimulationType {
 }
 
 interface MQTTPublicationsSimulationProps {
-    topic: string;
+    mqttPublicationTopic: string;
     simulationType: SimulationType;
     startValue: string | number | boolean;
     msBetweenPublications?: number;
