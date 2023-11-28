@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
 import { ValueType } from '../interfaces/Measurement';
 import { stringToNumber } from './NumberFactory';
 import { stringToBoolean } from './BooleanFactory';
+import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
 
 function valueTypeToAWSIotSiteWiseAssetValueVariant(valueType: ValueType): AWSIotSiteWiseAssetValueVariant {
   let valueVariant = AWSIotSiteWiseAssetValueVariant.STRING_VALUE;

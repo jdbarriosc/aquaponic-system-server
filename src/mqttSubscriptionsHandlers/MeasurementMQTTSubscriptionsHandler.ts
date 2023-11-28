@@ -1,12 +1,9 @@
-import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps } from '../interfaces/Measurement';
-import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
-import { querySnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
-import { getFirestoreDBCollectionDocuments } from '../providers/FirebaseConnectionProvider';
-import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';
-import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import AWSIotSiteWiseService from '../services/AWSIotSiteWiseService';
 import { stringToNumber } from '../factories/NumberFactory';
+import AWSIotSiteWiseService from '../services/AWSIotSiteWiseService';
+import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
+import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps } from '../interfaces/Measurement';
+import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';
 
 class MeasurementMQTTSubscriptionsHandler {
   public static async handleMeasurementPathMQTTMessageReceived(message: string, measurement: Measurement): Promise<void> {
