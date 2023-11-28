@@ -1,4 +1,4 @@
-import Measurement, { ActionProps, ValueRangeActionProps } from '../interfaces/Measurement';
+import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps } from '../interfaces/Measurement';
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 import { querySnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
 import { getFirestoreDBCollectionDocuments } from '../providers/FirebaseConnectionProvider';
@@ -12,11 +12,10 @@ class MeasurementMQTTSubscriptionsHandler {
   public static async handleMeasurementPathMQTTMessageReceived(message: string, measurement: Measurement): Promise<void> {
     const {
       workspaceName,
-      assetName,
-      name,
       valueType,
+      assetName,
       valueRangeActionProps,
-      valueEqualityActionProps,
+      valueEqualityActionsProps,
     } = measurement;
 
     const assetValueEntries: PutAssetPropertyValueEntry[] = [];
@@ -26,7 +25,7 @@ class MeasurementMQTTSubscriptionsHandler {
 
     if (valueRangeActionProps) {
       const numberValue = stringToNumber(message);
-      const rangeAssetValueEntries = MeasurementMQTTSubscriptionsHandler.getAssetValueRangeEntries(
+      const rangeAssetValueEntries = MeasurementMQTTSubscriptionsHandler.getRangeAssetValueEntries(
         workspaceName,
         assetName,
         numberValue,
@@ -34,6 +33,18 @@ class MeasurementMQTTSubscriptionsHandler {
       );
 
       assetValueEntries.push(...rangeAssetValueEntries);
+    }
+
+    if (valueEqualityActionsProps) {
+      const parsedValue = mqttMessageToAWSIotSiteWiseAssetValue(message, valueType);
+      const equalityAssetValueEntries = MeasurementMQTTSubscriptionsHandler.getEqualityActionsAssetValueEntries(
+        workspaceName,
+        assetName,
+        parsedValue,
+        valueEqualityActionsProps,
+      );
+
+      assetValueEntries.push(...equalityAssetValueEntries);
     }
 
     await AWSIotSiteWiseService.postAssetValueEntries(assetValueEntries);
@@ -55,7 +66,7 @@ class MeasurementMQTTSubscriptionsHandler {
     return valueAssetValueEntry;
   }
 
-  private static getAssetValueRangeEntries(
+  private static getRangeAssetValueEntries(
     workspaceName: string,
     assetName: string,
     value: number,
@@ -72,7 +83,7 @@ class MeasurementMQTTSubscriptionsHandler {
     const assetValueEntries: PutAssetPropertyValueEntry[] = [];
 
     if (minValue && value < minValue && onUnderMinValueActionProps) {
-      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsEntries(
+      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsAssetValueEntries(
         workspaceName,
         assetName,
         onUnderMinValueActionProps,
@@ -80,7 +91,7 @@ class MeasurementMQTTSubscriptionsHandler {
 
       assetValueEntries.push(...actionPropsAssetValueEntries);
     } else if (maxValue && value > maxValue && onOverMaxValueActionProps) {
-      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsEntries(
+      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsAssetValueEntries(
         workspaceName,
         assetName,
         onOverMaxValueActionProps,
@@ -88,7 +99,7 @@ class MeasurementMQTTSubscriptionsHandler {
 
       assetValueEntries.push(...actionPropsAssetValueEntries);
     } else if (onRangeValueActionProps) {
-      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsEntries(
+      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsAssetValueEntries(
         workspaceName,
         assetName,
         onRangeValueActionProps,
@@ -100,7 +111,55 @@ class MeasurementMQTTSubscriptionsHandler {
     return assetValueEntries;
   }
 
-  private static geActionPropsEntries(
+  private static getEqualityActionsAssetValueEntries(
+    workspaceName: string,
+    assetName: string,
+    value: string | number | boolean,
+    valueEqualityActionsProps: ValueEqualityActionProps[],
+  ): PutAssetPropertyValueEntry[] {
+    const assetValueEntries: PutAssetPropertyValueEntry[] = [];
+
+    valueEqualityActionsProps.forEach((valueEqualityActionProps: ValueEqualityActionProps) => {
+      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.getEqualityActionAssetValueEntry(
+        workspaceName,
+        assetName,
+        value,
+        valueEqualityActionProps,
+      );
+
+      assetValueEntries.push(...actionPropsAssetValueEntries);  
+    });
+
+    return assetValueEntries;
+  }
+
+  private static getEqualityActionAssetValueEntry(
+    workspaceName: string,
+    assetName: string,
+    value: string | number | boolean,
+    valueEqualityActionProps: ValueEqualityActionProps,
+  ): PutAssetPropertyValueEntry[] {
+    const {
+      value: currentValue,
+      actionProps,
+    } = valueEqualityActionProps;
+
+    const assetValueEntries: PutAssetPropertyValueEntry[] = [];
+
+    if (value === currentValue && actionProps) {
+      const actionPropsAssetValueEntries = MeasurementMQTTSubscriptionsHandler.geActionPropsAssetValueEntries(
+        workspaceName,
+        assetName,
+        actionProps,
+      );
+
+      assetValueEntries.push(...actionPropsAssetValueEntries);
+    }
+
+    return assetValueEntries;
+  }
+
+  private static geActionPropsAssetValueEntries(
     workspaceName: string,
     assetName: string,
     actionProps: ActionProps,

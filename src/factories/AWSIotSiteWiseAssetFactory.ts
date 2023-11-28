@@ -5,33 +5,6 @@ import { ValueType } from '../interfaces/Measurement';
 import { stringToNumber } from './NumberFactory';
 import { stringToBoolean } from './BooleanFactory';
 
-function makeAssetValueEntry(
-    propertyAlias: string,
-    valueVariant: AWSIotSiteWiseAssetValueVariant,
-    value: string | number | boolean,
-): PutAssetPropertyValueEntry {
-    const entryId = uuidv4();;
-    const timeInSeconds = Math.round(new Date().getTime() / 1000);
-
-    const assetValueEntry: PutAssetPropertyValueEntry = { 
-        entryId,
-        propertyAlias,
-        propertyValues: [
-          { 
-            value: { 
-              [valueVariant]: value,
-            },
-            timestamp: {
-              timeInSeconds,
-            },
-            quality: 'GOOD',
-          },
-        ],
-      };
-
-    return assetValueEntry;
-}
-
 function valueTypeToAWSIotSiteWiseAssetValueVariant(valueType: ValueType): AWSIotSiteWiseAssetValueVariant {
   let valueVariant = AWSIotSiteWiseAssetValueVariant.STRING_VALUE;
 
@@ -72,8 +45,35 @@ function mqttMessageToAWSIotSiteWiseAssetValue(message: string, valueType: Value
   return value;
 }
 
+function makeAssetValueEntry(
+    propertyAlias: string,
+    valueVariant: AWSIotSiteWiseAssetValueVariant,
+    value: string | number | boolean,
+): PutAssetPropertyValueEntry {
+    const entryId = uuidv4();;
+    const timeInSeconds = Math.round(new Date().getTime() / 1000);
+
+    const assetValueEntry: PutAssetPropertyValueEntry = { 
+        entryId,
+        propertyAlias,
+        propertyValues: [
+          { 
+            value: { 
+              [valueVariant]: value,
+            },
+            timestamp: {
+              timeInSeconds,
+            },
+            quality: 'GOOD',
+          },
+        ],
+      };
+
+    return assetValueEntry;
+}
+
 export {
-    makeAssetValueEntry,
-    valueTypeToAWSIotSiteWiseAssetValueVariant,
-    mqttMessageToAWSIotSiteWiseAssetValue,
+  valueTypeToAWSIotSiteWiseAssetValueVariant,
+  mqttMessageToAWSIotSiteWiseAssetValue,
+  makeAssetValueEntry,
 };

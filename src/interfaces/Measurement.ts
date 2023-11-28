@@ -26,7 +26,7 @@ export interface ActionProps {
 }
 
 export interface ValueEqualityActionProps {
-    value: boolean | string;
+    value: string | number | boolean;
     actionProps?: ActionProps;
 }
 
@@ -47,7 +47,8 @@ interface Measurement {
     unit?: string;
     valueType: ValueType;
     valueRangeActionProps?: ValueRangeActionProps;
-    valueEqualityActionProps?: ValueEqualityActionProps[];
+    // TODO update in DB name
+    valueEqualityActionsProps?: ValueEqualityActionProps[];
 }
 
 export default Measurement;
