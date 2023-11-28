@@ -1,12 +1,11 @@
 import sleep from '../../../utils/sleep';
-import { getMQTTClient } from '../../../providers/MQTTClientConnectionProvider';
+import MQTTPublication from '../../../interfaces/MQTTPublication';
+import { mqttPublicate } from '../../../providers/MQTTClientConnectionProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
-
 
 async function simulateStaticMQTTPublications(
   MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
-  const mqttClient = getMQTTClient(); 
   const defaultMsBetweenPublications = 2000;
   const { 
     mqttPublicationTopic: topic,
@@ -17,8 +16,14 @@ async function simulateStaticMQTTPublications(
   console.log(`-- simulate static ${topic} publications`);
 
   while (true) {
-    mqttClient.publish(topic, startValue.toString());
-    console.log(`published: ('${topic}', ${startValue})`);
+    const mqttPublication: MQTTPublication = {
+      topic,
+      message: startValue.toString(),
+    }
+    
+    mqttPublicate(mqttPublication);
+
+    console.log(`published: ('${mqttPublication.topic}', ${mqttPublication.message})`);
 
     await sleep(msBetweenPublications);
   }     

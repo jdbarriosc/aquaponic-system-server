@@ -1,5 +1,6 @@
 import sleep from '../../../utils/sleep';
-import { getMQTTClient } from '../../../providers/MQTTClientConnectionProvider';
+import MQTTPublication from '../../../interfaces/MQTTPublication';
+import { mqttPublicate } from '../../../providers/MQTTClientConnectionProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 import { makeNumberRandomPositiveOrNegative } from '../../../factories/NumberFactory';
 
@@ -76,7 +77,6 @@ function calculateNextValue(
 async function simulateNumericIncreaseDecreaseRandomMQTTPublications(
   MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
-  const mqttClient = getMQTTClient(); 
   const defaultMsBetweenPublications = 2000;
   const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
   const { 
@@ -92,8 +92,14 @@ async function simulateNumericIncreaseDecreaseRandomMQTTPublications(
 
   let currentValue = startValue;
   while (true) {
-    mqttClient.publish(topic, currentValue.toString());
-    console.log(`published: ('${topic}', ${currentValue})`);
+    const mqttPublication: MQTTPublication = {
+      topic,
+      message: currentValue.toString(),
+    }
+    
+    mqttPublicate(mqttPublication);
+
+    console.log(`published: ('${mqttPublication.topic}', ${mqttPublication.message})`);
 
     currentValue = calculateNextValue(currentValue, valueVariationFactor, minValue, maxValue);
 

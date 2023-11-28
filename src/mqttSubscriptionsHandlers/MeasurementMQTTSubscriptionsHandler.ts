@@ -7,6 +7,12 @@ import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeTo
 
 class MeasurementMQTTSubscriptionsHandler {
   public static async handleMeasurementPathMQTTMessageReceived(message: string, measurement: Measurement): Promise<void> {
+    
+
+    await MeasurementMQTTSubscriptionsHandler.handleMeasurementAWSIotSiteWiseAssetValeEntryPosts(message, measurement);
+  }
+
+  private static async handleMeasurementAWSIotSiteWiseAssetValeEntryPosts(message: string, measurement: Measurement): Promise<void> {
     const {
       workspaceName,
       valueType,
@@ -51,13 +57,13 @@ class MeasurementMQTTSubscriptionsHandler {
     const {
       workspaceName,
       assetName,
-      valueName: name,
+      valueName,
       valueType,
     } = measurement;
 
     const valueVariant = valueTypeToAWSIotSiteWiseAssetValueVariant(valueType);
     const value = mqttMessageToAWSIotSiteWiseAssetValue(message, valueType);
-    const alias = `/${workspaceName}/${assetName}/${name}`;
+    const alias = `/${workspaceName}/${assetName}/${valueName}`;
     const valueAssetValueEntry = makeAssetValueEntry(alias, valueVariant, value);
 
     return valueAssetValueEntry;

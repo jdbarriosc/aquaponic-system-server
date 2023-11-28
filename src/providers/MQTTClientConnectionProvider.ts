@@ -1,5 +1,6 @@
 import { MqttClient, connectAsync } from 'mqtt';
 import MeasurementsService from '../services/MeasurementsService';
+import MQTTPublication from '../interfaces/MQTTPublication';
 
 let mqttClient: MqttClient | undefined;
 
@@ -14,6 +15,23 @@ async function initializeMQTTClient(): Promise<void> {
     checkInitializeMQTTClientEnvVariables();
     mqttClient = await connectAsync(process.env.MQTT_BROKER_URL!);
   }
+}
+
+function getMQTTClient(): MqttClient {
+  if (!mqttClient) {
+    throw new Error('The mqtt client has not been initialized yet.');
+  }
+
+  return mqttClient;
+}
+
+function mqttPublicate(mqttPublication: MQTTPublication): void {
+  if (!mqttClient) {
+    throw new Error('The mqtt client has not been initialized yet.');
+  }
+
+  const { topic, message } = mqttPublication;
+  mqttClient.publish(topic, message);
 }
 
 function subscribeMQTTClientToTopic(topic: string, onMessage: (message: string) => {}) {
@@ -55,14 +73,6 @@ async function subscribeMQTTClientToMeasurementPaths() {
   });
 }
 
-function getMQTTClient(): MqttClient {
-  if (!mqttClient) {
-    throw new Error('The mqtt client has not been initialized yet.');
-  }
-
-  return mqttClient;
-}
-
 function closeMQTTClient(): void {
   if (mqttClient) {
     mqttClient.end();
@@ -73,6 +83,7 @@ function closeMQTTClient(): void {
 export {
   initializeMQTTClient,
   getMQTTClient,
+  mqttPublicate,
   closeMQTTClient,
 };
 
