@@ -14,6 +14,7 @@ import { initializeMQTTClient, subscribeMQTTClientToMeasurementPaths } from './p
     try {
         initializeFirebaseConnection();
         await initializeMQTTClient();
+        subscribeMQTTClientToMeasurementPaths();
 
         const app = new Koa();
 
@@ -36,8 +37,6 @@ import { initializeMQTTClient, subscribeMQTTClientToMeasurementPaths } from './p
         const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 2999;
 
         app.listen(PORT);
-
-        subscribeMQTTClientToMeasurementPaths();
     } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);
