@@ -42,7 +42,7 @@ class Asset {
 
     public async handleMQTTSubscriptionTopicMessage(message: string): Promise<void> {
         const { mqttSubscriptionTopic } = this.measurement;
-        console.log(`received: ('${mqttSubscriptionTopic}', ${message}), ${this.measurement.valueName}`);
+        console.log(`received: ('${mqttSubscriptionTopic}', ${message})`);
     } 
 }
 

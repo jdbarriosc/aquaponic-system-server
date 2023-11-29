@@ -1,5 +1,5 @@
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import { mqttPublicate } from '../providers/MQTTClientConnectionProvider';
+import { mqttPublicate } from '../providers/MQTTPublicationProvider';
 import AWSIotSiteWiseService from '../services/AWSIotSiteWiseService';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
 import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps, valueType } from '../interfaces/Measurement';

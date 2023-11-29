@@ -8,12 +8,12 @@ import bodyParser from 'koa-bodyparser';
 import handleErrors from './middleware/handleErrors';
 import corsOriginHandler from './middleware/corsOriginHandler';
 import { initializeFirebaseConnection } from './providers/FirebaseConnectionProvider';
-import { initializeMQTTClient, subscribeMQTTClientToMeasurementPaths } from './providers/MQTTClientConnectionProvider';
+import { initializeMQTTSubscriptionClient, subscribeMQTTClientToMeasurementPaths } from './providers/MQTTSubscriptionProvider';
 
 (async function runServer(): Promise<void> {
     try {
         initializeFirebaseConnection();
-        await initializeMQTTClient();
+        await initializeMQTTSubscriptionClient();
         subscribeMQTTClientToMeasurementPaths();
 
         const app = new Koa();

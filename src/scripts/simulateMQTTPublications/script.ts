@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { initializeMQTTClient } from '../../providers/MQTTClientConnectionProvider';
+import { initializeMQTTPublicationClient } from '../../providers/MQTTPublicationProvider';
 import simulateStaticMQTTPublications from './mqttPublicationSimulators/simulateStaticMQTTPublications';
 import simulateNumericRandomMQTTPublications from './mqttPublicationSimulators/simulateNumericRandomMQTTPublications';
 import simulateNumericIncreaseMQTTPublications from './mqttPublicationSimulators/simulateNumericIncreaseMQTTPublications';
@@ -11,7 +11,7 @@ import simulateNumericIncreaseDecreaseRandomMQTTPublications from './mqttPublica
 async function script(): Promise<void> {
   console.log('-- simulating MQTT publications');
 
-  await initializeMQTTClient();
+  await initializeMQTTPublicationClient();
   
   const response = await fetch('http://localhost:2999/mqtt-publications-simulations-props');
   const mqttPublicationsSimulationsProps = await response.json() as MQTTPublicationsSimulationProps[];

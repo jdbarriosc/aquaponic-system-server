@@ -1,6 +1,6 @@
 import sleep from '../../../utils/sleep';
 import MQTTPublication from '../../../interfaces/MQTTPublication';
-import { mqttPublicate } from '../../../providers/MQTTClientConnectionProvider';
+import { mqttPublicate } from '../../../providers/MQTTPublicationProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 
 async function simulateStaticMQTTPublications(
