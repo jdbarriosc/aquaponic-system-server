@@ -1,11 +1,4 @@
 import { MqttClient, connectAsync } from 'mqtt';
-import Asset from '../factories/Asset';
-import Measurement from '../interfaces/Measurement';
-import MeasurementsService from '../services/MeasurementsService';
-
-interface MQTTSubsctiptionTopicsOnMessage {
-  [key: string]: (message: string) => Promise<void> | undefined;
-}
 
 let mqttSubscriptionClient: MqttClient | null = null;
 
@@ -43,31 +36,6 @@ async function setMQTTOnMessage(
   });
 }
 
-async function subscribeMQTTClientToMeasurementPaths() {
-  const measurements = await MeasurementsService.getMeasurements();
-  const mqttSubsctiptionTopicsOnMessage: MQTTSubsctiptionTopicsOnMessage = {};
-
-  measurements.forEach((measurement: Measurement) => {
-    const { mqttSubscriptionTopic } = measurement;
-    subscribeToMQTTTopic(mqttSubscriptionTopic);
-
-    const asset = new Asset(measurement);
-    asset.subscribeToFirestoreMeasurement();
-
-    const onMessage = (message: string) => asset.handleMQTTSubscriptionTopicMessage(message);
-    mqttSubsctiptionTopicsOnMessage[mqttSubscriptionTopic] = onMessage;
-  });
-
-  const onMessage = (topic: string, message: string) => {
-    if (mqttSubsctiptionTopicsOnMessage[topic]) {
-      const mqttSubsctiptionTopicOnMessage = mqttSubsctiptionTopicsOnMessage[topic];
-      mqttSubsctiptionTopicOnMessage(message);
-    }
-  };
-
-  setMQTTOnMessage(onMessage);
-}
-
 function closeMQTTClient(): void {
   if (mqttSubscriptionClient) {
     mqttSubscriptionClient.end();
@@ -77,6 +45,7 @@ function closeMQTTClient(): void {
 
 export {
   initializeMQTTSubscriptionClient,
-  subscribeMQTTClientToMeasurementPaths,
+  subscribeToMQTTTopic,
+  setMQTTOnMessage,
   closeMQTTClient,
 };
