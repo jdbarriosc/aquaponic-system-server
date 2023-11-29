@@ -16,7 +16,6 @@ class Asset {
         const { id } = this.measurement;
         const onMeasurementChange = (measurement: Measurement) => {
             this.measurement = measurement;
-            console.log(this.measurement);
         };
 
         subscribeToFirestoreDocument<Measurement>(
@@ -29,7 +28,9 @@ class Asset {
 
     public async initializeMQTTSubscriptionClient(): Promise<void> {
         const { mqttSubscriptionTopic } = this.measurement;
-        const onMessage = (message: string) => console.log(message);
+        const onMessage = (topic: string, message: string) => {
+            console.log(`received: ('${topic}', ${message})`);
+        };
 
 
         this.mqttSubscriptionClient = new MQTTSubscriptionClient(
@@ -37,6 +38,11 @@ class Asset {
             onMessage,
         );
         await this.mqttSubscriptionClient.initialize();
+    } 
+
+    public async handleMQTTSubscriptionTopicMessage(message: string): Promise<void> {
+        const { mqttSubscriptionTopic } = this.measurement;
+        console.log(`received: ('${mqttSubscriptionTopic}', ${message}), ${this.measurement.valueName}`);
     } 
 }
 

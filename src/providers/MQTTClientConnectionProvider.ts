@@ -2,6 +2,14 @@ import { MqttClient, connectAsync } from 'mqtt';
 import Asset from '../factories/Asset';
 import MQTTPublication from '../interfaces/MQTTPublication';
 import MeasurementsService from '../services/MeasurementsService';
+import sequentialAsyncForEach from '../utils/sequentialAsyncForEach';
+import Measurement from '../interfaces/Measurement';
+import sleep from '../utils/sleep';
+import MQTTSubscriptionClient from '../factories/MQTTSubscriptionClient';
+
+interface MQTTSubsctiptionTopicsOnMessage {
+  [key: string]: (message: string) => Promise<void> | undefined;
+}
 
 let mqttClient: MqttClient | undefined;
 
@@ -41,14 +49,33 @@ async function subscribeMQTTClientToMeasurementPaths() {
   }
 
   const measurements = await MeasurementsService.getMeasurements();
+  const mqttSubsctiptionTopicsOnMessage: MQTTSubsctiptionTopicsOnMessage = {};
 
-  measurements.forEach(
-    async (measurement) => {
-      const asset = new Asset(measurement);
-      asset.subscribeToFirestoreMeasurement();
-      await asset.initializeMQTTSubscriptionClient();
-    },
-  );
+  measurements.forEach((measurement: Measurement) => {
+    const { mqttSubscriptionTopic } = measurement;
+    console.log(mqttSubscriptionTopic);
+
+    mqttClient!.subscribe(mqttSubscriptionTopic);
+
+    const asset = new Asset(measurement);
+    asset.subscribeToFirestoreMeasurement();
+
+    const onMessage = (message: string) => asset.handleMQTTSubscriptionTopicMessage(message);
+    mqttSubsctiptionTopicsOnMessage[mqttSubscriptionTopic] = onMessage;
+  });
+
+  const onMessage = (topic: string, message: string) => {
+    console.log(`switch received: ('${topic}', ${message})`);
+    if (mqttSubsctiptionTopicsOnMessage[topic]) {
+      const mqttSubsctiptionTopicOnMessage = mqttSubsctiptionTopicsOnMessage[topic];
+      mqttSubsctiptionTopicOnMessage(message);
+    }
+  };
+
+  mqttClient.on('message', (topic, message) => {
+    const parsedMessage = message.toString();
+    onMessage(topic, parsedMessage);
+  });
 }
 
 function closeMQTTClient(): void {
