@@ -54,10 +54,10 @@ class MeasurementSubscription {
 
         if (valueRangeActionProps && typeof value === 'number') {
             const valueRangeActionAssetValueEntries = MeasurementSubscription.makeValueRangeActionAssetValueEntries(
-            workspaceName,
-            assetName,
-            value,
-            valueRangeActionProps,
+                workspaceName,
+                assetName,
+                value,
+                valueRangeActionProps,
             );
 
             assetValueEntries.push(...valueRangeActionAssetValueEntries);
@@ -65,10 +65,10 @@ class MeasurementSubscription {
 
         if (valueEqualityActionsProps) {
             const equalityAssetValueEntries = MeasurementSubscription.makeValueEqualityActionsAssetValueEntries(
-            workspaceName,
-            assetName,
-            value,
-            valueEqualityActionsProps,
+                workspaceName,
+                assetName,
+                value,
+                valueEqualityActionsProps,
             );
 
             assetValueEntries.push(...equalityAssetValueEntries);
@@ -112,25 +112,25 @@ class MeasurementSubscription {
 
         if (minValue && value < minValue && onUnderMinValueActionProps) {
             const actionAssetValueEntries = MeasurementSubscription.makeActionAssetValueEntries(
-            workspaceName,
-            assetName,
-            onUnderMinValueActionProps,
+                workspaceName,
+                assetName,
+                onUnderMinValueActionProps,
             );
 
             assetValueEntries.push(...actionAssetValueEntries);
         } else if (maxValue && value > maxValue && onOverMaxValueActionProps) {
             const actionAssetValueEntries = MeasurementSubscription.makeActionAssetValueEntries(
-            workspaceName,
-            assetName,
-            onOverMaxValueActionProps,
+                workspaceName,
+                assetName,
+                onOverMaxValueActionProps,
             );
 
             assetValueEntries.push(...actionAssetValueEntries);
         } else if (onRangeValueActionProps) {
             const actionAssetValueEntries = MeasurementSubscription.makeActionAssetValueEntries(
-            workspaceName,
-            assetName,
-            onRangeValueActionProps,
+                workspaceName,
+                assetName,
+                onRangeValueActionProps,
             );
 
             assetValueEntries.push(...actionAssetValueEntries);
@@ -149,10 +149,10 @@ class MeasurementSubscription {
 
         valueEqualityActionsProps.forEach((valueEqualityActionProps: ValueEqualityActionProps) => {
             const actionAssetValueEntries = MeasurementSubscription.makeValueEqualityActionAssetValueEntry(
-            workspaceName,
-            assetName,
-            value,
-            valueEqualityActionProps,
+                workspaceName,
+                assetName,
+                value,
+                valueEqualityActionProps,
             );
 
             assetValueEntries.push(...actionAssetValueEntries);  
@@ -176,9 +176,9 @@ class MeasurementSubscription {
 
         if (value === currentValue && actionProps) {
             const actionAssetValueEntries = MeasurementSubscription.makeActionAssetValueEntries(
-            workspaceName,
-            assetName,
-            actionProps,
+                workspaceName,
+                assetName,
+                actionProps,
             );
 
             assetValueEntries.push(...actionAssetValueEntries);
@@ -202,9 +202,9 @@ class MeasurementSubscription {
         if (iconType) {
             const iconTypePath = `/${workspaceName}/${assetName}/iconType`;
             const iconTypeAssetValueEntry = makeAssetValueEntry(
-            iconTypePath,
-            AWSIotSiteWiseAssetValueVariant.STRING_VALUE,
-            iconType,
+                iconTypePath,
+                AWSIotSiteWiseAssetValueVariant.STRING_VALUE,
+                iconType,
             );
 
             assetValueEntries.push(iconTypeAssetValueEntry);
@@ -213,9 +213,9 @@ class MeasurementSubscription {
         if (modelShaderColor) {
             const modelShaderColorPath = `/${workspaceName}/${assetName}/modelShaderColor`;
             const modelShaderColorAssetValueEntry = makeAssetValueEntry(
-            modelShaderColorPath,
-            AWSIotSiteWiseAssetValueVariant.STRING_VALUE,
-            modelShaderColor,
+                modelShaderColorPath,
+                AWSIotSiteWiseAssetValueVariant.STRING_VALUE,
+                modelShaderColor,
             );
 
             assetValueEntries.push(modelShaderColorAssetValueEntry);
@@ -234,15 +234,15 @@ class MeasurementSubscription {
 
         if (valueRangeActionProps && typeof value === 'number') {
             MeasurementSubscription.handleValueRangeActionMQTTPublications(
-            value,
-            valueRangeActionProps,
+                value,
+                valueRangeActionProps,
             );
         }
 
         if (valueEqualityActionsProps) {
             MeasurementSubscription.handleValueEqualityActionsMQTTPublications(
-            value,
-            valueEqualityActionsProps,
+                value,
+                valueEqualityActionsProps,
             );
         }
     }
@@ -261,15 +261,15 @@ class MeasurementSubscription {
 
         if (minValue && value < minValue && onUnderMinValueActionProps) {
             MeasurementSubscription.handleActionMQTTPublications(
-            onUnderMinValueActionProps,
+                onUnderMinValueActionProps,
             );
         } else if (maxValue && value > maxValue && onOverMaxValueActionProps) {
             MeasurementSubscription.handleActionMQTTPublications(
-            onOverMaxValueActionProps,
+                onOverMaxValueActionProps,
             );
         } else if (onRangeValueActionProps) {
             MeasurementSubscription.handleActionMQTTPublications(
-            onRangeValueActionProps,
+                onRangeValueActionProps,
             );
         }
     }
@@ -280,16 +280,16 @@ class MeasurementSubscription {
     ): void {
         valueEqualityActionsProps.forEach((valueEqualityActionProps: ValueEqualityActionProps) => {
             MeasurementSubscription.handleValueEqualityActionMQTTPublications(
-            value,
-            valueEqualityActionProps,
+                value,
+                valueEqualityActionProps,
             );
         });
-        }
+    }
 
-        private static handleValueEqualityActionMQTTPublications(
+    private static handleValueEqualityActionMQTTPublications(
         value: valueType,
         valueEqualityActionProps: ValueEqualityActionProps,
-        ): void {
+    ): void {
         const {
             value: currentValue,
             actionProps,
@@ -297,14 +297,14 @@ class MeasurementSubscription {
 
         if (value === currentValue && actionProps) {
             MeasurementSubscription.handleActionMQTTPublications(
-            actionProps,
+                actionProps,
             );
         }
-        }
+    }
 
-        private static handleActionMQTTPublications(
+    private static handleActionMQTTPublications(
         actionProps: ActionProps,
-        ): void {
+    ): void {
         const { mqttPublication } = actionProps;
 
         if (mqttPublication) {
