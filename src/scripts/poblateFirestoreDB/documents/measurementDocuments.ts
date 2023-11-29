@@ -69,6 +69,10 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
         onUnderMinValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.BLUE,
+            mqttPublication: {
+                topic: '/AquaponicSystem/FishTankWaterHeater/state',
+                message: 'ON',
+            },
         },
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
@@ -561,10 +565,18 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
         onUnderMinValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.BLUE,
+            mqttPublication: {
+                topic: '/AquaponicSystem/GreenHouseAirHeater/state',
+                message: 'ON',
+            },
         },
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
+            mqttPublication: {
+                topic: '/AquaponicSystem/GreenHouseFanSystem/state',
+                message: 'ON',
+            },
         },
     },
 };
@@ -591,6 +603,10 @@ export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
+            mqttPublication: {
+                topic: '/AquaponicSystem/GreenHouseFanSystem/state',
+                message: 'ON',
+            },
         },
     },
 };
@@ -617,6 +633,10 @@ export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
+            mqttPublication: {
+                topic: '/AquaponicSystem/GreenHouseFanSystem/state',
+                message: 'ON',
+            },
         },
     },
 };
@@ -631,7 +651,6 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
     valueTypeName: ValueTypeName.NUMBER,
     valueRangeActionProps: {
         minValue: 20,
-        maxValue: 80,
         onRangeValueActionProps: {
             iconType: IconType.INFO,
             modelShaderColor: ModelShaderColor.GREEN,
@@ -639,10 +658,10 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
         onUnderMinValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.BLUE,
-        },
-        onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            mqttPublication: {
+                topic: '/AquaponicSystem/GreenHouseLights/state',
+                message: 'ON',
+            },
         },
     },
 };
@@ -678,6 +697,10 @@ export const greenHouseFanSystemState: Measurement = {
             actionProps: {
                 iconType: IconType.INFO,
                 modelShaderColor: ModelShaderColor.GREEN,
+                mqttPublication: {
+                    topic: '/AquaponicSystem/GreenHouseVents/state',
+                    message: 'OPEN',
+                },
             },
         },
     ],
@@ -693,6 +716,24 @@ export const greenHouseVentsState: Measurement = {
     valueEqualityActionsProps: [
         {
             value: 'OPEN',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+    ],
+};
+
+export const greenHouseAirHeaterState: Measurement = {
+    id: 'fbb648d9-98d9-4f7d-8b45-3fa885131585',
+    workspaceName: 'AquaponicSystem',
+    assetName: 'GreenHouseAirHeater',
+    valueName: 'state',
+    mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirHeater/state',
+    valueTypeName: ValueTypeName.STRING,
+    valueEqualityActionsProps: [
+        {
+            value: 'ON',
             actionProps: {
                 iconType: IconType.INFO,
                 modelShaderColor: ModelShaderColor.GREEN,
@@ -732,6 +773,7 @@ const measurementDocuments: Measurement[] = [
     greenHouseLightsState,
     greenHouseFanSystemState,
     greenHouseVentsState,
+    greenHouseAirHeaterState,
 ];
 
 export default measurementDocuments;
