@@ -22,19 +22,34 @@ async function initializeMQTTSubscriptionClient(): Promise<void> {
   }
 }
 
-async function subscribeMQTTClientToMeasurementPaths() {
+async function subscribeToMQTTTopic(mqttSubscriptionTopic: string) {
   if (!mqttSubscriptionClient) {
     throw new Error('The mqtt subscription client has not been initialized yet.');
   }
 
+  mqttSubscriptionClient.subscribe(mqttSubscriptionTopic);
+}
+
+async function setMQTTOnMessage(
+  onMessage: (topic: string, message: string) => void,
+) {
+  if (!mqttSubscriptionClient) {
+    throw new Error('The mqtt subscription client has not been initialized yet.');
+  }
+
+  mqttSubscriptionClient.on('message', (topic, message) => {
+    const parsedMessage = message.toString();
+    onMessage(topic, parsedMessage);
+  });
+}
+
+async function subscribeMQTTClientToMeasurementPaths() {
   const measurements = await MeasurementsService.getMeasurements();
   const mqttSubsctiptionTopicsOnMessage: MQTTSubsctiptionTopicsOnMessage = {};
 
   measurements.forEach((measurement: Measurement) => {
     const { mqttSubscriptionTopic } = measurement;
-    console.log(mqttSubscriptionTopic);
-
-    mqttSubscriptionClient!.subscribe(mqttSubscriptionTopic);
+    subscribeToMQTTTopic(mqttSubscriptionTopic);
 
     const asset = new Asset(measurement);
     asset.subscribeToFirestoreMeasurement();
@@ -50,10 +65,7 @@ async function subscribeMQTTClientToMeasurementPaths() {
     }
   };
 
-  mqttSubscriptionClient.on('message', (topic, message) => {
-    const parsedMessage = message.toString();
-    onMessage(topic, parsedMessage);
-  });
+  setMQTTOnMessage(onMessage);
 }
 
 function closeMQTTClient(): void {
