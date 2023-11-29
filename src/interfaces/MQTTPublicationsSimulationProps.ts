@@ -13,8 +13,9 @@ interface MQTTPublicationsSimulationProps {
     mqttPublicationTopic: string;
     simulationType: SimulationType;
     startValue: valueType;
-    msBetweenPublications?: number;
+    decimalUnits?: number;
     valueVariationFactor?: number;
+    msBetweenPublications?: number;
     minValue?: number;
     maxValue?: number;
     posibleValues?: string[]  | number[] | boolean[];

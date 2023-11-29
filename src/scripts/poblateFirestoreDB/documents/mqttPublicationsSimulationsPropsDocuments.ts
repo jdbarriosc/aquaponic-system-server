@@ -4,7 +4,9 @@ export const fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulation
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 120,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 100,
     maxValue: 150,
 };
@@ -13,6 +15,7 @@ export const fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulati
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
     simulationType: SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM,
     startValue: true,
+    msBetweenPublications: 2000,
     posibleValues: [true, false],
 };
 
@@ -20,7 +23,9 @@ export const fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulation
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 25,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 22,
     maxValue: 32,
 };
@@ -29,7 +34,9 @@ export const fishTankWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPublica
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterPHSensor/pH',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 7,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 6,
     maxValue: 8.5,
 };
@@ -38,7 +45,9 @@ export const fishTankWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationPr
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 2,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 0,
     maxValue: 3,
 };
@@ -47,7 +56,9 @@ export const fishTankWaterNitriteSensorConcentrationMQTTPublicationsSimulationPr
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 0.5,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 0,
     maxValue: 1,
 };
@@ -56,7 +67,9 @@ export const fishTankWaterNitrateSensorConcentrationMQTTPublicationsSimulationPr
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 350,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 0,
     maxValue: 400,
 };
@@ -65,7 +78,9 @@ export const fishTankWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimul
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 5,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 4,
     maxValue: 6,
 };
@@ -74,7 +89,9 @@ export const fishTankWaterElectricConductivitySensorElectricConductivityMQTTPubl
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 200,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 100,
     maxValue: 300,
 };
@@ -83,7 +100,9 @@ export const fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSi
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 100,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 60,
     maxValue: 140,
 };
@@ -92,7 +111,9 @@ export const growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulati
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 125,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 100,
     maxValue: 150,
 };
@@ -101,6 +122,7 @@ export const growingBedWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimula
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
     simulationType: SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM,
     startValue: true,
+    msBetweenPublications: 2000,
     posibleValues: [true, false],
 };
 
@@ -108,7 +130,9 @@ export const growingBedWaterTemperatureSensorTemperatureMQTTPublicationsSimulati
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 25,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 22,
     maxValue: 32,
 };
@@ -117,7 +141,9 @@ export const growingBedWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPubli
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 7,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 6,
     maxValue: 8.5,
 };
@@ -126,7 +152,9 @@ export const growingBedWaterAmmoniaSensorConcentrationMQTTPublicationsSimulation
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 2,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 0,
     maxValue: 3,
 };
@@ -135,7 +163,9 @@ export const growingBedWaterNitriteSensorConcentrationMQTTPublicationsSimulation
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 0.5,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 0,
     maxValue: 1,
 };
@@ -144,7 +174,9 @@ export const growingBedWaterNitrateSensorConcentrationMQTTPublicationsSimulation
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 350,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 0,
     maxValue: 400,
 };
@@ -153,7 +185,9 @@ export const growingBedWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSim
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 5,
+    decimalUnits: 2,
     valueVariationFactor: 0.1,
+    msBetweenPublications: 2000,
     minValue: 4,
     maxValue: 6,
 };
@@ -162,7 +196,9 @@ export const growingBedWaterElectricConductivitySensorElectricConductivityMQTTPu
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 200,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 100,
     maxValue: 300,
 };
@@ -171,7 +207,9 @@ export const growingBedWaterCarbonateHardnessSensorConcentrationMQTTPublications
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 100,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 60,
     maxValue: 140,
 };
@@ -180,7 +218,9 @@ export const greenHouseAirTemperatureSensorTemperatureMQTTPublicationsSimulation
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 25,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 22,
     maxValue: 32,
 };
@@ -189,7 +229,9 @@ export const greenHouseAirRelativeHumiditySensorConcentrationMQTTPublicationsSim
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 72,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 65,
     maxValue: 80,
 };
@@ -198,7 +240,9 @@ export const greenHouseAirCarbonDioxideSensorConcentrationMQTTPublicationsSimula
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 900,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 800,
     maxValue: 1000,
 };
@@ -207,7 +251,9 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiationMQTTPublicati
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 50,
+    decimalUnits: 2,
     valueVariationFactor: 1,
+    msBetweenPublications: 2000,
     minValue: 20,
     maxValue: 80,
 };

@@ -2,20 +2,28 @@ import sleep from '../../../utils/sleep';
 import MQTTPublication from '../../../interfaces/MQTTPublication';
 import { mqttPublicate } from '../../../providers/MQTTClientConnectionProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
-import { makeNumberRandomPositiveOrNegative } from '../../../factories/NumberFactory';
+import { makeNumberRandomPositiveOrNegative, roundNumber } from '../../../factories/NumberFactory';
 
 interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
   startValue: number;
   valueVariationFactor: number;
 }
 
-function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsSimulationProps): CheckedMQTTPublicationsSimulationProps {
-  const { mqttPublicationTopic: topic, startValue, valueVariationFactor, minValue, maxValue } = simulationProps;
+function checkMQTTPublicationsSimulationProps(
+  simulationProps: MQTTPublicationsSimulationProps,
+): CheckedMQTTPublicationsSimulationProps {
+  const {
+    mqttPublicationTopic,
+    startValue,
+    valueVariationFactor,
+    minValue,
+    maxValue,
+  } = simulationProps;
   const startValueWasProvided = typeof startValue === 'number';
   const minValueWasProvided = typeof minValue === 'number';
   const maxValueWasProvided = typeof maxValue === 'number';
 
-  const errorPrefix = `Error in ${topic}\n`;
+  const errorPrefix = `Error in ${mqttPublicationTopic}\n`;
 
   if (!startValueWasProvided) {
     throw new Error(`${errorPrefix}startValue (${startValue}) must be a number.`);
@@ -48,6 +56,7 @@ function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsS
 
 function calculateNextValue(
   currentValue: number,
+  decimalUnits: number,
   valueVariationFactor: number,
   minValue?: number,
   maxValue?: number,
@@ -55,45 +64,55 @@ function calculateNextValue(
   const minValueWasProvided = typeof minValue === 'number';
   const maxValueWasProvided = typeof maxValue === 'number';
 
-  const randomizedValue = currentValue + makeNumberRandomPositiveOrNegative(valueVariationFactor);
-  const decreasedValue = currentValue - valueVariationFactor;
-  const increasedValue = currentValue + valueVariationFactor;
+  const randomizedValueVariationFactor = makeNumberRandomPositiveOrNegative(valueVariationFactor);
+  const randomizedValue = currentValue + randomizedValueVariationFactor;
+  const roundedRandomizedValue = roundNumber(randomizedValue, decimalUnits);
 
-  const valueCanBeDecreased = !minValueWasProvided ||  decreasedValue >= minValue;
-  const valueCanBeIncreased = !maxValueWasProvided || increasedValue <= maxValue;
+  const decreasedValue = currentValue - valueVariationFactor;
+  const roundedDecreasedValue = roundNumber(decreasedValue, decimalUnits);
+
+  const increasedValue = currentValue + valueVariationFactor;
+  const roundedIncreasedValue = roundNumber(increasedValue, decimalUnits);
+
+  const valueCanBeDecreased = !minValueWasProvided ||  roundedDecreasedValue >= minValue;
+  const valueCanBeIncreased = !maxValueWasProvided || roundedIncreasedValue <= maxValue;
 
   let nextValue = currentValue;
   if (valueCanBeDecreased && valueCanBeIncreased) {
-    nextValue = randomizedValue;
+    nextValue = roundedRandomizedValue;
   } else if (valueCanBeDecreased)  {
-    nextValue = decreasedValue;
+    nextValue = roundedDecreasedValue;
   } else if (valueCanBeIncreased)  {
-    nextValue = increasedValue;
+    nextValue = roundedIncreasedValue;
   }
 
   return nextValue;
 } 
 
 async function simulateNumericIncreaseDecreaseRandomMQTTPublications(
-  MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
+  mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
+  const defaultDecimalUnits = 2;
   const defaultMsBetweenPublications = 2000;
-  const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
+  const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(
+    mqttPublicationsSimulationProps,
+  );
   const { 
-    mqttPublicationTopic: topic,
+    mqttPublicationTopic,
     startValue, 
     valueVariationFactor,
     minValue, 
     maxValue, 
+    decimalUnits = defaultDecimalUnits,
     msBetweenPublications = defaultMsBetweenPublications,
   } = checkedMQTTPublicationsSimulationProps;
 
-  console.log(`-- simulate increase decrease random ${topic} publications`);
+  console.log(`-- simulate increase decrease random ${mqttPublicationTopic} publications`);
 
   let currentValue = startValue;
   while (true) {
     const mqttPublication: MQTTPublication = {
-      topic,
+      topic: mqttPublicationTopic,
       message: currentValue.toString(),
     }
     
@@ -101,7 +120,13 @@ async function simulateNumericIncreaseDecreaseRandomMQTTPublications(
 
     console.log(`published: ('${mqttPublication.topic}', ${mqttPublication.message})`);
 
-    currentValue = calculateNextValue(currentValue, valueVariationFactor, minValue, maxValue);
+    currentValue = calculateNextValue(
+      currentValue,
+      decimalUnits,
+      valueVariationFactor,
+      minValue,
+      maxValue,
+    );
 
     await sleep(msBetweenPublications);
   }     

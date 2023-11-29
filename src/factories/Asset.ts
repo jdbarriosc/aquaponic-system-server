@@ -2,7 +2,7 @@ import Measurement from '../interfaces/Measurement';
 import MQTTSubscriptionClient from './MQTTSubscriptionClient';
 import { documentSnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
-import { subscribeToDocument } from '../providers/FirebaseConnectionProvider';
+import { subscribeToFirestoreDocument } from '../providers/FirebaseConnectionProvider';
 
 class Asset {
     private measurement: Measurement;
@@ -10,19 +10,22 @@ class Asset {
 
     public constructor(measurement: Measurement) {
         this.measurement = measurement;
+    }
 
-        const { id } = measurement;
+    public async subscribeToFirestoreMeasurement(): Promise<void> {
+        const { id } = this.measurement;
         const onMeasurementChange = (measurement: Measurement) => {
             this.measurement = measurement;
+            console.log(this.measurement);
         };
 
-        subscribeToDocument<Measurement>(
+        subscribeToFirestoreDocument<Measurement>(
             FirestoreDBCollectionNames.Measurements,
             id,
             documentSnapshotToMeasurement,
             onMeasurementChange,
         );
-    }
+    } 
 
     public async initializeMQTTSubscriptionClient(): Promise<void> {
         const { mqttSubscriptionTopic } = this.measurement;

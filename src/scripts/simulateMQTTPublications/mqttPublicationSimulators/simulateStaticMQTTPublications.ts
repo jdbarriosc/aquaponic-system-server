@@ -4,20 +4,20 @@ import { mqttPublicate } from '../../../providers/MQTTClientConnectionProvider';
 import MQTTPublicationsSimulationProps from '../../../interfaces/MQTTPublicationsSimulationProps';
 
 async function simulateStaticMQTTPublications(
-  MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
+  mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
   const defaultMsBetweenPublications = 2000;
   const { 
-    mqttPublicationTopic: topic,
+    mqttPublicationTopic,
     startValue, 
     msBetweenPublications = defaultMsBetweenPublications,
-  } = MQTTPublicationsSimulationProps;
+  } = mqttPublicationsSimulationProps;
 
-  console.log(`-- simulate static ${topic} publications`);
+  console.log(`-- simulate static ${mqttPublicationTopic} publications`);
 
   while (true) {
     const mqttPublication: MQTTPublication = {
-      topic,
+      topic: mqttPublicationTopic,
       message: startValue.toString(),
     }
     

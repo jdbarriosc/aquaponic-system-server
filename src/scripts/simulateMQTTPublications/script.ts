@@ -47,10 +47,9 @@ async function script(): Promise<void> {
 
         default:
           break;
-      }
-    }
+      };
+    },
   );
-}    
-
+}
 
 export default script;

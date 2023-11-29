@@ -1,7 +1,7 @@
 import { MqttClient, connectAsync } from 'mqtt';
-import MeasurementsService from '../services/MeasurementsService';
-import MQTTPublication from '../interfaces/MQTTPublication';
 import Asset from '../factories/Asset';
+import MQTTPublication from '../interfaces/MQTTPublication';
+import MeasurementsService from '../services/MeasurementsService';
 
 let mqttClient: MqttClient | undefined;
 
@@ -35,22 +35,6 @@ function mqttPublicate(mqttPublication: MQTTPublication): void {
   mqttClient.publish(topic, message);
 }
 
-function subscribeMQTTClientToTopic(topic: string, onMessage: (message: string) => {}) {
-  if (!mqttClient) {
-    throw new Error('The mqtt client has not been initialized yet.');
-  }
-
-  const measurements = MeasurementsService.getMeasurements();
-  
-  mqttClient.subscribe(topic);
-
-  mqttClient.on('message', (topic, message) => {
-      const parsedMessage = message.toString();
-      onMessage(parsedMessage);
-
-  });
-}
-
 async function subscribeMQTTClientToMeasurementPaths() {
   if (!mqttClient) {
     throw new Error('The mqtt client has not been initialized yet.');
@@ -58,9 +42,13 @@ async function subscribeMQTTClientToMeasurementPaths() {
 
   const measurements = await MeasurementsService.getMeasurements();
 
-  measurements.forEach((measurement) => {
-    const asset = new Asset(measurement);
-  });
+  measurements.forEach(
+    async (measurement) => {
+      const asset = new Asset(measurement);
+      asset.subscribeToFirestoreMeasurement();
+      await asset.initializeMQTTSubscriptionClient();
+    },
+  );
 }
 
 function closeMQTTClient(): void {
@@ -75,10 +63,5 @@ export {
   getMQTTClient,
   mqttPublicate,
   closeMQTTClient,
+  subscribeMQTTClientToMeasurementPaths,
 };
-
-// mqttClient.subscribe('/AquaponicSystem/FishTankTemperatureSensor/temperature');
-    
-// mqttClient.on('message', (topic, message) => {
-//     console.log(topic, message.toString(), typeof message);
-// });

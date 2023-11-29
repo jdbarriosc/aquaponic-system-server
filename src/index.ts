@@ -7,8 +7,8 @@ import KoaLogger from 'koa-logger';
 import bodyParser from 'koa-bodyparser';
 import handleErrors from './middleware/handleErrors';
 import corsOriginHandler from './middleware/corsOriginHandler';
-import { initializeMQTTClient } from './providers/MQTTClientConnectionProvider';
 import { initializeFirebaseConnection } from './providers/FirebaseConnectionProvider';
+import { initializeMQTTClient, subscribeMQTTClientToMeasurementPaths } from './providers/MQTTClientConnectionProvider';
 
 (async function runServer(): Promise<void> {
     try {
@@ -36,6 +36,8 @@ import { initializeFirebaseConnection } from './providers/FirebaseConnectionProv
         const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 2999;
 
         app.listen(PORT);
+
+        subscribeMQTTClientToMeasurementPaths();
     } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);

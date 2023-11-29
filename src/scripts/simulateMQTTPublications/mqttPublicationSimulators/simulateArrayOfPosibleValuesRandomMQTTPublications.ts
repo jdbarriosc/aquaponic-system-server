@@ -10,10 +10,12 @@ interface CheckedMQTTPublicationsSimulationProps extends MQTTPublicationsSimulat
   posibleValues: string[]  | number[] | boolean[];
 }
 
-function checkMQTTPublicationsSimulationProps(simulationProps: MQTTPublicationsSimulationProps): CheckedMQTTPublicationsSimulationProps {
-  const { mqttPublicationTopic: topic, posibleValues } = simulationProps;
+function checkMQTTPublicationsSimulationProps(
+  simulationProps: MQTTPublicationsSimulationProps,
+): CheckedMQTTPublicationsSimulationProps {
+  const { mqttPublicationTopic, posibleValues } = simulationProps;
 
-  const errorPrefix = `Error in ${topic}\n`;
+  const errorPrefix = `Error in ${mqttPublicationTopic}\n`;
 
   if (!posibleValues) {
     throw new Error(`${errorPrefix}posibleValues must be defined.`);
@@ -37,23 +39,25 @@ function calculateNextValue(
 } 
 
 async function simulateArrayOfPosibleValuesRandomMQTTPublications(
-  MQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps,
+  mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps,
 ): Promise<void> {
   const defaultMsBetweenPublications = 2000;
-  const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(MQTTPublicationsSimulationProps);
+  const checkedMQTTPublicationsSimulationProps = checkMQTTPublicationsSimulationProps(
+    mqttPublicationsSimulationProps,
+  );
   const { 
-    mqttPublicationTopic: topic,
+    mqttPublicationTopic,
     startValue,
     posibleValues,  
     msBetweenPublications = defaultMsBetweenPublications,
   } = checkedMQTTPublicationsSimulationProps;
 
-  console.log(`-- simulate random ${topic} publications`);
+  console.log(`-- simulate random ${mqttPublicationTopic} publications`);
 
   let currentValue = startValue;
   while (true) {
     const mqttPublication: MQTTPublication = {
-      topic,
+      topic: mqttPublicationTopic,
       message: currentValue.toString(),
     }
     

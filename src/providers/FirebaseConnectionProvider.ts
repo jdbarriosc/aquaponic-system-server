@@ -66,7 +66,7 @@ async function getFirestoreDBCollectionDocuments<T>(
   return documents;
 }
 
-function subscribeToDocument<T>(
+function subscribeToFirestoreDocument<T>(
   collectioName: FirestoreDBCollectionNames,
   documentId: string,
   dataMapper: (documentSnapshot: DocumentSnapshot) => T,
@@ -89,5 +89,5 @@ export {
   initializeFirebaseConnection,
   getFirestoreCollection,
   getFirestoreDBCollectionDocuments,
-  subscribeToDocument,
+  subscribeToFirestoreDocument,
 };
