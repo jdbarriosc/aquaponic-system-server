@@ -1,4 +1,4 @@
-import MQTTPublicationsSimulationProps, { SimulationType } from '../../../interfaces/MQTTPublicationsSimulationProps';
+import MQTTPublicationsSimulationProps, { SimulationType } from "../../src/interfaces/MQTTPublicationsSimulationProps";
 
 export const fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
     id: 'fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps',

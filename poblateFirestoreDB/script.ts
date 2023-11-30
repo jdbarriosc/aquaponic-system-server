@@ -1,8 +1,7 @@
-import { v4 as uuidv4 } from 'uuid';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
-import { initializeFirebaseConnection } from '../../providers/FirebaseProvider';
 import measurementDocuments from './documents/measurementDocuments';
-import FirestoreDBCollectionNames from '../../constants/FirestoreDBCollectionNames';
+import FirestoreDBCollectionNames from '../src/constants/FirestoreDBCollectionNames';
+import { initializeFirebaseConnection } from '../src/providers/FirebaseProvider';
 import mqttPublicationsSimulationsPropsDocuments from './documents/mqttPublicationsSimulationsPropsDocuments';
 
 async function script(): Promise<void> {

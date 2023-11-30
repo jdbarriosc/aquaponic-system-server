@@ -1,4 +1,4 @@
-import Measurement, { IconType, ModelShaderColor, ValueTypeName } from '../../../interfaces/Measurement';
+import Measurement, { IconType, ModelShaderColor, ValueTypeName } from "../../src/interfaces/Measurement";
 
 export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: 'fishTankWaterFlowSensorVolumetricFlowRate',
