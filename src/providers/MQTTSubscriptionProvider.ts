@@ -25,7 +25,7 @@ async function subscribeToMQTTTopic(mqttSubscriptionTopic: string) {
 
 async function setMQTTOnMessage(
   onMessage: (topic: string, message: string) => void,
-) {
+): Promise<void> {
   if (!mqttSubscriptionClient) {
     throw new Error('The mqtt subscription client has not been initialized yet.');
   }

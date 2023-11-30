@@ -1,12 +1,12 @@
-import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps, valueType } from '../interfaces/Measurement';
-import { documentSnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
-import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
-import { subscribeToFirestoreDocument } from '../providers/FirebaseConnectionProvider';
-import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import AWSIotSiteWiseService from '../services/AWSIotSiteWiseService';
+import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps, valueType } from '../interfaces/Measurement';
 import { mqttPublicate } from '../providers/MQTTPublicationProvider';
+import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
+import { subscribeToFirestoreDocument } from '../providers/FirebaseConnectionProvider';
+import { documentSnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
+import { postIoTSiteWiseAssetValueEntries } from '../providers/IoTSiteWiseProvider';
+import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';
 
 class MeasurementSubscription {
     private measurement: Measurement;
@@ -74,7 +74,7 @@ class MeasurementSubscription {
             assetValueEntries.push(...equalityAssetValueEntries);
         }
 
-        await AWSIotSiteWiseService.postAssetValueEntries(assetValueEntries);
+        await postIoTSiteWiseAssetValueEntries(assetValueEntries);
     }
 
     private makeValueAssetValueEntry(
