@@ -7,8 +7,7 @@
     "build": "tsc --project ./",
     "start": "tsc --project ./ && node ./build/src/index.js",
     "start:dev": "nodemon ./src/index.ts",
-    "poblateFirestoreDB": "ts-node ./src/scripts/poblateFirestoreDB",
-    "simulateMQTTPublications": "ts-node ./src/scripts/simulateMQTTPublications"
+    "poblateFirestoreDB": "ts-node ./poblateFirestoreDB"
   },
   "keywords": [],
   "author": "",

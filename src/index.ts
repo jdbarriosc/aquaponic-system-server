@@ -12,6 +12,7 @@ import { initializeFirebaseConnection } from './providers/FirebaseProvider';
 import { initializeMQTTPublicationClient } from './providers/MQTTPublicationProvider';
 import { initializeMQTTSubscriptionClient } from './providers/MQTTSubscriptionProvider';
 import { initializeMeasurementSubscriptions } from './providers/MeasurementSubscriptionProvider';
+import { initializeMQTTPublicationsSimulations } from './providers/MQTTPublicationsSimulationProvider';
 
 (async function runServer(): Promise<void> {
     try {
@@ -20,6 +21,7 @@ import { initializeMeasurementSubscriptions } from './providers/MeasurementSubsc
         await initializeMQTTPublicationClient();
         await initializeMQTTSubscriptionClient();
         await initializeMeasurementSubscriptions();
+        await initializeMQTTPublicationsSimulations();
 
         const app = new Koa();
 

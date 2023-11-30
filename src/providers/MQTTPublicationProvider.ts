@@ -22,6 +22,7 @@ function mqttPublicate(mqttPublication: MQTTPublication): void {
   }
 
   const { topic, message } = mqttPublication;
+  console.log(`publish: ${topic}: ${message}`);
   mqttPublicationClient.publish(topic, message);
 }
 

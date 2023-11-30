@@ -1,7 +1,6 @@
 import { DocumentSnapshot, QuerySnapshot } from 'firebase/firestore';
 import Measurement from '../interfaces/Measurement';
 
-
 function documentSnapshotToMeasurement(documentSnapshot: DocumentSnapshot): Measurement {
     const measurement = documentSnapshot.data() as Measurement;
     return measurement;

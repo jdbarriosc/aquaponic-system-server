@@ -22,4 +22,20 @@ interface MQTTPublicationsSimulationProps {
     posibleValues?: string[]  | number[] | boolean[];
 }
 
+export interface NumericRandomMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
+    startValue: number;
+    minValue: number;
+    maxValue: number;
+}
+
+export interface NumericIncreaseDecreaseMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
+    startValue: number;
+    valueVariationFactor: number;
+}
+
+export interface ArrayOfPosibleValuesMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
+    startValue: valueType;
+    posibleValues: string[]  | number[] | boolean[];
+}
+
 export default MQTTPublicationsSimulationProps;
