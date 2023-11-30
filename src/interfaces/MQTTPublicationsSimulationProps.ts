@@ -10,6 +10,7 @@ export enum SimulationType {
 }
 
 interface MQTTPublicationsSimulationProps {
+    id: string;
     mqttPublicationTopic: string;
     simulationType: SimulationType;
     startValue: valueType;

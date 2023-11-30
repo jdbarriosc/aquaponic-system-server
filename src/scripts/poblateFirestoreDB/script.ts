@@ -19,18 +19,14 @@ async function script(): Promise<void> {
   });
 
   mqttPublicationsSimulationsPropsDocuments.forEach(async (mqttPublicationsSimulationsPropsDocument) => {
-    const id = uuidv4();
+    const { id } = mqttPublicationsSimulationsPropsDocument;
     const documentReference = doc(
       firestoreDB,
       FirestoreDBCollectionNames.MQTTPublicationsSimulationsProps,
       id,
     );
-    const mqttPublicationsSimulationsPropsDocumentWithId = {
-      id,
-      ...mqttPublicationsSimulationsPropsDocument,
-    }
 
-    await setDoc(documentReference, mqttPublicationsSimulationsPropsDocumentWithId);
+    await setDoc(documentReference, mqttPublicationsSimulationsPropsDocument);
   });
 
   console.log('-- done poblating firestore db');

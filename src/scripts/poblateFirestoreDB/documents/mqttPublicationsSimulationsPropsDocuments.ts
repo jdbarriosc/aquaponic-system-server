@@ -1,6 +1,7 @@
 import MQTTPublicationsSimulationProps, { SimulationType } from '../../../interfaces/MQTTPublicationsSimulationProps';
 
 export const fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 120,
@@ -12,6 +13,7 @@ export const fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulation
 };
 
 export const fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
     simulationType: SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM,
     startValue: true,
@@ -20,6 +22,7 @@ export const fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulati
 };
 
 export const fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 25,
@@ -31,6 +34,7 @@ export const fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulation
 };
 
 export const fishTankWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterPHSensorPHMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterPHSensor/pH',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 7,
@@ -42,6 +46,7 @@ export const fishTankWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPublica
 };
 
 export const fishTankWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 2,
@@ -53,6 +58,7 @@ export const fishTankWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationPr
 };
 
 export const fishTankWaterNitriteSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterNitriteSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 0.5,
@@ -64,6 +70,7 @@ export const fishTankWaterNitriteSensorConcentrationMQTTPublicationsSimulationPr
 };
 
 export const fishTankWaterNitrateSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterNitrateSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 350,
@@ -75,6 +82,7 @@ export const fishTankWaterNitrateSensorConcentrationMQTTPublicationsSimulationPr
 };
 
 export const fishTankWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 5,
@@ -86,6 +94,7 @@ export const fishTankWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimul
 };
 
 export const fishTankWaterElectricConductivitySensorElectricConductivityMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterElectricConductivitySensorElectricConductivityMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 200,
@@ -97,6 +106,7 @@ export const fishTankWaterElectricConductivitySensorElectricConductivityMQTTPubl
 };
 
 export const fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 100,
@@ -108,6 +118,7 @@ export const fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSi
 };
 
 export const growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 125,
@@ -119,6 +130,7 @@ export const growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulati
 };
 
 export const growingBedWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
     simulationType: SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM,
     startValue: true,
@@ -127,6 +139,7 @@ export const growingBedWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimula
 };
 
 export const growingBedWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 25,
@@ -138,6 +151,7 @@ export const growingBedWaterTemperatureSensorTemperatureMQTTPublicationsSimulati
 };
 
 export const growingBedWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterPHSensorPHMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 7,
@@ -149,6 +163,7 @@ export const growingBedWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPubli
 };
 
 export const growingBedWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps =  {
+    id: 'growingBedWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 2,
@@ -160,6 +175,7 @@ export const growingBedWaterAmmoniaSensorConcentrationMQTTPublicationsSimulation
 };
 
 export const growingBedWaterNitriteSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterNitriteSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 0.5,
@@ -171,6 +187,7 @@ export const growingBedWaterNitriteSensorConcentrationMQTTPublicationsSimulation
 };
 
 export const growingBedWaterNitrateSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterNitrateSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 350,
@@ -182,6 +199,7 @@ export const growingBedWaterNitrateSensorConcentrationMQTTPublicationsSimulation
 };
 
 export const growingBedWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 5,
@@ -193,6 +211,7 @@ export const growingBedWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSim
 };
 
 export const growingBedWaterElectricConductivitySensorElectricConductivityMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterElectricConductivitySensorElectricConductivityMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 200,
@@ -204,6 +223,7 @@ export const growingBedWaterElectricConductivitySensorElectricConductivityMQTTPu
 };
 
 export const growingBedWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'growingBedWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 100,
@@ -215,6 +235,7 @@ export const growingBedWaterCarbonateHardnessSensorConcentrationMQTTPublications
 };
 
 export const greenHouseAirTemperatureSensorTemperatureMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseAirTemperatureSensorTemperatureMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 25,
@@ -226,6 +247,7 @@ export const greenHouseAirTemperatureSensorTemperatureMQTTPublicationsSimulation
 };
 
 export const greenHouseAirRelativeHumiditySensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseAirRelativeHumiditySensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 72,
@@ -237,6 +259,7 @@ export const greenHouseAirRelativeHumiditySensorConcentrationMQTTPublicationsSim
 };
 
 export const greenHouseAirCarbonDioxideSensorConcentrationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseAirCarbonDioxideSensorConcentrationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 900,
@@ -248,6 +271,7 @@ export const greenHouseAirCarbonDioxideSensorConcentrationMQTTPublicationsSimula
 };
 
 export const greenHouseLightSensorPhotosyntheticallyActiveRadiationMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseLightSensorPhotosyntheticallyActiveRadiationMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
     simulationType: SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM,
     startValue: 50,
