@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
-import { initializeFirebaseConnection } from '../../providers/FirebaseConnectionProvider';
+import { initializeFirebaseConnection } from '../../providers/FirebaseProvider';
 import measurementDocuments from './documents/measurementDocuments';
 import FirestoreDBCollectionNames from '../../constants/FirestoreDBCollectionNames';
 import mqttPublicationsSimulationsPropsDocuments from './documents/mqttPublicationsSimulationsPropsDocuments';

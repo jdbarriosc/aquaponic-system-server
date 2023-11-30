@@ -1,6 +1,6 @@
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 import MQTTPublicationsSimulationProps from '../interfaces/MQTTPublicationsSimulationProps';
-import { getFirestoreDBCollectionDocuments } from '../providers/FirebaseConnectionProvider';
+import { getFirestoreDBCollectionDocuments } from '../providers/FirebaseProvider';
 import { querySnapshotToMQTTPublicationsSimulationsProps } from '../dataMappers/MQTTPublicationsSimulationsPropsDataMappers';
 
 class MQTTPublicationsSimulationsPropsService {

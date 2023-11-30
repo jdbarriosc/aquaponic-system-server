@@ -3,7 +3,7 @@ import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionPro
 import { mqttPublicate } from '../providers/MQTTPublicationProvider';
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
-import { subscribeToFirestoreDocument } from '../providers/FirebaseConnectionProvider';
+import { subscribeToFirestoreDocument } from '../providers/FirebaseProvider';
 import { documentSnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
 import { postIoTSiteWiseAssetValueEntries } from '../providers/IoTSiteWiseProvider';
 import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';

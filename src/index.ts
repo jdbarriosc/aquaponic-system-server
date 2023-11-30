@@ -8,7 +8,7 @@ import bodyParser from 'koa-bodyparser';
 import handleErrors from './middleware/handleErrors';
 import corsOriginHandler from './middleware/corsOriginHandler';
 import { initializIoTSiteWiseClient } from './providers/IoTSiteWiseProvider';
-import { initializeFirebaseConnection } from './providers/FirebaseConnectionProvider';
+import { initializeFirebaseConnection } from './providers/FirebaseProvider';
 import { initializeMQTTPublicationClient } from './providers/MQTTPublicationProvider';
 import { initializeMQTTSubscriptionClient } from './providers/MQTTSubscriptionProvider';
 import { initializeMeasurementSubscriptions } from './providers/MeasurementSubscriptionProvider';
