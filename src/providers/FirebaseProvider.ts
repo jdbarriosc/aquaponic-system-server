@@ -1,5 +1,5 @@
 import { FirebaseOptions, initializeApp } from 'firebase/app';
-import { collection, query, onSnapshot, getFirestore, CollectionReference, QuerySnapshot, getDocs, doc, DocumentSnapshot } from 'firebase/firestore';
+import { collection, query, onSnapshot, getFirestore, CollectionReference, QuerySnapshot, getDocs, doc, DocumentSnapshot, setDoc, PartialWithFieldValue, DocumentData } from 'firebase/firestore';
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 
 function checkInitializeFirebaseConnectionEnvVariables(): void {
@@ -85,9 +85,26 @@ function subscribeToFirestoreDocument<T>(
   });
 }
 
+async function updateFirestoreDocument<T extends DocumentData>(
+  collectioName: FirestoreDBCollectionNames,
+  documentId: string,
+  updateInfo: PartialWithFieldValue<T>,
+): Promise<void> {
+  const firestoreDB = getFirestore();
+
+  const documentReference = doc(
+    firestoreDB,
+    collectioName,
+    documentId,
+  );
+  
+  setDoc(documentReference, updateInfo, { merge: true });
+}
+
 export {
   initializeFirebaseConnection,
   getFirestoreCollection,
   getFirestoreDBCollectionDocuments,
   subscribeToFirestoreDocument,
+  updateFirestoreDocument,
 };

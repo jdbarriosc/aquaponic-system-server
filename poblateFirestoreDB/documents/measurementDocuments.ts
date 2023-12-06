@@ -65,18 +65,32 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
         onRangeValueActionProps: {
             iconType: IconType.INFO,
             modelShaderColor: ModelShaderColor.GREEN,
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
+                    startValue: 'OFF',
+                },
+            ],
         },
         onUnderMinValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.BLUE,
-            mqttPublication: {
-                topic: '/AquaponicSystem/FishTankWaterHeater/state',
-                message: 'ON',
-            },
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
+                    startValue: 'ON',
+                },
+            ],
         },
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
+                    startValue: 'OFF',
+                },
+            ],
         },
     },
 };
@@ -264,6 +278,13 @@ export const fishTankWaterPumpState: Measurement = {
                 modelShaderColor: ModelShaderColor.GREEN,
             },
         },
+        {
+            value: 'OFF',
+            actionProps: {
+                iconType: IconType.ERROR,
+                modelShaderColor: ModelShaderColor.RED,
+            },
+        },
     ],
 };
 
@@ -282,6 +303,13 @@ export const fishTankAirPumpState: Measurement = {
                 modelShaderColor: ModelShaderColor.GREEN,
             },
         },
+        {
+            value: 'OFF',
+            actionProps: {
+                iconType: IconType.ERROR,
+                modelShaderColor: ModelShaderColor.RED,
+            },
+        },
     ],
 };
 
@@ -298,6 +326,13 @@ export const fishTankWaterHeaterState: Measurement = {
             actionProps: {
                 iconType: IconType.INFO,
                 modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+        {
+            value: 'OFF',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.RED,
             },
         },
     ],
@@ -561,22 +596,36 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
         onRangeValueActionProps: {
             iconType: IconType.INFO,
             modelShaderColor: ModelShaderColor.GREEN,
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseAirHeaterStateMQTTPublicationsSimulationProps',
+                    startValue: 'OFF',
+                },
+            ],
         },
         onUnderMinValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.BLUE,
-            mqttPublication: {
-                topic: '/AquaponicSystem/GreenHouseAirHeater/state',
-                message: 'ON',
-            },
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseAirHeaterStateMQTTPublicationsSimulationProps',
+                    startValue: 'ON',
+                },
+            ],
         },
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
-            mqttPublication: {
-                topic: '/AquaponicSystem/GreenHouseFanSystem/state',
-                message: 'ON',
-            },
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
+                    startValue: 'ON',
+                },
+                {
+                    id: 'greenHouseAirHeaterStateMQTTPublicationsSimulationProps',
+                    startValue: 'OFF',
+                },
+            ],
         },
     },
 };
@@ -603,10 +652,12 @@ export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
-            mqttPublication: {
-                topic: '/AquaponicSystem/GreenHouseFanSystem/state',
-                message: 'ON',
-            },
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
+                    startValue: 'ON',
+                },
+            ],
         },
     },
 };
@@ -633,10 +684,12 @@ export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
         onOverMaxValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.RED,
-            mqttPublication: {
-                topic: '/AquaponicSystem/GreenHouseFanSystem/state',
-                message: 'ON',
-            },
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
+                    startValue: 'ON',
+                },
+            ],
         },
     },
 };
@@ -654,14 +707,32 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
         onRangeValueActionProps: {
             iconType: IconType.INFO,
             modelShaderColor: ModelShaderColor.GREEN,
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
+                    startValue: 'OFF',
+                },
+            ],
         },
         onUnderMinValueActionProps: {
             iconType: IconType.ERROR,
             modelShaderColor: ModelShaderColor.BLUE,
-            mqttPublication: {
-                topic: '/AquaponicSystem/GreenHouseLights/state',
-                message: 'ON',
-            },
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
+                    startValue: 'ON',
+                },
+            ],
+        },
+        onOverMaxValueActionProps: {
+            iconType: IconType.INFO,
+            modelShaderColor: ModelShaderColor.GREEN,
+            simulationsPropsUpdateInfo: [
+                {
+                    id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
+                    startValue: 'OFF',
+                },
+            ],
         },
     },
 };
@@ -678,7 +749,13 @@ export const greenHouseLightsState: Measurement = {
             value: 'ON',
             actionProps: {
                 iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                modelShaderColor: ModelShaderColor.PURPLE,
+            },
+        },
+        {
+            value: 'OFF',
+            actionProps: {
+                iconType: IconType.INFO,
             },
         },
     ],
@@ -697,10 +774,25 @@ export const greenHouseFanSystemState: Measurement = {
             actionProps: {
                 iconType: IconType.INFO,
                 modelShaderColor: ModelShaderColor.GREEN,
-                mqttPublication: {
-                    topic: '/AquaponicSystem/GreenHouseVents/state',
-                    message: 'OPEN',
-                },
+                simulationsPropsUpdateInfo: [
+                    {
+                        id: 'greenHouseVentsStateMQTTPublicationsSimulationProps',
+                        startValue: 'OPEN',
+                    },
+                ],
+            },
+        },
+        {
+            value: 'OFF',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.RED,
+                simulationsPropsUpdateInfo: [
+                    {
+                        id: 'greenHouseVentsStateMQTTPublicationsSimulationProps',
+                        startValue: 'CLOSED',
+                    },
+                ],
             },
         },
     ],
@@ -721,6 +813,13 @@ export const greenHouseVentsState: Measurement = {
                 modelShaderColor: ModelShaderColor.GREEN,
             },
         },
+        {
+            value: 'CLOSED',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.RED,
+            },
+        },
     ],
 };
 
@@ -737,6 +836,13 @@ export const greenHouseAirHeaterState: Measurement = {
             actionProps: {
                 iconType: IconType.INFO,
                 modelShaderColor: ModelShaderColor.GREEN,
+            },
+        },
+        {
+            value: 'OFF',
+            actionProps: {
+                iconType: IconType.INFO,
+                modelShaderColor: ModelShaderColor.RED,
             },
         },
     ],

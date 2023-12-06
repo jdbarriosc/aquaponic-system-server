@@ -117,6 +117,30 @@ export const fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSi
     maxValue: 140,
 };
 
+export const fishTankWaterPumpStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterPumpStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/FishTankWaterPump/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'ON',
+    msBetweenPublications: 10000,
+};
+
+export const fishTankAirPumpStateStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankAirPumpStateStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/FishTankAirPump/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'ON',
+    msBetweenPublications: 10000,
+};
+
+export const fishTankWaterHeaterStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/FishTankWaterHeater/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'OFF',
+    msBetweenPublications: 10000,
+};
+
 export const growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
     id: 'growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps',
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
@@ -282,6 +306,38 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiationMQTTPublicati
     maxValue: 80,
 };
 
+export const greenHouseLightsStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/GreenHouseLights/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'OFF',
+    msBetweenPublications: 10000,
+};
+
+export const greenHouseFanSystemStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/GreenHouseFanSystem/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'OFF',
+    msBetweenPublications: 10000,
+};
+
+export const greenHouseVentsStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseVentsStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/GreenHouseVents/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'CLOSED',
+    msBetweenPublications: 10000,
+};
+
+export const greenHouseAirHeaterStateMQTTPublicationsSimulationProps: MQTTPublicationsSimulationProps = {
+    id: 'greenHouseAirHeaterStateMQTTPublicationsSimulationProps',
+    mqttPublicationTopic: '/AquaponicSystem/GreenHouseAirHeater/state',
+    simulationType: SimulationType.STATIC,
+    startValue: 'OFF',
+    msBetweenPublications: 10000,
+};
+
 const mqttPublicationsSimulationsPropsDocuments: MQTTPublicationsSimulationProps[] = [
     fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps,
     fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps,
@@ -293,6 +349,9 @@ const mqttPublicationsSimulationsPropsDocuments: MQTTPublicationsSimulationProps
     fishTankWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimulationProps,
     fishTankWaterElectricConductivitySensorElectricConductivityMQTTPublicationsSimulationProps,
     fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSimulationProps,
+    fishTankWaterPumpStateMQTTPublicationsSimulationProps,
+    fishTankAirPumpStateStateMQTTPublicationsSimulationProps,
+    fishTankWaterHeaterStateMQTTPublicationsSimulationProps,
     growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulationProps,
     growingBedWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulationProps,
     growingBedWaterTemperatureSensorTemperatureMQTTPublicationsSimulationProps,
@@ -307,6 +366,10 @@ const mqttPublicationsSimulationsPropsDocuments: MQTTPublicationsSimulationProps
     greenHouseAirRelativeHumiditySensorConcentrationMQTTPublicationsSimulationProps,
     greenHouseAirCarbonDioxideSensorConcentrationMQTTPublicationsSimulationProps,
     greenHouseLightSensorPhotosyntheticallyActiveRadiationMQTTPublicationsSimulationProps,
+    greenHouseLightsStateMQTTPublicationsSimulationProps,
+    greenHouseFanSystemStateMQTTPublicationsSimulationProps,
+    greenHouseVentsStateMQTTPublicationsSimulationProps,
+    greenHouseAirHeaterStateMQTTPublicationsSimulationProps,
 ];
 
 export default mqttPublicationsSimulationsPropsDocuments;

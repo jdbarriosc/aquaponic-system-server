@@ -1,12 +1,13 @@
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import Measurement, { ActionProps, ValueEqualityActionProps, ValueRangeActionProps, valueType } from '../interfaces/Measurement';
+import Measurement, { ActionProps, MeasurementSimulationUpdateInfo, ValueEqualityActionProps, ValueRangeActionProps, valueType } from '../interfaces/Measurement';
 import { mqttPublicate } from '../providers/MQTTPublicationProvider';
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
-import { subscribeToFirestoreDocument } from '../providers/FirebaseProvider';
+import { subscribeToFirestoreDocument, updateFirestoreDocument } from '../providers/FirebaseProvider';
 import { documentSnapshotToMeasurement } from '../dataMappers/MeasurementsDataMappers';
 import { postIoTSiteWiseAssetValueEntries } from '../providers/IoTSiteWiseProvider';
 import { makeAssetValueEntry, mqttMessageToAWSIotSiteWiseAssetValue, valueTypeToAWSIotSiteWiseAssetValueVariant } from '../factories/AWSIotSiteWiseAssetFactory';
+import MQTTPublication from '../interfaces/MQTTPublication';
 
 class MeasurementSubscription {
     private measurement: Measurement;
@@ -118,6 +119,16 @@ class MeasurementSubscription {
             );
 
             assetValueEntries.push(...actionAssetValueEntries);
+
+            const informationPath = `/${workspaceName}/${assetName}/information`;
+            const information = `${minValue} is the min value supported.`;
+            const onUnderMinValueInformationEntry = makeAssetValueEntry(
+                informationPath,
+                AWSIotSiteWiseAssetValueVariant.STRING_VALUE,
+                information,
+            );
+
+            assetValueEntries.push(onUnderMinValueInformationEntry);
         } else if (maxValue && value > maxValue && onOverMaxValueActionProps) {
             const actionAssetValueEntries = MeasurementSubscription.makeActionAssetValueEntries(
                 workspaceName,
@@ -126,6 +137,16 @@ class MeasurementSubscription {
             );
 
             assetValueEntries.push(...actionAssetValueEntries);
+
+            const informationPath = `/${workspaceName}/${assetName}/information`;
+            const information = `${maxValue} is the max value supported.`;
+            const onOverMaxValueInformationEntry = makeAssetValueEntry(
+                informationPath,
+                AWSIotSiteWiseAssetValueVariant.STRING_VALUE,
+                information,
+            );
+
+            assetValueEntries.push(onOverMaxValueInformationEntry);
         } else if (onRangeValueActionProps) {
             const actionAssetValueEntries = MeasurementSubscription.makeActionAssetValueEntries(
                 workspaceName,
@@ -260,15 +281,15 @@ class MeasurementSubscription {
         } = valueRangeActionProps;
 
         if (minValue && value < minValue && onUnderMinValueActionProps) {
-            MeasurementSubscription.handleActionMQTTPublications(
+            MeasurementSubscription.handleActions(
                 onUnderMinValueActionProps,
             );
         } else if (maxValue && value > maxValue && onOverMaxValueActionProps) {
-            MeasurementSubscription.handleActionMQTTPublications(
+            MeasurementSubscription.handleActions(
                 onOverMaxValueActionProps,
             );
         } else if (onRangeValueActionProps) {
-            MeasurementSubscription.handleActionMQTTPublications(
+            MeasurementSubscription.handleActions(
                 onRangeValueActionProps,
             );
         }
@@ -296,20 +317,45 @@ class MeasurementSubscription {
         } = valueEqualityActionProps;
 
         if (value === currentValue && actionProps) {
-            MeasurementSubscription.handleActionMQTTPublications(
+            MeasurementSubscription.handleActions(
                 actionProps,
             );
         }
     }
 
-    private static handleActionMQTTPublications(
+    private static handleActions(
         actionProps: ActionProps,
     ): void {
-        const { mqttPublication } = actionProps;
+        const { mqttPublications, simulationsPropsUpdateInfo } = actionProps;
 
-        if (mqttPublication) {
-            mqttPublicate(mqttPublication);
+        if (mqttPublications) {
+            MeasurementSubscription.handleMQTTPublications(mqttPublications);
         }
+
+        if (simulationsPropsUpdateInfo) {
+            MeasurementSubscription.handleSimulationsPropsUpdate(simulationsPropsUpdateInfo);
+        }
+    }
+
+    private static handleMQTTPublications(
+        mqttPublications: MQTTPublication[],
+    ): void {
+        mqttPublications.forEach((mqttPublication) => {
+            mqttPublicate(mqttPublication);
+        });
+    }
+
+    private static handleSimulationsPropsUpdate(
+        simulationsPropsUpdateInfo: MeasurementSimulationUpdateInfo[],
+    ): void {
+        simulationsPropsUpdateInfo.forEach((simulationPropsUpdateInfo) => {
+            const { id, ...updateInfo } = simulationPropsUpdateInfo;
+            updateFirestoreDocument(
+                FirestoreDBCollectionNames.MQTTPublicationsSimulationsProps,
+                id,
+                updateInfo
+            );
+        });
     }
 }
 

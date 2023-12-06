@@ -1,4 +1,6 @@
 import MQTTPublication from './MQTTPublication';
+import MQTTPublicationsSimulationProps from './MQTTPublicationsSimulationProps';
+import OptionalExceptFor from './typeFactories/OptionalExceptFor';
 
 export type valueType = string | number | boolean;
 
@@ -21,10 +23,16 @@ export enum ModelShaderColor {
     PURPLE = 'PURPLE', 
 }
 
+export type MeasurementSimulationUpdateInfo = OptionalExceptFor<
+    MQTTPublicationsSimulationProps,
+    'id'
+>;
+
 export interface ActionProps {
-    mqttPublication?: MQTTPublication;
     iconType?: IconType;
     modelShaderColor?: ModelShaderColor;
+    mqttPublications?: MQTTPublication[];
+    simulationsPropsUpdateInfo?: MeasurementSimulationUpdateInfo[];
 }
 
 export interface ValueEqualityActionProps {
