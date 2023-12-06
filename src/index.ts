@@ -1,4 +1,4 @@
-import './env';
+import '../env';
 import Koa from 'koa';
 import cors from '@koa/cors';
 import helmet from 'koa-helmet';

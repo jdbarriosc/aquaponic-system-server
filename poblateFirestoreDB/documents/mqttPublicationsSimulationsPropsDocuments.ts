@@ -7,7 +7,7 @@ export const fishTankWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulation
     startValue: 120,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 100,
     maxValue: 150,
 };
@@ -17,7 +17,7 @@ export const fishTankWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimulati
     mqttPublicationTopic: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
     simulationType: SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM,
     startValue: true,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     posibleValues: [true, false],
 };
 
@@ -28,7 +28,7 @@ export const fishTankWaterTemperatureSensorTemperatureMQTTPublicationsSimulation
     startValue: 25,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 22,
     maxValue: 32,
 };
@@ -40,7 +40,7 @@ export const fishTankWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPublica
     startValue: 7,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 6,
     maxValue: 8.5,
 };
@@ -52,7 +52,7 @@ export const fishTankWaterAmmoniaSensorConcentrationMQTTPublicationsSimulationPr
     startValue: 2,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 0,
     maxValue: 3,
 };
@@ -64,7 +64,7 @@ export const fishTankWaterNitriteSensorConcentrationMQTTPublicationsSimulationPr
     startValue: 0.5,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 0,
     maxValue: 1,
 };
@@ -76,7 +76,7 @@ export const fishTankWaterNitrateSensorConcentrationMQTTPublicationsSimulationPr
     startValue: 350,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 0,
     maxValue: 400,
 };
@@ -88,7 +88,7 @@ export const fishTankWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSimul
     startValue: 5,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 4,
     maxValue: 6,
 };
@@ -100,7 +100,7 @@ export const fishTankWaterElectricConductivitySensorElectricConductivityMQTTPubl
     startValue: 200,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 100,
     maxValue: 300,
 };
@@ -112,7 +112,7 @@ export const fishTankWaterCarbonateHardnessSensorConcentrationMQTTPublicationsSi
     startValue: 100,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 60,
     maxValue: 140,
 };
@@ -124,7 +124,7 @@ export const growingBedWaterFlowSensorVolumetricFlowRateMQTTPublicationsSimulati
     startValue: 125,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 100,
     maxValue: 150,
 };
@@ -134,7 +134,7 @@ export const growingBedWaterLevelSensorHasNeededWaterLevelMQTTPublicationsSimula
     mqttPublicationTopic: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
     simulationType: SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM,
     startValue: true,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     posibleValues: [true, false],
 };
 
@@ -145,7 +145,7 @@ export const growingBedWaterTemperatureSensorTemperatureMQTTPublicationsSimulati
     startValue: 25,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 22,
     maxValue: 32,
 };
@@ -157,7 +157,7 @@ export const growingBedWaterPHSensorPHMQTTPublicationsSimulationProps: MQTTPubli
     startValue: 7,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 6,
     maxValue: 8.5,
 };
@@ -169,7 +169,7 @@ export const growingBedWaterAmmoniaSensorConcentrationMQTTPublicationsSimulation
     startValue: 2,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 0,
     maxValue: 3,
 };
@@ -181,7 +181,7 @@ export const growingBedWaterNitriteSensorConcentrationMQTTPublicationsSimulation
     startValue: 0.5,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 0,
     maxValue: 1,
 };
@@ -193,7 +193,7 @@ export const growingBedWaterNitrateSensorConcentrationMQTTPublicationsSimulation
     startValue: 350,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 0,
     maxValue: 400,
 };
@@ -205,7 +205,7 @@ export const growingBedWaterDisolvedOxygenSensorConcentrationMQTTPublicationsSim
     startValue: 5,
     decimalUnits: 2,
     valueVariationFactor: 0.1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 4,
     maxValue: 6,
 };
@@ -217,7 +217,7 @@ export const growingBedWaterElectricConductivitySensorElectricConductivityMQTTPu
     startValue: 200,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 100,
     maxValue: 300,
 };
@@ -229,7 +229,7 @@ export const growingBedWaterCarbonateHardnessSensorConcentrationMQTTPublications
     startValue: 100,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 60,
     maxValue: 140,
 };
@@ -241,7 +241,7 @@ export const greenHouseAirTemperatureSensorTemperatureMQTTPublicationsSimulation
     startValue: 25,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 22,
     maxValue: 32,
 };
@@ -253,7 +253,7 @@ export const greenHouseAirRelativeHumiditySensorConcentrationMQTTPublicationsSim
     startValue: 72,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 65,
     maxValue: 80,
 };
@@ -265,7 +265,7 @@ export const greenHouseAirCarbonDioxideSensorConcentrationMQTTPublicationsSimula
     startValue: 900,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 800,
     maxValue: 1000,
 };
@@ -277,7 +277,7 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiationMQTTPublicati
     startValue: 50,
     decimalUnits: 2,
     valueVariationFactor: 1,
-    msBetweenPublications: 2000,
+    msBetweenPublications: 10000,
     minValue: 20,
     maxValue: 80,
 };

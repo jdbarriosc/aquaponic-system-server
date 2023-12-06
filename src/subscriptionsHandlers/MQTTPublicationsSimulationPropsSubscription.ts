@@ -11,7 +11,7 @@ import { documentSnapshotToMQTTPublicationsSimulationProps, makeArrayOfPosibleVa
 const defaultDecimalUnits = 2;
 
 class MQTTPublicationsSimulationPropsSubscription {
-    private defaultMsBetweenPublications = 2000;
+    private defaultMsBetweenPublications = 10000;
 
     private startValue: valueType;
     private currentValue: valueType;
@@ -145,6 +145,7 @@ class MQTTPublicationsSimulationPropsSubscription {
     }
 
     public async startSimulation(): Promise<void> {
+        console.log(`--start simulation: ${this.mqttPublicationsSimulationProps.id}`)
         while (true) {
             await this.publicate();
         }   
