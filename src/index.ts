@@ -11,8 +11,8 @@ import { initializIoTSiteWiseClient } from './providers/IoTSiteWiseProvider';
 import { initializeFirebaseConnection } from './providers/FirebaseProvider';
 import { initializeMQTTPublicationClient } from './providers/MQTTPublicationProvider';
 import { initializeMQTTSubscriptionClient } from './providers/MQTTSubscriptionProvider';
-import { initializeMeasurementSubscriptions } from './providers/MeasurementSubscriptionProvider';
-import { initializeMQTTPublicationsSimulations } from './providers/MQTTPublicationsSimulationProvider';
+import { initializeSensorSubscriptions } from './providers/SensorSubscriptionProvider';
+import { initializeSensorMeasurementsSimulations } from './providers/SensorMeasurementsSimulationProvider';
 
 (async function runServer(): Promise<void> {
     try {
@@ -20,8 +20,8 @@ import { initializeMQTTPublicationsSimulations } from './providers/MQTTPublicati
         initializeFirebaseConnection();
         await initializeMQTTPublicationClient();
         await initializeMQTTSubscriptionClient();
-        await initializeMeasurementSubscriptions();
-        await initializeMQTTPublicationsSimulations();
+        await initializeSensorSubscriptions();
+        await initializeSensorMeasurementsSimulations();
 
         const app = new Koa();
 

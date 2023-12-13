@@ -1,27 +1,27 @@
 import FirestoreDBCollectionNames from '../constants/FirestoreDBCollectionNames';
 import sleep from '../utils/sleep';
-import { valueType } from '../interfaces/Measurement';
+import { measurementType } from '../interfaces/Sensor';
 import MQTTPublication from '../interfaces/MQTTPublication';
 import { mqttPublicate } from '../providers/MQTTPublicationProvider';
 import { subscribeToFirestoreDocument } from '../providers/FirebaseProvider';
 import { makeNumberRandomPositiveOrNegative, makeRandomNumber, roundNumber } from '../factories/NumberFactory';
-import MQTTPublicationsSimulationProps, { ArrayOfPosibleValuesMQTTPublicationsSimulationProps, NumericIncreaseDecreaseMQTTPublicationsSimulationProps, NumericRandomMQTTPublicationsSimulationProps, SimulationType } from '../interfaces/MQTTPublicationsSimulationProps';
-import { documentSnapshotToMQTTPublicationsSimulationProps, makeArrayOfPosibleValuesMQTTPublicationsSimulationProps, makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps, makeNumericRandomMQTTPublicationsSimulationProps } from '../dataMappers/MQTTPublicationsSimulationsPropsDataMappers';
+import SensorMeasurementsSimulationParams, { ArrayOfPossibleMeasurementsSensorMeasurementsSimulationParams, NumericIncreaseDecreaseSensorMeasurementsSimulationParams, NumericRandomSensorMeasurementsSimulationParams, SIMULATION_TYPE } from '../interfaces/SensorMeasurementsSimulationParams';
+import { documentSnapshotToSensorMeasurementsSimulationParams, makeArrayOfPossibleMeasurementsMQTTPublicationsSimulationProps, makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps, makeNumericRandomMQTTPublicationsSimulationProps } from '../dataMappers/SensorMeasurementsSimulationsParamsDataMappers';
 
 const defaultDecimalUnits = 2;
 
 class MQTTPublicationsSimulationPropsSubscription {
     private defaultMsBetweenPublications = 10000;
 
-    private startValue: valueType;
-    private currentValue: valueType;
-    private mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps;
-    private getNextValue: ((currentValue: valueType) => valueType) | null = null;
+    private startMeasurement: measurementType;
+    private currentValue: measurementType;
+    private mqttPublicationsSimulationProps: SensorMeasurementsSimulationParams;
+    private getNextValue: ((currentValue: measurementType) => measurementType) | null = null;
 
-    public constructor(mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps) {
-        const { startValue } = mqttPublicationsSimulationProps;
-        this.startValue = startValue;
-        this.currentValue = startValue;
+    public constructor(mqttPublicationsSimulationProps: SensorMeasurementsSimulationParams) {
+        const { startMeasurement } = mqttPublicationsSimulationProps;
+        this.startMeasurement = startMeasurement;
+        this.currentValue = startMeasurement;
         this.mqttPublicationsSimulationProps = mqttPublicationsSimulationProps;
         this.setMQTTPublicationsSimulationProps(mqttPublicationsSimulationProps);
     }
@@ -29,36 +29,36 @@ class MQTTPublicationsSimulationPropsSubscription {
     public async subscribeToFirestoreMQTTPublicationsSimulationProps(): Promise<void> {
         const { id } = this.mqttPublicationsSimulationProps;
         const onMQTTPublicationsSimulationPropsChange = (
-            mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps,
+            mqttPublicationsSimulationProps: SensorMeasurementsSimulationParams,
         ) => {
-            const { startValue } = mqttPublicationsSimulationProps;
-            if (this.startValue !== startValue) {
-                this.startValue = startValue;
-                this.currentValue = startValue;
+            const { startMeasurement } = mqttPublicationsSimulationProps;
+            if (this.startMeasurement !== startMeasurement) {
+                this.startMeasurement = startMeasurement;
+                this.currentValue = startMeasurement;
             }
 
             this.mqttPublicationsSimulationProps = mqttPublicationsSimulationProps;
             this.setMQTTPublicationsSimulationProps(mqttPublicationsSimulationProps);
         };
 
-        subscribeToFirestoreDocument<MQTTPublicationsSimulationProps>(
-            FirestoreDBCollectionNames.MQTTPublicationsSimulationsProps,
+        subscribeToFirestoreDocument<SensorMeasurementsSimulationParams>(
+            FirestoreDBCollectionNames.SensorMeasurementsSimulationsParams,
             id,
-            documentSnapshotToMQTTPublicationsSimulationProps,
+            documentSnapshotToSensorMeasurementsSimulationParams,
             onMQTTPublicationsSimulationPropsChange,
         );
     }
     
-    private setMQTTPublicationsSimulationProps(mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps) {        
-        let getNextValue: ((currentValue: valueType) => valueType) | null  = null;
+    private setMQTTPublicationsSimulationProps(mqttPublicationsSimulationProps: SensorMeasurementsSimulationParams) {        
+        let getNextValue: ((currentValue: measurementType) => measurementType) | null  = null;
 
         const { simulationType } = mqttPublicationsSimulationProps;
         switch (simulationType) {
-            case SimulationType.STATIC:
+            case SIMULATION_TYPE.STATIC:
                 getNextValue = null;
                 break;
       
-            case SimulationType.NUMERIC_RANDOM:
+            case SIMULATION_TYPE.NUMERIC_RANDOM:
                 const numericRandomMQTTPublicationsSimulationProps = makeNumericRandomMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
@@ -69,12 +69,12 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.NUMERIC_INCREASE:
+            case SIMULATION_TYPE.NUMERIC_INCREASE:
                 const numericIncreaseDecreaseMQTTPublicationsSimulationProps = makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
 
-                getNextValue = (currentValue: valueType) => {
+                getNextValue = (currentValue: measurementType) => {
                     if (typeof currentValue !== 'number') {
                         throw new Error ('currentValue must be a number');
                     }
@@ -88,12 +88,12 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.NUMERIC_DECREASE:
+            case SIMULATION_TYPE.NUMERIC_DECREASE:
                 const numericIncreaseMQTTPublicationsSimulationProps = makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
 
-                getNextValue = (currentValue: valueType) => {
+                getNextValue = (currentValue: measurementType) => {
                     if (typeof currentValue !== 'number') {
                         throw new Error ('currentValue must be a number');
                     }
@@ -107,12 +107,12 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM:
+            case SIMULATION_TYPE.NUMERIC_INCREASE_DECREASE_RANDOM:
                 const numericDecreaseMQTTPublicationsSimulationProps = makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
 
-                getNextValue = (currentValue: valueType) => {
+                getNextValue = (currentValue: measurementType) => {
                     if (typeof currentValue !== 'number') {
                         throw new Error ('currentValue must be a number');
                     }
@@ -126,13 +126,13 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM:
-                const arrayOfPosibleValuesMQTTPublicationsSimulationProps = makeArrayOfPosibleValuesMQTTPublicationsSimulationProps(
+            case SIMULATION_TYPE.ARRAY_OF_POSSIBLE_MEASUREMENTS_RANDOM:
+                const arrayOfpossibleMeasurementsMQTTPublicationsSimulationProps = makeArrayOfPossibleMeasurementsMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
 
-                getNextValue = () => MQTTPublicationsSimulationPropsSubscription.getNextValueArrayOfPosibleValuesItemRandom(
-                    arrayOfPosibleValuesMQTTPublicationsSimulationProps,
+                getNextValue = () => MQTTPublicationsSimulationPropsSubscription.getNextValueArrayOfPossibleMeasurementsItemRandom(
+                    arrayOfpossibleMeasurementsMQTTPublicationsSimulationProps,
                 );
 
                 break;
@@ -177,32 +177,32 @@ class MQTTPublicationsSimulationPropsSubscription {
     }
 
     private static getNextValueNumericRandom(
-        numericRandomMQTTPublicationsSimulationProps: NumericRandomMQTTPublicationsSimulationProps,
+        numericRandomMQTTPublicationsSimulationProps: NumericRandomSensorMeasurementsSimulationParams,
     ): number {
         const {
-            minValue,
-            maxValue,
+            minMeasurement,
+            maxMeasurement,
             decimalUnits = defaultDecimalUnits,
         } = numericRandomMQTTPublicationsSimulationProps;
 
-        const nextValue = makeRandomNumber(minValue, maxValue, decimalUnits);
+        const nextValue = makeRandomNumber(minMeasurement, maxMeasurement, decimalUnits);
         return nextValue;
     }
 
     private static getNextValueNumericIncrease(
         currentValue: number,
-        numericRandomMQTTPublicationsSimulationProps: NumericIncreaseDecreaseMQTTPublicationsSimulationProps,
+        numericRandomMQTTPublicationsSimulationProps: NumericIncreaseDecreaseSensorMeasurementsSimulationParams,
     ): number {
         const { 
-            valueVariationFactor,
-            maxValue,
+            measurementVariationFactor,
+            maxMeasurement,
             decimalUnits = defaultDecimalUnits,
         } = numericRandomMQTTPublicationsSimulationProps;
         
-        const maxValueWasProvided = typeof maxValue === 'number';
-        const increasedValue = currentValue + valueVariationFactor;
+        const maxMeasurementWasProvided = typeof maxMeasurement === 'number';
+        const increasedValue = currentValue + measurementVariationFactor;
         const roundedIncreasedValue = roundNumber(increasedValue, decimalUnits);
-        const valueCanBeIncreased = !maxValueWasProvided || roundedIncreasedValue <= maxValue;
+        const valueCanBeIncreased = !maxMeasurementWasProvided || roundedIncreasedValue <= maxMeasurement;
       
         let nextValue = currentValue;
         if (valueCanBeIncreased)  {
@@ -214,18 +214,18 @@ class MQTTPublicationsSimulationPropsSubscription {
 
     private static getNextValueNumericDecrease(
         currentValue: number,
-        numericRandomMQTTPublicationsSimulationProps: NumericIncreaseDecreaseMQTTPublicationsSimulationProps,
+        numericRandomMQTTPublicationsSimulationProps: NumericIncreaseDecreaseSensorMeasurementsSimulationParams,
     ): number {
         const { 
-            valueVariationFactor,
-            minValue,
+            measurementVariationFactor,
+            minMeasurement,
             decimalUnits = defaultDecimalUnits,
         } = numericRandomMQTTPublicationsSimulationProps;
         
-        const minValueWasProvided = typeof minValue === 'number';
-        const decreasedValue = currentValue - valueVariationFactor;
+        const minMeasurementWasProvided = typeof minMeasurement === 'number';
+        const decreasedValue = currentValue - measurementVariationFactor;
         const roundedDecreasedValue = roundNumber(decreasedValue, decimalUnits);
-        const valueCanBeDecreased = !minValueWasProvided ||  roundedDecreasedValue >= minValue;
+        const valueCanBeDecreased = !minMeasurementWasProvided ||  roundedDecreasedValue >= minMeasurement;
       
         let nextValue = currentValue;
         if (valueCanBeDecreased)  {
@@ -238,30 +238,30 @@ class MQTTPublicationsSimulationPropsSubscription {
 
     private static getNextValueNumericIncreaseDecreaseRandom(
         currentValue: number,
-        numericRandomMQTTPublicationsSimulationProps: NumericIncreaseDecreaseMQTTPublicationsSimulationProps,
+        numericRandomMQTTPublicationsSimulationProps: NumericIncreaseDecreaseSensorMeasurementsSimulationParams,
     ): number {
         const { 
-            valueVariationFactor,
-            minValue,
-            maxValue,
+            measurementVariationFactor,
+            minMeasurement,
+            maxMeasurement,
             decimalUnits = defaultDecimalUnits,
         } = numericRandomMQTTPublicationsSimulationProps;
         
-        const minValueWasProvided = typeof minValue === 'number';
-        const maxValueWasProvided = typeof maxValue === 'number';
+        const minMeasurementWasProvided = typeof minMeasurement === 'number';
+        const maxMeasurementWasProvided = typeof maxMeasurement === 'number';
       
-        const randomizedValueVariationFactor = makeNumberRandomPositiveOrNegative(valueVariationFactor);
-        const randomizedValue = currentValue + randomizedValueVariationFactor;
+        const randomizedmeasurementVariationFactor = makeNumberRandomPositiveOrNegative(measurementVariationFactor);
+        const randomizedValue = currentValue + randomizedmeasurementVariationFactor;
         const roundedRandomizedValue = roundNumber(randomizedValue, decimalUnits);
       
-        const decreasedValue = currentValue - valueVariationFactor;
+        const decreasedValue = currentValue - measurementVariationFactor;
         const roundedDecreasedValue = roundNumber(decreasedValue, decimalUnits);
       
-        const increasedValue = currentValue + valueVariationFactor;
+        const increasedValue = currentValue + measurementVariationFactor;
         const roundedIncreasedValue = roundNumber(increasedValue, decimalUnits);
       
-        const valueCanBeDecreased = !minValueWasProvided ||  roundedDecreasedValue >= minValue;
-        const valueCanBeIncreased = !maxValueWasProvided || roundedIncreasedValue <= maxValue;
+        const valueCanBeDecreased = !minMeasurementWasProvided ||  roundedDecreasedValue >= minMeasurement;
+        const valueCanBeIncreased = !maxMeasurementWasProvided || roundedIncreasedValue <= maxMeasurement;
       
         let nextValue = currentValue;
         if (valueCanBeDecreased && valueCanBeIncreased) {
@@ -275,12 +275,12 @@ class MQTTPublicationsSimulationPropsSubscription {
         return nextValue;
     }
 
-    private static getNextValueArrayOfPosibleValuesItemRandom(
-        arrayOfPosibleValuesMQTTPublicationsSimulationProps: ArrayOfPosibleValuesMQTTPublicationsSimulationProps,
-    ): valueType {
-        const { posibleValues } = arrayOfPosibleValuesMQTTPublicationsSimulationProps;
-        const randomIndex = makeRandomNumber(0, posibleValues.length - 1);
-        const nextValue = posibleValues[randomIndex];
+    private static getNextValueArrayOfPossibleMeasurementsItemRandom(
+        arrayOfpossibleMeasurementsMQTTPublicationsSimulationProps: ArrayOfPossibleMeasurementsSensorMeasurementsSimulationParams,
+    ): measurementType {
+        const { possibleMeasurements } = arrayOfpossibleMeasurementsMQTTPublicationsSimulationProps;
+        const randomIndex = makeRandomNumber(0, possibleMeasurements.length - 1);
+        const nextValue = possibleMeasurements[randomIndex];
       
         return nextValue;
     }

@@ -1,9 +1,9 @@
 import { Context } from 'koa';
-import MQTTPublicationsSimulationsPropsService from '../services/MQTTPublicationsSimulationsPropsService';
+import SensorMeasurementsSimulationsParamsService from '../services/SensorMeasurementsSimulationsParamsService';
 
 class MQTTPublicationsSimulationsPropsRequestHandler {
   public static async getMQTTPublicationsSimulationsProps(ctx: Context): Promise<void> {
-    const mqttPublicationsSimulationsProps = await MQTTPublicationsSimulationsPropsService.getMQTTPublicationsSimulationsProps();
+    const mqttPublicationsSimulationsProps = await SensorMeasurementsSimulationsParamsService.getSensorMeasurementsSimulationsParams();
 
     ctx.body = mqttPublicationsSimulationsProps;
     ctx.status = 200;

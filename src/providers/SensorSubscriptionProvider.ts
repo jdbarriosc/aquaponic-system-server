@@ -1,22 +1,22 @@
-import Measurement from '../interfaces/Measurement';
-import MeasurementsService from '../services/MeasurementsService';
-import MeasurementSubscription from '../subscriptionsHandlers/MeasurementSubscription';
+import Sensor from '../interfaces/Sensor';
+import SensorsService from '../services/SensorsService';
+import SensorSubscription from '../subscriptionsHandlers/SensorSubscription';
 import { setMQTTOnMessage, subscribeToMQTTTopic } from './MQTTSubscriptionProvider';
 
 interface MQTTSubsctiptionTopicsOnMessage {
     [key: string]: (message: string) => Promise<void> | undefined;
 }
 
-async function initializeMeasurementSubscriptions(): Promise<void> {
+async function initializeSensorSubscriptions(): Promise<void> {
   const mqttSubsctiptionTopicsOnMessage: MQTTSubsctiptionTopicsOnMessage = {};
   
-  const measurements = await MeasurementsService.getMeasurements();
-  measurements.forEach((measurement: Measurement) => {
-    const { mqttSubscriptionTopic } = measurement;
+  const sensors = await SensorsService.getSensors();
+  sensors.forEach((sensor: Sensor) => {
+    const { mqttSubscriptionTopic } = sensor;
     subscribeToMQTTTopic(mqttSubscriptionTopic);
 
-    const asset = new MeasurementSubscription(measurement);
-    asset.subscribeToFirestoreMeasurement();
+    const asset = new SensorSubscription(sensor);
+    asset.subscribeToFirestoreSensor();
 
     const onMessage = (message: string) => asset.handleMQTTSubscriptionTopicMessage(message);
     mqttSubsctiptionTopicsOnMessage[mqttSubscriptionTopic] = onMessage;
@@ -33,6 +33,6 @@ async function initializeMeasurementSubscriptions(): Promise<void> {
 }
 
 export {
-  initializeMeasurementSubscriptions,
+  initializeSensorSubscriptions,
 };
   

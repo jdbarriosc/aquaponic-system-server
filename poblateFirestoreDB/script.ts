@@ -1,8 +1,8 @@
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
-import measurementDocuments from './documents/measurementDocuments';
+import sensorDocuments from './documents/sensorDocuments';
 import FirestoreDBCollectionNames from '../src/constants/FirestoreDBCollectionNames';
 import { initializeFirebaseConnection } from '../src/providers/FirebaseProvider';
-import mqttPublicationsSimulationsPropsDocuments from './documents/mqttPublicationsSimulationsPropsDocuments';
+import sensorMeasurementsSimulationParamsDocuments from './documents/sensorMeasurementsSimulationParamsDocuments';
 
 async function script(): Promise<void> {
   console.log('-- poblating firestore db');
@@ -10,22 +10,22 @@ async function script(): Promise<void> {
   initializeFirebaseConnection();
   const firestoreDB = getFirestore();
 
-  measurementDocuments.forEach(async (measurementDocument) => {
-    const { id } = measurementDocument;
-    const documentReference = doc(firestoreDB, FirestoreDBCollectionNames.Measurements, id);
+  sensorDocuments.forEach(async (sensorDocument) => {
+    const { id } = sensorDocument;
+    const documentReference = doc(firestoreDB, FirestoreDBCollectionNames.Sensors, id);
 
-    await setDoc(documentReference, measurementDocument);
+    await setDoc(documentReference, sensorDocument);
   });
 
-  mqttPublicationsSimulationsPropsDocuments.forEach(async (mqttPublicationsSimulationsPropsDocument) => {
-    const { id } = mqttPublicationsSimulationsPropsDocument;
+  sensorMeasurementsSimulationParamsDocuments.forEach(async (sensorMeasurementsSimulationParamsDocument) => {
+    const { id } = sensorMeasurementsSimulationParamsDocument;
     const documentReference = doc(
       firestoreDB,
-      FirestoreDBCollectionNames.MQTTPublicationsSimulationsProps,
+      FirestoreDBCollectionNames.SensorMeasurementsSimulationsParams,
       id,
     );
 
-    await setDoc(documentReference, mqttPublicationsSimulationsPropsDocument);
+    await setDoc(documentReference, sensorMeasurementsSimulationParamsDocument);
   });
 
   console.log('-- done poblating firestore db');

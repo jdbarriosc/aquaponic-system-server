@@ -1,6 +1,6 @@
 enum FirestoreDBCollectionNames {
-    MQTTPublicationsSimulationsProps = 'mqttPublicationsSimulationsProps',
-    Measurements = 'measurements',
+    SensorMeasurementsSimulationsParams = 'sensorMeasurementsSimulationsParams',
+    Sensors = 'sensors',
 };
 
 export default FirestoreDBCollectionNames;
