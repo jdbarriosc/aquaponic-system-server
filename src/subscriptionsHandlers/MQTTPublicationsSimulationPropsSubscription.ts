@@ -5,8 +5,8 @@ import MQTTPublication from '../interfaces/MQTTPublication';
 import { mqttPublicate } from '../providers/MQTTPublicationProvider';
 import { subscribeToFirestoreDocument } from '../providers/FirebaseProvider';
 import { makeNumberRandomPositiveOrNegative, makeRandomNumber, roundNumber } from '../factories/NumberFactory';
-import MQTTPublicationsSimulationProps, { ArrayOfPosibleValuesMQTTPublicationsSimulationProps, NumericIncreaseDecreaseMQTTPublicationsSimulationProps, NumericRandomMQTTPublicationsSimulationProps, SimulationType } from '../interfaces/MQTTPublicationsSimulationProps';
-import { documentSnapshotToMQTTPublicationsSimulationProps, makeArrayOfPosibleValuesMQTTPublicationsSimulationProps, makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps, makeNumericRandomMQTTPublicationsSimulationProps } from '../dataMappers/MQTTPublicationsSimulationsPropsDataMappers';
+import MQTTPublicationsSimulationProps, { ArrayOfPossibleValuesMQTTPublicationsSimulationProps, NumericIncreaseDecreaseMQTTPublicationsSimulationProps, NumericRandomMQTTPublicationsSimulationProps, SIMULATION_TYPE } from '../interfaces/MQTTPublicationsSimulationProps';
+import { documentSnapshotToMQTTPublicationsSimulationProps, makeArrayOfPossibleValuesMQTTPublicationsSimulationProps, makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps, makeNumericRandomMQTTPublicationsSimulationProps } from '../dataMappers/MQTTPublicationsSimulationsPropsDataMappers';
 
 const defaultDecimalUnits = 2;
 
@@ -54,11 +54,11 @@ class MQTTPublicationsSimulationPropsSubscription {
 
         const { simulationType } = mqttPublicationsSimulationProps;
         switch (simulationType) {
-            case SimulationType.STATIC:
+            case SIMULATION_TYPE.STATIC:
                 getNextValue = null;
                 break;
       
-            case SimulationType.NUMERIC_RANDOM:
+            case SIMULATION_TYPE.NUMERIC_RANDOM:
                 const numericRandomMQTTPublicationsSimulationProps = makeNumericRandomMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
@@ -69,7 +69,7 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.NUMERIC_INCREASE:
+            case SIMULATION_TYPE.NUMERIC_INCREASE:
                 const numericIncreaseDecreaseMQTTPublicationsSimulationProps = makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
@@ -88,7 +88,7 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.NUMERIC_DECREASE:
+            case SIMULATION_TYPE.NUMERIC_DECREASE:
                 const numericIncreaseMQTTPublicationsSimulationProps = makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
@@ -107,7 +107,7 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.NUMERIC_INCREASE_DECREASE_RANDOM:
+            case SIMULATION_TYPE.NUMERIC_INCREASE_DECREASE_RANDOM:
                 const numericDecreaseMQTTPublicationsSimulationProps = makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
@@ -126,13 +126,13 @@ class MQTTPublicationsSimulationPropsSubscription {
 
                 break;
     
-            case SimulationType.ARRAY_OF_POSIBLE_VALUES_RANDOM:
-                const arrayOfPosibleValuesMQTTPublicationsSimulationProps = makeArrayOfPosibleValuesMQTTPublicationsSimulationProps(
+            case SIMULATION_TYPE.ARRAY_OF_POSIBLE_VALUES_RANDOM:
+                const arrayOfPossibleValuesMQTTPublicationsSimulationProps = makeArrayOfPossibleValuesMQTTPublicationsSimulationProps(
                     mqttPublicationsSimulationProps,
                 );
 
-                getNextValue = () => MQTTPublicationsSimulationPropsSubscription.getNextValueArrayOfPosibleValuesItemRandom(
-                    arrayOfPosibleValuesMQTTPublicationsSimulationProps,
+                getNextValue = () => MQTTPublicationsSimulationPropsSubscription.getNextValueArrayOfPossibleValuesItemRandom(
+                    arrayOfPossibleValuesMQTTPublicationsSimulationProps,
                 );
 
                 break;
@@ -275,12 +275,12 @@ class MQTTPublicationsSimulationPropsSubscription {
         return nextValue;
     }
 
-    private static getNextValueArrayOfPosibleValuesItemRandom(
-        arrayOfPosibleValuesMQTTPublicationsSimulationProps: ArrayOfPosibleValuesMQTTPublicationsSimulationProps,
+    private static getNextValueArrayOfPossibleValuesItemRandom(
+        arrayOfPossibleValuesMQTTPublicationsSimulationProps: ArrayOfPossibleValuesMQTTPublicationsSimulationProps,
     ): valueType {
-        const { posibleValues } = arrayOfPosibleValuesMQTTPublicationsSimulationProps;
-        const randomIndex = makeRandomNumber(0, posibleValues.length - 1);
-        const nextValue = posibleValues[randomIndex];
+        const { possibleValues } = arrayOfPossibleValuesMQTTPublicationsSimulationProps;
+        const randomIndex = makeRandomNumber(0, possibleValues.length - 1);
+        const nextValue = possibleValues[randomIndex];
       
         return nextValue;
     }

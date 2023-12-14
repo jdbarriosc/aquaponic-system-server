@@ -1,4 +1,4 @@
-import Measurement, { IconType, ModelShaderColor, ValueTypeName } from "../../src/interfaces/Measurement";
+import Measurement, { ICON_TYPE, MODEL_SHADER_COLOR, VALUE_TYPE_NAME } from "../../src/interfaces/Measurement";
 
 export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     id: 'fishTankWaterFlowSensorVolumetricFlowRate',
@@ -7,21 +7,21 @@ export const fishTankWaterFlowSensorVolumetricFlowRate: Measurement = {
     valueName: 'volumetricFlowRate',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 150,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -32,20 +32,20 @@ export const fishTankWaterLevelSensorHasNeededWaterLevel: Measurement = {
     assetName: 'FishTankWaterLevelSensor',
     valueName: 'hasNeededWaterLevel',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterLevelSensor/hasNeededWaterLevel',
-    valueTypeName: ValueTypeName.BOOLEAN,
+    valueTypeName: VALUE_TYPE_NAME.BOOLEAN,
     valueEqualityActionsProps: [
         {
             value: true,
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: false,
             actionProps: {
-                iconType: IconType.ERROR,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.ERROR,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],
@@ -58,13 +58,13 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
     valueName: 'temperature',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterTemperatureSensor/temperature',
     unit: '°C',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 22,
         maxValue: 32,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
@@ -73,8 +73,8 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
             ],
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
@@ -83,8 +83,8 @@ export const fishTankWaterTemperatureSensorTemperature: Measurement = {
             ],
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'fishTankWaterHeaterStateMQTTPublicationsSimulationProps',
@@ -102,21 +102,21 @@ export const fishTankWaterPHSensorPH: Measurement = {
     valueName: 'pH',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterPHSensor/pH',
     unit: 'pH',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 6,
         maxValue: 8.5,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -128,16 +128,16 @@ export const fishTankWaterAmmoniaSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         maxValue: 3,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -149,16 +149,16 @@ export const fishTankWaterNitriteSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterNitriteSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         maxValue: 1,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -170,16 +170,16 @@ export const fishTankWaterNitrateSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterNitrateSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         maxValue: 400,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -191,21 +191,21 @@ export const fishTankWaterDisolvedOxygenSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterDisolvedOxygenSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 4,
         maxValue: 6,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -217,21 +217,21 @@ export const fishTankWaterElectricConductivitySensorElectricConductivity: Measur
     valueName: 'electricConductivity',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterElectricConductivitySensor/electricConductivity',
     unit: 'µS/cm',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 300,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -243,21 +243,21 @@ export const fishTankWaterCarbonateHardnessSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 60,
         maxValue: 140,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -269,20 +269,20 @@ export const fishTankWaterPumpState: Measurement = {
     assetName: 'FishTankWaterPump',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterPump/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: 'OFF',
             actionProps: {
-                iconType: IconType.ERROR,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.ERROR,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],
@@ -294,20 +294,20 @@ export const fishTankAirPumpState: Measurement = {
     assetName: 'FishTankAirPump',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankAirPump/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: 'OFF',
             actionProps: {
-                iconType: IconType.ERROR,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.ERROR,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],
@@ -319,20 +319,20 @@ export const fishTankWaterHeaterState: Measurement = {
     assetName: 'FishTankWaterHeater',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/FishTankWaterHeater/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: 'OFF',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],
@@ -345,21 +345,21 @@ export const growingBedWaterFlowSensorVolumetricFlowRate: Measurement = {
     valueName: 'volumetricFlowRate',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterFlowSensor/volumetricFlowRate',
     unit: 'm3/s',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 150,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -370,20 +370,20 @@ export const growingBedWaterLevelSensorHasNeededWaterLevel: Measurement = {
     assetName: 'GrowingBedWaterLevelSensor',
     valueName: 'hasNeededWaterLevel',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterLevelSensor/hasNeededWaterLevel',
-    valueTypeName: ValueTypeName.BOOLEAN,
+    valueTypeName: VALUE_TYPE_NAME.BOOLEAN,
     valueEqualityActionsProps: [
         {
             value: true,
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: false,
             actionProps: {
-                iconType: IconType.ERROR,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.ERROR,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],
@@ -396,21 +396,21 @@ export const growingBedWaterTemperatureSensorTemperature: Measurement = {
     valueName: 'temperature',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterTemperatureSensor/temperature',
     unit: '°C',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 22,
         maxValue: 32,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -422,21 +422,21 @@ export const growingBedWaterPHSensorPH: Measurement = {
     valueName: 'pH',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterPHSensor/pH',
     unit: 'pH',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 6,
         maxValue: 8.5,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -448,16 +448,16 @@ export const growingBedWaterAmmoniaSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterAmmoniaSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         maxValue: 3,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -469,16 +469,16 @@ export const growingBedWaterNitriteSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterNitriteSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         maxValue: 1,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -490,16 +490,16 @@ export const growingBedWaterNitrateSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterNitrateSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         maxValue: 400,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -511,21 +511,21 @@ export const growingBedWaterDisolvedOxygenSensorConcentration: Measurement = {
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterDisolvedOxygenSensor/concentration',
     valueName: 'concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 4,
         maxValue: 6,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -537,21 +537,21 @@ export const growingBedWaterElectricConductivitySensorElectricConductivity: Meas
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterElectricConductivitySensor/electricConductivity',
     valueName: 'electricConductivity',
     unit: 'µS/cm',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 100,
         maxValue: 300,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -563,21 +563,21 @@ export const growingBedWaterCarbonateHardnessSensorConcentration: Measurement = 
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GrowingBedWaterCarbonateHardnessSensor/concentration',
     unit: 'mg/L',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 60,
         maxValue: 140,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
         },
     },
 };
@@ -589,13 +589,13 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
     valueName: 'temperature',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirTemperatureSensor/temperature',
     unit: '°C',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 22,
         maxValue: 32,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseAirHeaterStateMQTTPublicationsSimulationProps',
@@ -604,8 +604,8 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
             ],
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseAirHeaterStateMQTTPublicationsSimulationProps',
@@ -614,8 +614,8 @@ export const greenHouseAirTemperatureSensorTemperature: Measurement = {
             ],
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
@@ -637,21 +637,21 @@ export const greenHouseAirRelativeHumiditySensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirRelativeHumiditySensor/concentration',
     unit: '%',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 65,
         maxValue: 80,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
@@ -669,21 +669,21 @@ export const greenHouseAirCarbonDioxideSensorConcentration: Measurement = {
     valueName: 'concentration',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirCarbonDioxideSensor/concentration',
     unit: 'ppm',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 800,
         maxValue: 1000,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.RED,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.RED,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseFanSystemStateMQTTPublicationsSimulationProps',
@@ -701,12 +701,12 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
     valueName: 'photosyntheticallyActiveRadiation',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseLightSensor/photosyntheticallyActiveRadiation',
     unit: 'μmol·m2·s',
-    valueTypeName: ValueTypeName.NUMBER,
+    valueTypeName: VALUE_TYPE_NAME.NUMBER,
     valueRangeActionProps: {
         minValue: 20,
         onRangeValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
@@ -715,8 +715,8 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
             ],
         },
         onUnderMinValueActionProps: {
-            iconType: IconType.ERROR,
-            modelShaderColor: ModelShaderColor.BLUE,
+            iconType: ICON_TYPE.ERROR,
+            modelShaderColor: MODEL_SHADER_COLOR.BLUE,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
@@ -725,8 +725,8 @@ export const greenHouseLightSensorPhotosyntheticallyActiveRadiation: Measurement
             ],
         },
         onOverMaxValueActionProps: {
-            iconType: IconType.INFO,
-            modelShaderColor: ModelShaderColor.GREEN,
+            iconType: ICON_TYPE.INFO,
+            modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             simulationsPropsUpdateInfo: [
                 {
                     id: 'greenHouseLightsStateMQTTPublicationsSimulationProps',
@@ -743,19 +743,19 @@ export const greenHouseLightsState: Measurement = {
     assetName: 'GreenHouseLights',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseLights/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.PURPLE,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.PURPLE,
             },
         },
         {
             value: 'OFF',
             actionProps: {
-                iconType: IconType.INFO,
+                iconType: ICON_TYPE.INFO,
             },
         },
     ],
@@ -767,13 +767,13 @@ export const greenHouseFanSystemState: Measurement = {
     assetName: 'GreenHouseFanSystem',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseFanSystem/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
                 simulationsPropsUpdateInfo: [
                     {
                         id: 'greenHouseVentsStateMQTTPublicationsSimulationProps',
@@ -785,8 +785,8 @@ export const greenHouseFanSystemState: Measurement = {
         {
             value: 'OFF',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
                 simulationsPropsUpdateInfo: [
                     {
                         id: 'greenHouseVentsStateMQTTPublicationsSimulationProps',
@@ -804,20 +804,20 @@ export const greenHouseVentsState: Measurement = {
     assetName: 'GreenHouseVents',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseVents/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'OPEN',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: 'CLOSED',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],
@@ -829,20 +829,20 @@ export const greenHouseAirHeaterState: Measurement = {
     assetName: 'GreenHouseAirHeater',
     valueName: 'state',
     mqttSubscriptionTopic: '/AquaponicSystem/GreenHouseAirHeater/state',
-    valueTypeName: ValueTypeName.STRING,
+    valueTypeName: VALUE_TYPE_NAME.STRING,
     valueEqualityActionsProps: [
         {
             value: 'ON',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.GREEN,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.GREEN,
             },
         },
         {
             value: 'OFF',
             actionProps: {
-                iconType: IconType.INFO,
-                modelShaderColor: ModelShaderColor.RED,
+                iconType: ICON_TYPE.INFO,
+                modelShaderColor: MODEL_SHADER_COLOR.RED,
             },
         },
     ],

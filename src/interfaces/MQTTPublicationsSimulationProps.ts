@@ -1,6 +1,6 @@
 import { valueType } from './Measurement';
 
-export enum SimulationType {
+export enum SIMULATION_TYPE {
     STATIC = 'STATIC',
     NUMERIC_RANDOM = 'NUMERIC_RANDOM',
     NUMERIC_INCREASE = 'NUMERIC_INCREASE', 
@@ -12,14 +12,14 @@ export enum SimulationType {
 interface MQTTPublicationsSimulationProps {
     id: string;
     mqttPublicationTopic: string;
-    simulationType: SimulationType;
+    simulationType: SIMULATION_TYPE;
     startValue: valueType;
     decimalUnits?: number;
     valueVariationFactor?: number;
     msBetweenPublications?: number;
     minValue?: number;
     maxValue?: number;
-    posibleValues?: string[]  | number[] | boolean[];
+    possibleValues?: string[]  | number[] | boolean[];
 }
 
 export interface NumericRandomMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
@@ -33,9 +33,9 @@ export interface NumericIncreaseDecreaseMQTTPublicationsSimulationProps extends 
     valueVariationFactor: number;
 }
 
-export interface ArrayOfPosibleValuesMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
+export interface ArrayOfPossibleValuesMQTTPublicationsSimulationProps extends MQTTPublicationsSimulationProps {
     startValue: valueType;
-    posibleValues: string[]  | number[] | boolean[];
+    possibleValues: string[]  | number[] | boolean[];
 }
 
 export default MQTTPublicationsSimulationProps;

@@ -4,19 +4,19 @@ import OptionalExceptFor from './typeFactories/OptionalExceptFor';
 
 export type valueType = string | number | boolean;
 
-export enum ValueTypeName {
+export enum VALUE_TYPE_NAME {
     STRING = 'STRING',
     NUMBER = 'NUMBER', 
     BOOLEAN = 'BOOLEAN', 
 } 
 
-export enum IconType {
+export enum ICON_TYPE {
     INFO = 'INFO', 
     WARNING = 'WARNING',
     ERROR = 'ERROR', 
 } 
 
-export enum ModelShaderColor {
+export enum MODEL_SHADER_COLOR {
     GREEN = 'GREEN',
     BLUE = 'BLUE', 
     RED = 'RED', 
@@ -29,8 +29,8 @@ export type MeasurementSimulationUpdateInfo = OptionalExceptFor<
 >;
 
 export interface ActionProps {
-    iconType?: IconType;
-    modelShaderColor?: ModelShaderColor;
+    iconType?: ICON_TYPE;
+    modelShaderColor?: MODEL_SHADER_COLOR;
     mqttPublications?: MQTTPublication[];
     simulationsPropsUpdateInfo?: MeasurementSimulationUpdateInfo[];
 }
@@ -55,7 +55,7 @@ interface Measurement {
     valueName: string;
     mqttSubscriptionTopic: string;
     unit?: string;
-    valueTypeName: ValueTypeName;
+    valueTypeName: VALUE_TYPE_NAME;
     valueRangeActionProps?: ValueRangeActionProps;
     valueEqualityActionsProps?: ValueEqualityActionProps[];
 }

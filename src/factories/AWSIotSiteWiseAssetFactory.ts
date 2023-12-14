@@ -1,21 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
 import { PutAssetPropertyValueEntry } from '@aws-sdk/client-iotsitewise';
-import { ValueTypeName, valueType } from '../interfaces/Measurement';
+import { VALUE_TYPE_NAME, valueType } from '../interfaces/Measurement';
 import { stringToNumber } from './NumberFactory';
 import { stringToBoolean } from './BooleanFactory';
 import AWSIotSiteWiseAssetValueVariant from '../constants/AWSIotSiteWiseAssetValueVariant';
 
-function valueTypeToAWSIotSiteWiseAssetValueVariant(valueTypeName: ValueTypeName): AWSIotSiteWiseAssetValueVariant {
+function valueTypeToAWSIotSiteWiseAssetValueVariant(valueTypeName: VALUE_TYPE_NAME): AWSIotSiteWiseAssetValueVariant {
   let valueVariant = AWSIotSiteWiseAssetValueVariant.STRING_VALUE;
 
   switch(valueTypeName) {
-      case ValueTypeName.STRING:
+      case VALUE_TYPE_NAME.STRING:
           valueVariant = AWSIotSiteWiseAssetValueVariant.STRING_VALUE;
           break;
-      case ValueTypeName.NUMBER:
+      case VALUE_TYPE_NAME.NUMBER:
           valueVariant = AWSIotSiteWiseAssetValueVariant.DOUBLE_VALUE;
           break;
-      case ValueTypeName.BOOLEAN:
+      case VALUE_TYPE_NAME.BOOLEAN:
           valueVariant = AWSIotSiteWiseAssetValueVariant.BOOLEAN_VALUE;
           break;
       default:
@@ -25,17 +25,17 @@ function valueTypeToAWSIotSiteWiseAssetValueVariant(valueTypeName: ValueTypeName
   return valueVariant;
 }
 
-function mqttMessageToAWSIotSiteWiseAssetValue(message: string, valueTypeName: ValueTypeName): valueType {
+function mqttMessageToAWSIotSiteWiseAssetValue(message: string, valueTypeName: VALUE_TYPE_NAME): valueType {
   let value: valueType = message;
 
   switch(valueTypeName) {
-      case ValueTypeName.STRING:
+      case VALUE_TYPE_NAME.STRING:
           value = message;
           break;
-      case ValueTypeName.NUMBER:
+      case VALUE_TYPE_NAME.NUMBER:
           value = stringToNumber(message);
           break;
-      case ValueTypeName.BOOLEAN:
+      case VALUE_TYPE_NAME.BOOLEAN:
           value = stringToBoolean(message);
           break;
       default:

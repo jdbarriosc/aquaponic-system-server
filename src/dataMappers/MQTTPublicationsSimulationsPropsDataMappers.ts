@@ -1,6 +1,6 @@
 import { DocumentSnapshot, QuerySnapshot } from 'firebase/firestore';
 import MQTTPublicationsSimulationProps, {
-    ArrayOfPosibleValuesMQTTPublicationsSimulationProps,
+    ArrayOfPossibleValuesMQTTPublicationsSimulationProps,
     NumericIncreaseDecreaseMQTTPublicationsSimulationProps,
     NumericRandomMQTTPublicationsSimulationProps
 } from '../interfaces/MQTTPublicationsSimulationProps';
@@ -112,21 +112,21 @@ function makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps(
       return numericIncreaseDecreaseMQTTPublicationsSimulationProps;
 }
 
-function makeArrayOfPosibleValuesMQTTPublicationsSimulationProps(
+function makeArrayOfPossibleValuesMQTTPublicationsSimulationProps(
     mqttPublicationsSimulationProps: MQTTPublicationsSimulationProps,
-): ArrayOfPosibleValuesMQTTPublicationsSimulationProps {
-    const { posibleValues } = mqttPublicationsSimulationProps;
+): ArrayOfPossibleValuesMQTTPublicationsSimulationProps {
+    const { possibleValues } = mqttPublicationsSimulationProps;
   
-    if (!posibleValues) {
-      throw new Error(`posibleValues must be defined.`);
+    if (!possibleValues) {
+      throw new Error(`possibleValues must be defined.`);
     }
   
-    const arrayOfPosibleValuesMQTTPublicationsSimulationProps: ArrayOfPosibleValuesMQTTPublicationsSimulationProps = {
+    const arrayOfPossibleValuesMQTTPublicationsSimulationProps: ArrayOfPossibleValuesMQTTPublicationsSimulationProps = {
       ...mqttPublicationsSimulationProps,
-      posibleValues,
+      possibleValues,
     };
 
-    return arrayOfPosibleValuesMQTTPublicationsSimulationProps;
+    return arrayOfPossibleValuesMQTTPublicationsSimulationProps;
 }
 
 export {
@@ -134,5 +134,5 @@ export {
     querySnapshotToMQTTPublicationsSimulationsProps,
     makeNumericRandomMQTTPublicationsSimulationProps,
     makeNumericIncreaseDecreaseMQTTPublicationsSimulationProps,
-    makeArrayOfPosibleValuesMQTTPublicationsSimulationProps,
+    makeArrayOfPossibleValuesMQTTPublicationsSimulationProps,
 };
